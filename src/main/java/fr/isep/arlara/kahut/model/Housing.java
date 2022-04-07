@@ -4,9 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
-
 import java.util.UUID;
 
 @AllArgsConstructor
@@ -27,16 +25,16 @@ public class Housing {
     private Integer bookmarkCount;
 
     @OneToMany
+    @ToString.Exclude
     private List<Image> images = new ArrayList<>();
     @OneToMany
+    @ToString.Exclude
     private List<Rating> ratings = new ArrayList<>();
     @OneToMany
+    @ToString.Exclude
     private List<Tag> tags = new ArrayList<>();
 
-
-
-//TODO implement location
+    //TODO implement location
     //TODO implement calendar
-
 
 }

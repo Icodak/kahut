@@ -27,22 +27,28 @@ public class Users {
     private String password;
 
     @OneToMany
+    @ToString.Exclude
     private List<Housing> housingsForRent = new ArrayList<>();
 
     @OneToMany
+    @ToString.Exclude
     private List<Housing> rentedHousings = new ArrayList<>();
 
     @OneToMany
+    @ToString.Exclude
     private List<Housing> bookmark = new ArrayList<>();
 
     @OneToMany
+    @ToString.Exclude
     private List<Rating> ratings = new ArrayList<>();
 
 
     @OneToMany
+    @ToString.Exclude
     private List<Message> sentMessages;
 
     @OneToMany
+    @ToString.Exclude
     private List<Message> backMessages;
 
 
