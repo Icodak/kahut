@@ -42,7 +42,6 @@ public class Users {
     @ToString.Exclude
     private List<Rating> ratings = new ArrayList<>();
 
-
     @OneToMany
     @ToString.Exclude
     private List<Message> sentMessages;

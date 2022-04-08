@@ -3,9 +3,8 @@ package fr.isep.arlara.kahut.model;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
+import java.time.LocalTime;
+import java.util.*;
 
 @AllArgsConstructor
 @Getter
@@ -23,6 +22,9 @@ public class Housing {
     private String title;
     private String description;
     private Integer bookmarkCount;
+    private Float longitude;
+    private Float latitude;
+
 
     @OneToMany
     @ToString.Exclude
@@ -33,8 +35,8 @@ public class Housing {
     @OneToMany
     @ToString.Exclude
     private List<Tag> tags = new ArrayList<>();
-
-    //TODO implement location
-    //TODO implement calendar
+    @OneToMany
+    @ToString.Exclude
+    private Map<LocalTime, Users> calendar = new TreeMap<>();
 
 }
