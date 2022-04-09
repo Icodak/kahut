@@ -3,6 +3,8 @@ package fr.isep.arlara.kahut.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.UUID;
+
 @AllArgsConstructor
 @Getter
 @Setter
@@ -12,8 +14,10 @@ import lombok.*;
 @Table(name = "tag")
 public class Tag {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
-    private String id;
+    private UUID id;
+    private String identifier;
     private Boolean isActive;
     private Integer lowLimit;
     private Integer highLimit;

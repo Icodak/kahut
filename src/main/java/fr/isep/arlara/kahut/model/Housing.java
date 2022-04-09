@@ -26,16 +26,16 @@ public class Housing {
     private Float latitude;
 
 
-    @OneToMany
+    @OneToMany(cascade = {CascadeType.ALL})
     @ToString.Exclude
     private List<Image> images = new ArrayList<>();
-    @OneToMany
+    @OneToMany(cascade = {CascadeType.ALL})
     @ToString.Exclude
     private List<Rating> ratings = new ArrayList<>();
-    @OneToMany
+    @OneToMany(cascade = {CascadeType.ALL})
     @ToString.Exclude
     private List<Tag> tags = new ArrayList<>();
-    @OneToMany
+    @OneToMany(cascade = {CascadeType.ALL})
     @ToString.Exclude
     private Map<LocalTime, Users> calendar = new TreeMap<>();
 

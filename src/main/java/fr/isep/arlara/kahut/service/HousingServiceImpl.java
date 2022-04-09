@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class HousingServiceImpl implements HousingService {
@@ -23,5 +25,8 @@ public class HousingServiceImpl implements HousingService {
         return repository.findAll();
     }
 
-
+    public Housing listHousing(UUID id) {
+        Optional<Housing> housing = repository.findById(id);
+        return housing.orElse(new Housing());
+    }
 }
