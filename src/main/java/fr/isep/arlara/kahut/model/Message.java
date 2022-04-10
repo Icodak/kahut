@@ -19,6 +19,6 @@ public class Message {
     @Column(name = "id", nullable = false)
     private UUID id;
     private LocalTime date;
-
+    private String msg;
 
 }

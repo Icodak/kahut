@@ -28,11 +28,15 @@ public class Users {
 
     @OneToMany
     @ToString.Exclude
-    private List<Housing> housingsForRent = new ArrayList<>();
+    private List<Housing> housingsToBook = new ArrayList<>();
 
     @OneToMany
     @ToString.Exclude
-    private List<Housing> rentedHousings = new ArrayList<>();
+    private List<Housing> bookedHousings = new ArrayList<>();
+
+    @OneToMany
+    @ToString.Exclude
+    private List<Housing> pendingBook = new ArrayList<>();
 
     @OneToMany
     @ToString.Exclude
