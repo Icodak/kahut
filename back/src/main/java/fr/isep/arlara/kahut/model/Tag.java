@@ -17,7 +17,7 @@ public class Tag {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     private UUID id;
-    private String identifier;
+    private TagEnum tagType;
     private Boolean isActive;
     private Integer lowLimit;
     private Integer highLimit;
