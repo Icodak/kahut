@@ -18,9 +18,6 @@ public class Message {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     private UUID id;
-
-    @ManyToOne
-    private Users author;
     private LocalTime date;
     private String msg;
 

@@ -48,8 +48,11 @@ public class Users {
 
     @OneToMany
     @ToString.Exclude
-    private List<Conversation> conversations;
+    private List<Conversation> conversations = new ArrayList<>();
 
+    @OneToMany
+    @ToString.Exclude
+    private List<Message> messages = new ArrayList<>();
 
 
 }
