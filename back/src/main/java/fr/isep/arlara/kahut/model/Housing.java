@@ -37,6 +37,6 @@ public class Housing {
     private List<Tag> tags = new ArrayList<>();
     @OneToMany(cascade = {CascadeType.ALL})
     @ToString.Exclude
-    private Map<LocalTime, Users> calendar = new TreeMap<>();
+    private Map<LocalTime, AppUser> calendar = new TreeMap<>();
 
 }

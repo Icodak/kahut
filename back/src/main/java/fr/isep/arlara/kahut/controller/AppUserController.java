@@ -3,7 +3,7 @@ package fr.isep.arlara.kahut.controller;
 import org.springframework.stereotype.Controller;
 
 @Controller
-public class UsersController {
+public class AppUserController {
     //TODO implement
 /*    private final UsersRepository repository;
 
