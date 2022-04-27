@@ -3,12 +3,13 @@ package fr.isep.arlara.kahut.controller;
 import fr.isep.arlara.kahut.model.Housing;
 import fr.isep.arlara.kahut.service.HousingService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/housing")
+@RequestMapping("/api/housing")
 @CrossOrigin
 public class HousingController {
 
@@ -17,7 +18,7 @@ public class HousingController {
 
     @PostMapping
     public String add(@RequestBody Housing housing){
-        Housing house = housingService.saveHousing(housing);
+        ResponseEntity<Housing> house = housingService.saveHousing(housing);
         return "Housing "+ house.toString() +"has been added to DB";
     }
 

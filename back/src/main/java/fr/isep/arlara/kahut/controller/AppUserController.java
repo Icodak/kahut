@@ -1,14 +1,16 @@
 package fr.isep.arlara.kahut.controller;
 
-import org.springframework.stereotype.Controller;
+import fr.isep.arlara.kahut.service.AppUserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
+@RequestMapping("/api/user")
+@CrossOrigin
 public class AppUserController {
-    //TODO implement
-/*    private final UsersRepository repository;
-
-    public UsersController(UsersRepository repository) {
-        this.repository = repository;
-    }*/
+   @Autowired
+    private AppUserService appUserService;
 
 }

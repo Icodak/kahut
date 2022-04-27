@@ -1,16 +1,16 @@
 package fr.isep.arlara.kahut.controller;
 
-import org.springframework.stereotype.Controller;
+import fr.isep.arlara.kahut.service.TagService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
+@RequestMapping("/api/tag")
+@CrossOrigin
 public class TagController {
-    //TODO implement
-/*
-    private final TagRepository repository;
-
-    public TagController(TagRepository repository) {
-        this.repository = repository;
-    }
-*/
+    @Autowired
+    private TagService tagService;
 
 }

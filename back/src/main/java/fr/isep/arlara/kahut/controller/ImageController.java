@@ -1,15 +1,16 @@
 package fr.isep.arlara.kahut.controller;
 
-import org.springframework.stereotype.Controller;
+import fr.isep.arlara.kahut.service.ImageService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
+@RequestMapping("/api/image")
+@CrossOrigin
 public class ImageController {
-    //TODO implement
-
-/*    private final ImageRepository repository;
-
-    public ImageController(ImageRepository repository) {
-        this.repository = repository;
-    }*/
+    @Autowired
+    private ImageService imageService;
 
 }

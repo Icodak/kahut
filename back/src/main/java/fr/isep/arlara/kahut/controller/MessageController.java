@@ -1,16 +1,16 @@
 package fr.isep.arlara.kahut.controller;
 
-import org.springframework.stereotype.Controller;
+import fr.isep.arlara.kahut.service.MessageService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
+@RequestMapping("/api/message")
+@CrossOrigin
 public class MessageController {
-    //TODO implement
-/*
-    private final MessageRepository repository;
-
-    public MessageController(MessageRepository repository) {
-        this.repository = repository;
-    }
-*/
+    @Autowired
+    private MessageService messageService;
 
 }

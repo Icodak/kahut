@@ -2,22 +2,25 @@ package fr.isep.arlara.kahut.service;
 
 import fr.isep.arlara.kahut.model.Housing;
 import fr.isep.arlara.kahut.repository.HousingRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-@Service
+@Service @RequiredArgsConstructor
 public class HousingService {
 
-    @Autowired
-    private HousingRepository repository;
+    //TODO headers
+
+    private final HousingRepository repository;
 
 
-    public Housing saveHousing(Housing housing){
-        return repository.save(housing);
+    public ResponseEntity<Housing> saveHousing(@RequestBody Housing housing){
+        return ResponseEntity.ok().body(repository.save(housing));
     }
 
 
