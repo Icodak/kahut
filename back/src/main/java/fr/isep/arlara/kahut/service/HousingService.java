@@ -11,7 +11,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-@Service @RequiredArgsConstructor
+@Service
+@RequiredArgsConstructor
 public class HousingService {
 
     //TODO headers
@@ -19,8 +20,8 @@ public class HousingService {
     private final HousingRepository repository;
 
 
-    public ResponseEntity<Housing> saveHousing(@RequestBody Housing housing){
-        return ResponseEntity.ok().body(repository.save(housing));
+    public Housing saveHousing(@RequestBody Housing housing) {
+        return repository.save(housing);
     }
 
 

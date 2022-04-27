@@ -2,10 +2,15 @@ package fr.isep.arlara.kahut.controller;
 
 import fr.isep.arlara.kahut.model.Housing;
 import fr.isep.arlara.kahut.service.HousingService;
+import fr.isep.arlara.kahut.service.UtilsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.net.URI;
+import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @RestController
@@ -16,18 +21,25 @@ public class HousingController {
     @Autowired
     private HousingService housingService;
 
-    @PostMapping
-    public String add(@RequestBody Housing housing){
-        ResponseEntity<Housing> house = housingService.saveHousing(housing);
-        return "Housing "+ house.toString() +"has been added to DB";
-    }
-
     @GetMapping
-    public String list(){
-        return housingService.listHousing().toString();
+    public ResponseEntity<List<Housing>> getHousings() {
+        return ResponseEntity.ok().body(housingService.listHousing());
     }
 
     @GetMapping("/{id}")
-    public String listOne(@PathVariable UUID id) {return housingService.listHousing(id).toString();}
+    public ResponseEntity<Housing> getHousing(@PathVariable String id) {
+        if (UtilsService.isValidUUID(id)){
+            return ResponseEntity.ok().body(housingService.listHousing(UUID.fromString(id)));
+        }
+            return ResponseEntity.badRequest().body(new Housing());
+
+    }
+
+    @PostMapping
+    public ResponseEntity<Housing> saveHousing(@RequestBody Housing housing) {
+        URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("/api/housing").toUriString());
+        return ResponseEntity.created(uri).body(housingService.saveHousing(housing));
+    }
+
 
 }

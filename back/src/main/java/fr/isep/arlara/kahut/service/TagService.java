@@ -14,13 +14,4 @@ public class TagService {
     @Autowired
     private TagRepository repository;
 
-    public Tag saveTag(Tag tag){
-        return repository.save(tag);
-    }
-
-    public List<Tag> listTag() {
-        return repository.findAll();
-    }
-
-
 }
