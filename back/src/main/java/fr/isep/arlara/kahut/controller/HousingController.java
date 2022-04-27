@@ -23,22 +23,18 @@ public class HousingController {
 
     @GetMapping
     public ResponseEntity<List<Housing>> getHousings() {
-        return ResponseEntity.ok().body(housingService.listHousing());
+        return housingService.getHousing();
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Housing> getHousing(@PathVariable String id) {
-        if (UtilsService.isValidUUID(id)){
-            return ResponseEntity.ok().body(housingService.listHousing(UUID.fromString(id)));
-        }
-            return ResponseEntity.badRequest().body(new Housing());
+        return housingService.getHousing(id);
 
     }
 
     @PostMapping
-    public ResponseEntity<Housing> saveHousing(@RequestBody Housing housing) {
-        URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("/api/housing").toUriString());
-        return ResponseEntity.created(uri).body(housingService.saveHousing(housing));
+    public ResponseEntity<Housing> postHousing(@RequestBody Housing housing) {
+        return housingService.postHousing(housing);
     }
 
 

@@ -6,7 +6,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.net.URI;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -15,22 +17,26 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class HousingService {
 
-    //TODO headers
-
     private final HousingRepository repository;
 
-
-    public Housing saveHousing(@RequestBody Housing housing) {
-        return repository.save(housing);
+    public ResponseEntity<Housing> getHousing(String id) {
+        if (UtilsService.isValidUUID(id)){
+            Optional<Housing> housing = repository.findById(UUID.fromString(id));
+            return ResponseEntity.of(housing);
+        }
+        return ResponseEntity.badRequest().body(null);
     }
 
 
-    public List<Housing> listHousing() {
-        return repository.findAll();
+    public ResponseEntity<List<Housing>> getHousing() {
+        Optional<List<Housing>> housings = Optional.of(repository.findAll());
+        return ResponseEntity.of(housings);
     }
 
-    public Housing listHousing(UUID id) {
-        Optional<Housing> housing = repository.findById(id);
-        return housing.orElse(new Housing());
+    public ResponseEntity<Housing> postHousing(@RequestBody Housing housing) {
+        URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("/api/housing").toUriString());
+        return ResponseEntity.created(uri).body(repository.save(housing));
     }
+
+
 }
