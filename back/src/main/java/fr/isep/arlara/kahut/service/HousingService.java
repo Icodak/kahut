@@ -20,13 +20,12 @@ public class HousingService {
     private final HousingRepository repository;
 
     public ResponseEntity<Housing> getHousing(String id) {
-        if (UtilsService.isValidUUID(id)){
+        if (UtilsService.isValidUUID(id)) {
             Optional<Housing> housing = repository.findById(UUID.fromString(id));
             return ResponseEntity.of(housing);
         }
         return ResponseEntity.badRequest().body(null);
     }
-
 
     public ResponseEntity<List<Housing>> getHousing() {
         Optional<List<Housing>> housings = Optional.of(repository.findAll());

@@ -25,6 +25,7 @@ public class AppUser {
     private String email;
     //TODO implement password encryption
     private String password;
+    private Boolean enabled;
 
     @OneToMany
     @ToString.Exclude

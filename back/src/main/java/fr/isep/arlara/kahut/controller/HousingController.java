@@ -29,7 +29,6 @@ public class HousingController {
     @GetMapping("/{id}")
     public ResponseEntity<Housing> getHousing(@PathVariable String id) {
         return housingService.getHousing(id);
-
     }
 
     @PostMapping
