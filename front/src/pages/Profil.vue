@@ -40,16 +40,16 @@
 
         <q-item-section>4,8/5</q-item-section>
       </q-item>
-
-      <q-item>
-        <q-btn class="absolute-center" 
-          color="primary" 
-          icon="edit" 
-          label="Modifier"
-          :size="md" />
-      </q-item>
-
     </q-list>
+
+  </div>
+
+  <div class="q-ma-md absolute-right">
+      <q-btn color="primary" icon="edit" label="Modifier" />
+  </div>
+
+  <div class="q-ma-lg absolute-bottom-right">
+      <q-btn color="primary" icon="send" label="Publier une annonce" />
   </div>
 
 
