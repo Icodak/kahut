@@ -26,7 +26,10 @@
         <q-scroll-area style="height: calc(100%); margin-top: 120px; border-right: 1px solid #ddd">
           <q-list padding>
 
-            <q-item clickable v-ripple>
+            <q-item 
+              to = "/connexion"
+              clickable 
+              v-ripple>
               <q-item-section avatar>
                 <q-icon name="login" />
               </q-item-section>
@@ -49,7 +52,10 @@
               </q-item-section>
             </q-item>
 
-            <q-item clickable v-ripple>
+            <q-item 
+              to = "/profil"
+              clickable 
+              v-ripple>
               <q-item-section avatar>
                 <q-icon name="star" />
               </q-item-section>
@@ -59,7 +65,10 @@
               </q-item-section>
             </q-item>
 
-            <q-item clickable v-ripple>
+            <q-item 
+              to = "/messagerie"
+              clickable 
+              v-ripple>
               <q-item-section avatar>
                 <q-icon name="inbox" />
               </q-item-section>
@@ -70,7 +79,10 @@
             </q-item>
 
 
-            <q-item clickable v-ripple>
+             <q-item 
+              to = "/annonces"
+              clickable 
+              v-ripple>
               <q-item-section avatar>
                 <q-icon name="send" />
               </q-item-section>
@@ -80,7 +92,10 @@
               </q-item-section>
             </q-item>
 
-            <q-item clickable v-ripple>
+            <q-item 
+              to = "/voyages"
+              clickable 
+              v-ripple>
               <q-item-section avatar>
                 <q-icon name="today" />
               </q-item-section>
@@ -90,7 +105,10 @@
               </q-item-section>
             </q-item>
 
-            <q-item clickable v-ripple>
+            <q-item 
+              to = "/deconnexion"
+              clickable 
+              v-ripple>
               <q-item-section avatar>
                 <q-icon name="logout" />
               </q-item-section>
@@ -105,9 +123,9 @@
         <q-img class="bg-primary absolute-top">
           <div class="absolute-bottom bg-transparent">
             <q-avatar size="56px" class="q-mb-sm">
-              <img src="https://cdn.quasar.dev/img/avatar.png">
+              <img src="https://cdn.quasar.dev/img/boy-avatar.png">
             </q-avatar>
-            <div class="text-weight-bold">Stephanie de Monaco</div>
+            <div class="text-weight-bold">Prénom + nom</div>
           </div>
         </q-img>
       </q-drawer>
