@@ -1,7 +1,7 @@
 <template>
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
-      <q-toolbar>
+      <q-toolbar class="glossy">
         <q-btn
           flat
           dense
@@ -12,8 +12,18 @@
         />
 
         <q-toolbar-title>
-          Kahut
+            Kahut
         </q-toolbar-title>
+
+        <q-btn
+          to = "/"
+          clickable 
+          flat
+          dense
+          round
+          icon="home"
+        />
+
       </q-toolbar>
     </q-header>
 
@@ -23,7 +33,7 @@
         :width="200"
         :breakpoint="400"
       >
-        <q-scroll-area style="height: calc(100%); margin-top: 120px; border-right: 1px solid #ddd">
+        <q-scroll-area style="height: calc(100%); margin-top: 50px; border-right: 1px solid #ddd">
           <q-list padding>
 
             <q-item 
@@ -44,7 +54,7 @@
               clickable 
               v-ripple>
               <q-item-section avatar>
-                <q-icon name="login" />
+                <q-icon name="assignment" />
               </q-item-section>
 
               <q-item-section>
@@ -120,12 +130,11 @@
           </q-list>
         </q-scroll-area>
 
-        <q-img class="bg-primary absolute-top">
-          <div class="absolute-bottom bg-transparent">
-            <q-avatar size="56px" class="q-mb-sm">
-              <img src="https://cdn.quasar.dev/img/boy-avatar.png">
-            </q-avatar>
-            <div class="text-weight-bold">Prénom + nom</div>
+        <q-img class="bg-primary absolute-top glossy" style="height: 50px ">
+          <div class="absolute-center bg-transparent">
+            <q-avatar size="40px">
+          <img src="https://cdn.quasar.dev/img/avatar.png">
+        </q-avatar>
           </div>
         </q-img>
       </q-drawer>
