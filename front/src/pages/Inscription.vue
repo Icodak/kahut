@@ -5,7 +5,7 @@
     <div class="row justify-evenly">
 
     <q-form
-      @submit="onSubmit"
+      @submit="subscribeOnSubmit"
       @reset="onReset"
       class="q-gutter-md"
     >
@@ -30,6 +30,8 @@
         filled
         v-model="naissance"
         label="Date de naissance *"
+        mask="##/##/####"
+        fill-mask
         lazy-rules
         :rules="[ val => val && val.length > 0 || 'Please type something']"
       >
@@ -55,10 +57,46 @@
         v-model="mail"
         label="Adresse mail *"
         lazy-rules
-        :rules="[ val => val && val.length > 0 || 'Please type something']"
+        :rules="[ val => val && val.length > 0 || 'Please type something',]"
       >
       <template v-slot:prepend>
           <q-icon name="mail" />
+        </template>
+      </q-input>
+
+      <q-input 
+        v-model="password" 
+        filled :type="isPwd ? 'password' : 'text'" 
+        label="Password *"
+        lazy-rules
+        :rules="[ 
+            val => val && val.length > 0 || 'Please type something',
+            val => val.length > 7 && val.length < 30 || 'Your password is not secure enough']"
+      >
+        <template v-slot:append>
+          <q-icon
+            :name="isPwd ? 'visibility_off' : 'visibility'"
+            class="cursor-pointer"
+            @click="isPwd = !isPwd"
+          />
+        </template>
+      </q-input>
+
+      <q-input 
+        v-model="confirmPassword" 
+        filled :type="isConfirmPwd ? 'password' : 'text'" 
+        label="Confirm Password *"
+        lazy-rules
+        :rules="[ 
+              val => val && val.length > 0 || 'Please type something',
+              val => val == password || 'Wrong password confirmation']"
+      >
+        <template v-slot:append>
+          <q-icon
+            :name="isConfirmPwd ? 'visibility_off' : 'visibility'"
+            class="cursor-pointer"
+            @click="isConfirmPwd = !isConfirmPwd"
+          />
         </template>
       </q-input>
 
@@ -89,17 +127,24 @@ export default {
     const naissance = ref(null)
     const téléphone = ref(null)
     const mail = ref(null)
+    const password = ref(null)
+    const confirmPassword = ref(null)
     const accept = ref(false)
 
     return {
+      isPwd: ref(true),
+      isConfirmPwd: ref(true),
+
       Prénom,
       Nom,
       naissance,
       téléphone,
       mail,
+      password,
+      confirmPassword,
       accept,
 
-      onSubmit () {
+      subscribeOnSubmit () {
         if (accept.value !== true) {
           $q.notify({
             color: 'red-5',
@@ -124,6 +169,8 @@ export default {
         naissance.value = null
         téléphone.value = null
         mail.value = null
+        password.value = null
+        confirmPassword.value = null
         accept.value = false
       }
     }

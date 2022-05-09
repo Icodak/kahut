@@ -63,26 +63,33 @@
                     <div class="q-pa-md" style="max-width: 400px">
 
                       <q-form
-                        @submit="onSubmit"
+                        @submit="loginOnSubmit"
                         @reset="onReset"
                         class="q-gutter-md"
                       >
                         <q-input
                           filled
                           v-model="username"
-                          label="Username"
+                          label="Adresse e-mail"
                           lazy-rules
                           :rules="[ val => val && val.length > 0 || 'Please type something']"
                         />
 
-                        <q-input
-                          filled
-                          v-model="password"
-                          type="password"
-                          label="Password"
+                        <q-input 
+                          v-model="password" 
+                          filled :type="isPwd ? 'password' : 'text'" 
+                          label="Password *"
                           lazy-rules
-                          :rules="[ val => val && val.length > 0 || 'Please type something']"
-                        />
+                          :rules="[val => val && val.length > 0 || 'Please type something']"
+                        >
+                          <template v-slot:append>
+                            <q-icon
+                              :name="isPwd ? 'visibility_off' : 'visibility'"
+                              class="cursor-pointer"
+                              @click="isPwd = !isPwd"
+                            />
+                          </template>
+                        </q-input>
 
                         <div>
                           <q-btn label="Submit" type="submit" color="primary"/>
@@ -211,19 +218,15 @@
 </template>
 
 <script lang="ts">
-import { useQuasar } from 'quasar'
 import { defineComponent, ref } from 'vue';
 
 export default defineComponent({
   name: 'MainLayout',
 
   setup () {
-    const $q = useQuasar()
-
     const leftDrawerOpen = ref(false)
     const username = ref(null)
     const password = ref(null)
-    const accept = ref(false)
 
     return {
       leftDrawerOpen,
@@ -231,35 +234,20 @@ export default defineComponent({
         leftDrawerOpen.value = !leftDrawerOpen.value
       },
 
+      isPwd: ref(true),
       username,
       password,
-      accept,
 
+      loginLayout: ref(false),
       confirm: ref(false),
 
-      onSubmit () {
-        if (accept.value !== true) {
-          $q.notify({
-            color: 'red-5',
-            textColor: 'white',
-            icon: 'warning',
-            message: 'You need to accept the license and terms first'
-          })
-        }
-        else {
-          $q.notify({
-            color: 'green-4',
-            textColor: 'white',
-            icon: 'cloud_done',
-            message: 'Submitted'
-          })
-        }
+      loginOnSubmit () {
+        
       },
 
       onReset () {
         username.value = null
         password.value = null
-        accept.value = false
       }
     }
     }
