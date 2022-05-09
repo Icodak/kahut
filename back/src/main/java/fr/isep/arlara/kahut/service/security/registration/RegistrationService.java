@@ -1,12 +1,11 @@
-package fr.isep.arlara.kahut.service.registration;
+package fr.isep.arlara.kahut.service.security.registration;
 
 import fr.isep.arlara.kahut.model.database.AppUser;
 import fr.isep.arlara.kahut.model.database.AppUserRole;
 import fr.isep.arlara.kahut.model.request.RegistrationRequest;
-import fr.isep.arlara.kahut.security.token.ConfirmationToken;
-import fr.isep.arlara.kahut.security.token.ConfirmationTokenService;
+import fr.isep.arlara.kahut.model.database.ConfirmationToken;
 import fr.isep.arlara.kahut.service.data.AppUserService;
-import fr.isep.arlara.kahut.service.utils.UtilsService;
+import fr.isep.arlara.kahut.service.utils.KahutUtils;
 import jakarta.mail.MessagingException;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -40,7 +39,7 @@ public class RegistrationService {
 
     @Transactional
     public String confirmToken(String token){
-        if (!UtilsService.isValidUUID(token)) throw new IllegalStateException("Invalid Token format");
+        if (!KahutUtils.isValidUUID(token)) throw new IllegalStateException("Invalid Token format");
         ConfirmationToken confirmationToken = confirmationTokenService.getToken(token).orElseThrow(()-> new IllegalStateException("Token not found"));
         if (confirmationToken.getConfirmedAt() != null) throw  new IllegalStateException("Email already confirmed");
         LocalDateTime expiresAt = confirmationToken.getExpiresAt();

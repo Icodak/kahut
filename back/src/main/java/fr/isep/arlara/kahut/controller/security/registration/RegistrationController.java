@@ -1,6 +1,7 @@
-package fr.isep.arlara.kahut.service.registration;
+package fr.isep.arlara.kahut.controller.security.registration;
 
 import fr.isep.arlara.kahut.model.request.RegistrationRequest;
+import fr.isep.arlara.kahut.service.security.registration.RegistrationService;
 import jakarta.mail.MessagingException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;

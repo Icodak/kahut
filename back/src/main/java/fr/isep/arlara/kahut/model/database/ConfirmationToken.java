@@ -1,4 +1,4 @@
-package fr.isep.arlara.kahut.security.token;
+package fr.isep.arlara.kahut.model.database;
 
 import fr.isep.arlara.kahut.model.database.AppUser;
 import jakarta.persistence.*;

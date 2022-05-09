@@ -1,4 +1,4 @@
-package fr.isep.arlara.kahut.controller;
+package fr.isep.arlara.kahut.controller.data;
 
 import fr.isep.arlara.kahut.model.database.Housing;
 import fr.isep.arlara.kahut.service.data.HousingService;

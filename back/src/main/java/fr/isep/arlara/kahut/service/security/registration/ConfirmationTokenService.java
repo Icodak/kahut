@@ -1,5 +1,7 @@
-package fr.isep.arlara.kahut.security.token;
+package fr.isep.arlara.kahut.service.security.registration;
 
+import fr.isep.arlara.kahut.model.database.ConfirmationToken;
+import fr.isep.arlara.kahut.repository.ConfirmationTokenRepository;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

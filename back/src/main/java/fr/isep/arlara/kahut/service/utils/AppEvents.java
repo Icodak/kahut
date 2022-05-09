@@ -22,6 +22,8 @@ public class AppEvents {
         AppUser userAppUser = new AppUser("User", "USER", "user@kahut.com", bCryptPasswordEncoder.encode("password"), AppUserRole.USER);
         appUserRepository.save(adminAppUser);
         appUserRepository.save(userAppUser);
+        appUserRepository.enableAppUser("admin@kahut.com");
+        appUserRepository.enableAppUser("user@kahut.com");
 
     }
 }

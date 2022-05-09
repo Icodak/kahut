@@ -1,17 +1,17 @@
-package fr.isep.arlara.kahut.controller;
+package fr.isep.arlara.kahut.controller.data;
 
-import fr.isep.arlara.kahut.service.data.TagService;
+import fr.isep.arlara.kahut.service.data.ConversationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/tag")
+@RequestMapping("/api/conversation")
 @CrossOrigin
 @RequiredArgsConstructor
-public class TagController {
+public class ConversationController {
 
-    private final TagService tagService;
+    private final ConversationService conversationService;
 
 }

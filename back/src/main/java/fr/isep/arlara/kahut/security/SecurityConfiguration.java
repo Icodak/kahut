@@ -1,5 +1,5 @@
 
-package fr.isep.arlara.kahut.security.config;
+package fr.isep.arlara.kahut.security;
 
 import fr.isep.arlara.kahut.model.database.AppUserRole;
 import fr.isep.arlara.kahut.service.data.AppUserService;
@@ -26,11 +26,19 @@ public class SecurityConfiguration {
     @Bean
     SecurityFilterChain web(HttpSecurity http) throws Exception {
         http.csrf().disable().httpBasic().and()
-                .authorizeHttpRequests(authorize -> authorize
-                        .mvcMatchers("/api/resources/**", "/api/registration/**","/api/page/**","/").permitAll()
-                        .mvcMatchers("/api/user/**").hasRole("USER")
-                        .mvcMatchers("/api/admin/**").hasRole("ADMIN")
-                        .anyRequest().denyAll()
+                .authorizeHttpRequests(authorize -> {
+                            try {
+                                authorize
+                                        .mvcMatchers("/api/resources/**", "/api/registration/**","/api/page/**","/").permitAll()
+                                        .mvcMatchers("/api/user/**").hasRole("USER")
+                                        .mvcMatchers("/api/admin/**").hasRole("ADMIN")
+                                        .anyRequest().denyAll()
+                                        .and()
+                                        .formLogin().loginProcessingUrl("/login").defaultSuccessUrl("/api/page/home",true);
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        }
                 );
 
         return http.build();

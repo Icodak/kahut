@@ -1,4 +1,4 @@
-package fr.isep.arlara.kahut.service.registration;
+package fr.isep.arlara.kahut.service.security.registration;
 
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;

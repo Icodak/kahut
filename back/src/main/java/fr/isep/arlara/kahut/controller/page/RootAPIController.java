@@ -1,4 +1,4 @@
-package fr.isep.arlara.kahut.controller;
+package fr.isep.arlara.kahut.controller.page;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;

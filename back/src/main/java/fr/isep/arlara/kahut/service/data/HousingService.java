@@ -2,7 +2,7 @@ package fr.isep.arlara.kahut.service.data;
 
 import fr.isep.arlara.kahut.model.database.Housing;
 import fr.isep.arlara.kahut.repository.HousingRepository;
-import fr.isep.arlara.kahut.service.utils.UtilsService;
+import fr.isep.arlara.kahut.service.utils.KahutUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -21,7 +21,7 @@ public class HousingService {
     private final HousingRepository repository;
 
     public ResponseEntity<Housing> getHousing(String id) {
-        if (UtilsService.isValidUUID(id)) {
+        if (KahutUtils.isValidUUID(id)) {
             Optional<Housing> housing = repository.findById(UUID.fromString(id));
             return ResponseEntity.of(housing);
         }
