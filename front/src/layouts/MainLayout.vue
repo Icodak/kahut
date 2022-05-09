@@ -1,7 +1,7 @@
 <template>
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
-      <q-toolbar class="glossy">
+      <q-toolbar color="secondary" class="glossy">
         <q-btn
           flat
           dense
@@ -11,10 +11,6 @@
           @click="toggleLeftDrawer"
         />
 
-        <q-toolbar-title>
-            Kahut
-        </q-toolbar-title>
-
         <q-btn
           to = "/"
           clickable 
@@ -23,6 +19,10 @@
           round
           icon="home"
         />
+
+        <q-toolbar-title>
+            Kahut
+        </q-toolbar-title>
 
       </q-toolbar>
     </q-header>

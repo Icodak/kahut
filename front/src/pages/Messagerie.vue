@@ -1,7 +1,7 @@
 <template>
   <q-page>
 
-        <h3 class="row justify-evenly">Mes messages</h3>
+    <h3 class="row justify-evenly">Mes messages</h3>
 
   </q-page>
 
