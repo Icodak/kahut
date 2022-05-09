@@ -5,8 +5,8 @@
 
     <div class="q-pa-md" style="max-width: 350px">
     <q-list>
-      <q-item 
-      clickable 
+      <q-item
+      clickable
       @click="openMessage">
         <q-item-section>
           <q-item-label>Harry Covert</q-item-label>
@@ -107,7 +107,7 @@
 
   </q-page>
 
-  
+
 </template>
 
 
