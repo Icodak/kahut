@@ -1,6 +1,6 @@
 package fr.isep.arlara.kahut.repository;
 
-import fr.isep.arlara.kahut.model.Rating;
+import fr.isep.arlara.kahut.model.database.Rating;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

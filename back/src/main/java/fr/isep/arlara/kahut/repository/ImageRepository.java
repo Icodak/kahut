@@ -1,6 +1,6 @@
 package fr.isep.arlara.kahut.repository;
 
-import fr.isep.arlara.kahut.model.Image;
+import fr.isep.arlara.kahut.model.database.Image;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
