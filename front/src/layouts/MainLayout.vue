@@ -37,7 +37,6 @@
           <q-list padding>
 
             <q-item 
-              to = "/connexion"
               clickable 
               v-ripple
               @click="loginLayout = true">
@@ -50,40 +49,52 @@
               </q-item-section>
             </q-item>
 
-                <q-dialog v-model="loginLayout">
-                  <q-layout view="Lhh lpR fff" container class="bg-white">
-                    <q-header class="bg-primary">
-                      <q-toolbar>
-                        <q-btn flat @click="drawer = !drawer" round dense icon="menu" />
-                        <q-toolbar-title>Header</q-toolbar-title>
-                        <q-btn flat @click="drawerR = !drawerR" round dense icon="menu" />
-                        <q-btn flat v-close-popup round dense icon="close" />
-                      </q-toolbar>
-                    </q-header>
+            <q-dialog v-model="loginLayout">
+              <q-layout view="Lhh lpR fff" container class="bg-white">
+                <q-header class="bg-primary glossy">
+                  <q-toolbar>
+                    <q-toolbar-title>Connexion</q-toolbar-title>
+                    <q-btn flat v-close-popup round dense icon="close" />
+                  </q-toolbar>
+                </q-header>
 
-                    <q-footer class="bg-black text-white">
-                      <q-toolbar inset>
-                        <q-toolbar-title>Footer</q-toolbar-title>
-                      </q-toolbar>
-                    </q-footer>
+                <q-page-container>
+                  <q-page padding>
+                    <div class="q-pa-md" style="max-width: 400px">
 
-                    <q-drawer bordered v-model="drawer" :width="200" :breakpoint="600" class="bg-grey-3 q-pa-sm">
-                      <div v-for="n in 50" :key="n">Drawer {{ n }} / 50</div>
-                    </q-drawer>
+                      <q-form
+                        @submit="onSubmit"
+                        @reset="onReset"
+                        class="q-gutter-md"
+                      >
+                        <q-input
+                          filled
+                          v-model="username"
+                          label="Username"
+                          lazy-rules
+                          :rules="[ val => val && val.length > 0 || 'Please type something']"
+                        />
 
-                    <q-drawer side="right" bordered v-model="drawerR" :width="200" :breakpoint="300" class="bg-grey-3 q-pa-sm">
-                      <div v-for="n in 50" :key="n">Drawer {{ n }} / 50</div>
-                    </q-drawer>
+                        <q-input
+                          filled
+                          v-model="password"
+                          type="password"
+                          label="Password"
+                          lazy-rules
+                          :rules="[ val => val && val.length > 0 || 'Please type something']"
+                        />
 
-                    <q-page-container>
-                      <q-page padding>
-                        <p v-for="n in contentSize" :key="n">
-                          {{ lorem }}
-                        </p>
-                      </q-page>
-                    </q-page-container>
-                  </q-layout>
-                </q-dialog>
+                        <div>
+                          <q-btn label="Submit" type="submit" color="primary"/>
+                          <q-btn label="Reset" type="reset" color="primary" flat class="q-ml-sm" />
+                        </div>
+                      </q-form>
+
+                    </div>
+                  </q-page>
+                </q-page-container>
+              </q-layout>
+            </q-dialog>
 
             <q-item 
               to = "/inscription"
@@ -152,8 +163,8 @@
             </q-item>
 
             <q-item 
-              to = "/deconnexion"
               clickable 
+              @click="confirm = true"
               v-ripple>
               <q-item-section avatar>
                 <q-icon name="logout" />
@@ -163,6 +174,22 @@
                 Déconnexion
               </q-item-section>
             </q-item>
+
+            <q-dialog v-model="confirm" persistent>
+              <q-card>
+                <q-card-section class="row items-center">
+                  <q-avatar icon="logout" color="primary" text-color="white" />
+                  <span class="q-ml-sm">Are you sure you want to logout ?</span>
+                </q-card-section>
+
+                <q-card-actions align="right">
+                  <q-btn flat label="Cancel" color="primary" v-close-popup />
+                  <q-btn flat label="Logout" color="primary" v-close-popup />
+                </q-card-actions>
+              </q-card>
+            </q-dialog>
+
+
           </q-list>
         </q-scroll-area>
 
@@ -184,20 +211,57 @@
 </template>
 
 <script lang="ts">
+import { useQuasar } from 'quasar'
 import { defineComponent, ref } from 'vue';
 
 export default defineComponent({
   name: 'MainLayout',
 
   setup () {
+    const $q = useQuasar()
+
     const leftDrawerOpen = ref(false)
+    const username = ref(null)
+    const password = ref(null)
+    const accept = ref(false)
 
     return {
       leftDrawerOpen,
       toggleLeftDrawer () {
         leftDrawerOpen.value = !leftDrawerOpen.value
+      },
+
+      username,
+      password,
+      accept,
+
+      confirm: ref(false),
+
+      onSubmit () {
+        if (accept.value !== true) {
+          $q.notify({
+            color: 'red-5',
+            textColor: 'white',
+            icon: 'warning',
+            message: 'You need to accept the license and terms first'
+          })
+        }
+        else {
+          $q.notify({
+            color: 'green-4',
+            textColor: 'white',
+            icon: 'cloud_done',
+            message: 'Submitted'
+          })
+        }
+      },
+
+      onReset () {
+        username.value = null
+        password.value = null
+        accept.value = false
       }
     }
-  }
-});
+    }
+  });
 </script>

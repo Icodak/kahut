@@ -7,11 +7,6 @@
     <q-btn color="primary" icon="send" label="Publier une annonce" />
   </div>
 
-  <div class="q-ma-md absolute-right">
-    <q-btn color="primary" icon="send" label="Publier une annonce" />
-  </div>
-
-
   </q-page>
 
   
