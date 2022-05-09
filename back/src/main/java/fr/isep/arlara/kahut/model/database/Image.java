@@ -1,8 +1,9 @@
-package fr.isep.arlara.kahut.model;
+package fr.isep.arlara.kahut.model.database;
 
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.net.URL;
 import java.util.UUID;
 
 @AllArgsConstructor
@@ -11,16 +12,14 @@ import java.util.UUID;
 @ToString
 @RequiredArgsConstructor
 @Entity
-@Table(name = "tag")
-public class Tag {
+@Table(name = "image")
+public class Image {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     private UUID id;
-    private TagEnum tagType;
-    private Boolean isActive;
-    private Integer lowLimit;
-    private Integer highLimit;
+    private URL url;
+    private String legend;
 
 
 }

@@ -1,9 +1,9 @@
-package fr.isep.arlara.kahut.model;
+package fr.isep.arlara.kahut.model.database;
 
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.net.URL;
+import java.util.List;
 import java.util.UUID;
 
 @AllArgsConstructor
@@ -12,14 +12,14 @@ import java.util.UUID;
 @ToString
 @RequiredArgsConstructor
 @Entity
-@Table(name = "image")
-public class Image {
+@Table(name = "conversation")
+public class Conversation {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     private UUID id;
-    private URL url;
-    private String legend;
-
-
+    private String title;
+    @OneToMany(cascade = {CascadeType.ALL})
+    @ToString.Exclude
+    private List<Message> messages;
 }

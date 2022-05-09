@@ -1,7 +1,8 @@
-package fr.isep.arlara.kahut.service;
+package fr.isep.arlara.kahut.service.data;
 
-import fr.isep.arlara.kahut.model.Housing;
+import fr.isep.arlara.kahut.model.database.Housing;
 import fr.isep.arlara.kahut.repository.HousingRepository;
+import fr.isep.arlara.kahut.service.utils.UtilsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;

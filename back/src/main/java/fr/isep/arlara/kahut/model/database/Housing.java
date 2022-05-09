@@ -1,4 +1,4 @@
-package fr.isep.arlara.kahut.model;
+package fr.isep.arlara.kahut.model.database;
 
 import jakarta.persistence.*;
 import lombok.*;

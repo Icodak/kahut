@@ -1,7 +1,7 @@
 package fr.isep.arlara.kahut.controller;
 
-import fr.isep.arlara.kahut.service.MessageService;
-import org.springframework.beans.factory.annotation.Autowired;
+import fr.isep.arlara.kahut.service.data.MessageService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -9,8 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/message")
 @CrossOrigin
+@RequiredArgsConstructor
 public class MessageController {
-    @Autowired
-    private MessageService messageService;
+
+    private final MessageService messageService;
 
 }

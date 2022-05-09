@@ -1,8 +1,9 @@
-package fr.isep.arlara.kahut.model;
+package fr.isep.arlara.kahut.model.database;
 
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalTime;
 import java.util.UUID;
 
 @AllArgsConstructor
@@ -11,14 +12,13 @@ import java.util.UUID;
 @ToString
 @RequiredArgsConstructor
 @Entity
-@Table(name = "rating")
-public class Rating {
+@Table(name = "message")
+public class Message {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     private UUID id;
-    private Float stars;
-    private String critique;
-
+    private LocalTime date;
+    private String msg;
 
 }

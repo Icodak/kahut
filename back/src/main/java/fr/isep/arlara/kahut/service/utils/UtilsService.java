@@ -1,4 +1,4 @@
-package fr.isep.arlara.kahut.service;
+package fr.isep.arlara.kahut.service.utils;
 
 import java.util.regex.Pattern;
 

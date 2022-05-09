@@ -1,25 +1,20 @@
 package fr.isep.arlara.kahut.controller;
 
-import fr.isep.arlara.kahut.model.Housing;
-import fr.isep.arlara.kahut.service.HousingService;
-import fr.isep.arlara.kahut.service.UtilsService;
-import org.springframework.beans.factory.annotation.Autowired;
+import fr.isep.arlara.kahut.model.database.Housing;
+import fr.isep.arlara.kahut.service.data.HousingService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import java.net.URI;
 import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/housing")
 @CrossOrigin
+@RequiredArgsConstructor
 public class HousingController {
 
-    @Autowired
-    private HousingService housingService;
+    private final HousingService housingService;
 
     @GetMapping
     public ResponseEntity<List<Housing>> getHousings() {
