@@ -39,7 +39,7 @@
   </div>
 
   <div class="q-ma-md absolute-right">
-    <q-btn color="primary" icon="send" label="Publier une annonce" @click="annoncesLayout = true" />
+    <q-btn color="primary" icon="add" label="Publier une annonce" @click="annoncesLayout = true" />
 
     <q-dialog v-model="annoncesLayout">
         <q-layout view="Lhh lpR fff" container class="bg-white">
