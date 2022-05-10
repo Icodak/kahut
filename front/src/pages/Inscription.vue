@@ -77,7 +77,10 @@
       </q-input>
 
         <q-stepper-navigation>
-          <q-btn @click="step = 2" color="primary" label="Continuer" />
+          <q-btn 
+            @click="step = 2" 
+            color="primary" 
+            label="Continuer"/>
         </q-stepper-navigation>
       </q-step>
 
@@ -161,12 +164,12 @@
       <q-step
         :name="4"
         title="Conditions générales d'utilisation"
-        icon="format_size"
+        icon="description"
       >
 
       <p>Veuillez lire et accepter les conditions générales d'utilisation.</p>
 
-      <q-btn label="Conditions générales d'utilisation" color="secondary" @click="fixed = true" /><br/>
+      <q-btn label="Conditions générales d'utilisation" icon="subject" color="secondary" @click="fixed = true" /><br/>
 
       <q-dialog v-model="fixed">
         <q-card>

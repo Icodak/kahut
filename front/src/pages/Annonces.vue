@@ -3,6 +3,41 @@
 
   <h3 class="row justify-evenly">Mes annonces</h3>
 
+  <div class="q-pa-md row items-start q-gutter-md">
+        <q-card class="my-card">
+      <q-img :ratio="4/3" src="https://img.freepik.com/photos-gratuite/conception-appartement-studio-moderne-chambre-espace-vie_1262-12375.jpg?t=st=1652184716~exp=1652185316~hmac=925ec8f9ac803a9cd96d7b11b87e144b6b9b7c94ae363829992ab11b2fd88b5f&w=1800" />
+
+      <q-card-section>
+
+        <div class="row no-wrap items-center">
+          <div class="col text-h6 ellipsis">
+            Appartement 3 pièces en plein coeur de Paris
+          </div>
+        </div>
+
+        <q-rating size="18px" v-model="stars" :max="5" color="primary" />
+          <span class="text-caption text-grey q-ml-sm">4.2 (551)</span>
+      </q-card-section>
+
+      <q-card-section class="q-pt-none">
+        <div class="text-subtitle1">
+          5 voyageurs
+        </div>
+        <div class="text-caption text-grey">
+          2 chambres . 1 lit double . 1 lit simple . 1 canapé convertible<br/>
+          Wifi . Chauffage . Télévision
+        </div>
+      </q-card-section>
+
+      <q-separator />
+
+      <q-card-actions>
+        <q-btn icon="euro" label="68€/nuit" />
+        <q-btn color="primary" icon="edit" label="Modifier" />
+      </q-card-actions>
+    </q-card>
+  </div>
+
   <div class="q-ma-md absolute-right">
     <q-btn color="primary" icon="send" label="Publier une annonce" @click="annoncesLayout = true" />
 
@@ -58,8 +93,11 @@
                   v-model="description"
                   filled
                   type="textarea"
-                  label="Décriver votre logement"
-                />
+                  label="Décriver votre logement">
+                   <template v-slot:prepend>
+                    <q-icon name="notes" />
+                  </template>
+                  </q-input>
 
                 <q-input
                   filled
@@ -70,8 +108,11 @@
                   :rules="[
                     val => val !== null && val !== '' || 'Champ obligatoire',
                     val => val > 0 && val < 30 || 'Nombre choisi incorrect'
-                  ]"
-                />
+                  ]">
+                   <template v-slot:prepend>
+                    <q-icon name="group" />
+                  </template>
+                  </q-input>
 
                 <q-input
                   filled
@@ -82,8 +123,11 @@
                   :rules="[
                     val => val !== null && val !== '' || 'Champ obligatoire',
                     val => val > 0 && val < 30 || 'Nombre choisi incorrect'
-                  ]"
-                />
+                  ]">
+                  <template v-slot:prepend>
+                    <q-icon name="night_shelter" />
+                  </template>
+                  </q-input>
 
                 <q-input
                   filled
@@ -94,8 +138,11 @@
                   :rules="[
                     val => val !== null && val !== '' || 'Champ obligatoire',
                     val => val > 0 && val < 30 || 'Nombre choisi incorrect'
-                  ]"
-                />
+                  ]">
+                  <template v-slot:prepend>
+                    <q-icon name="single_bed" />
+                  </template>
+                  </q-input>
 
                 <q-input
                   filled
@@ -106,8 +153,11 @@
                   :rules="[
                     val => val !== null && val !== '' || 'Champ obligatoire',
                     val => val > 0 && val < 30 || 'Nombre choisi incorrect'
-                  ]"
-                />
+                  ]">
+                  <template v-slot:prepend>
+                    <q-icon name="bed" />
+                  </template>
+                  </q-input>
 
                 <q-input
                   filled
@@ -118,8 +168,11 @@
                   :rules="[
                     val => val !== null && val !== '' || 'Champ obligatoire',
                     val => val > 0 && val < 30 || 'Nombre choisi incorrect'
-                  ]"
-                />
+                  ]">
+                  <template v-slot:prepend>
+                    <q-icon name="bathroom" />
+                  </template>
+                  </q-input>
 
                 <div class="bg-grey-2 q-pa-sm rounded-borders">
                   <p class="text-weight-medium">Equipements présents :</p>
@@ -146,6 +199,20 @@
                     <q-icon name="cloud_upload" />
                   </template>
                 </q-file>
+
+                <q-input
+                  filled
+                  type="price"
+                  v-model="price"
+                  label="Prix par nuit"
+                  lazy-rules
+                  :rules="[
+                    val => val !== null && val !== '' || 'Champ obligatoire'
+                  ]">
+                   <template v-slot:prepend>
+                    <q-icon name="euro" />
+                  </template>
+                  </q-input>
               
 
                 <q-toggle v-model="accept" label="J'ai lu et j'accepte les conditions d'utilisation." />
@@ -180,6 +247,7 @@ export default {
     const numberOfBeds = ref(null)
     const numberOfDoubleBeds = ref(null)
     const numberOfBathrooms = ref(null)
+    const price = ref(null)
     const accept = ref(false)
 
     return {
@@ -194,9 +262,10 @@ export default {
       numberOfBeds,
       numberOfDoubleBeds,
       numberOfBathrooms,
+      price,
       accept,
 
-      groupType: ref(),
+      groupType: ref('op1'),
 
       optionsType: [
         {
@@ -208,7 +277,7 @@ export default {
           value: 'op2'
         },
         {
-          label: 'Autre',
+          label: 'Chambre',
           value: 'op3'
         }
       ],
@@ -286,6 +355,7 @@ export default {
         numberOfBeds.value = null
         numberOfDoubleBeds.value = null
         numberOfBathrooms.value = null
+        price.value = null
         accept.value = false
       }
      }

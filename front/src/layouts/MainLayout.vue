@@ -65,7 +65,7 @@
                       <q-form
                         @submit="loginOnSubmit"
                         @reset="onReset"
-                        class="q-gutter-md"
+                        class="justify-center"
                       >
                         <q-input
                           filled
@@ -134,7 +134,7 @@
               clickable 
               v-ripple>
               <q-item-section avatar>
-                <q-icon name="inbox" />
+                <q-icon name="forum" />
               </q-item-section>
 
               <q-item-section>
