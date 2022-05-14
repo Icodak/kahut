@@ -2,13 +2,20 @@
 
 .barre_de_recherche{
     position :  relative ;
-    padding : 100px 200px;
+    padding : 100px 400px;
+    align-items: center;
     height: 250px;
 }
 
 .Aventures-h4{
   color: #FDB807 ;
   text-align: center;
+}
+
+.q-input{
+
+border-color :#FDB807 ;
+
 }
 
 </style>
@@ -20,16 +27,16 @@
 
 
       <div class="row">
-        <div class="col-3">
+        <div class="col-2">
 
-            <q-input v-model="text" label="Où aller ?">
+            <q-input  v-model="text" label="Où aller ?">
         <template v-slot:prepend>
           <q-icon name="place" />
         </template>
             </q-input>
         </div>
 
-        <div class="col-3">
+        <div class="col-2">
              <q-input v-model="date" filled type="date" hint="Départ" >
         <template v-slot:prepend>
           <q-icon name="event" />
@@ -38,7 +45,7 @@
         </div>
 
 
-        <div class="col-3">
+        <div class="col-2">
              <q-input v-model="date" filled type="date" hint="Retour" >
         <template v-slot:prepend>
           <q-icon name="event" />
@@ -47,13 +54,22 @@
         </div>
 
 
-        <div class="col-3">
-             <q-input v-model="number" filled type="number" label="Combien ?" >
-        <template v-slot:prepend>
-          <q-icon name="search"/>
-        </template>
-             </q-input>
+        <div class="col-2">
+             <q-select
+             :options ="[1,2,3,4,5,6,7,8,9,10,11]"
+             v-model="text"
+             />
         </div>
+
+        <div class="col-2">
+             <q-icon
+             name="search"
+             color="orange"
+             size="4rem"
+             />
+
+        </div>
+
         </div>
     </div>
 
@@ -71,12 +87,16 @@
         </q-img>
       </div>
 
-      <div class="col-3">
-        <q-img :ratio="4/3" src="https://img.freepik.com/photos-gratuite/arc-triomphe-nuit-paris-france_268835-878.jpg?t=st=1652106209~exp=1652106809~hmac=5fd9451fec25847685b0224102d50c548c7676c35eeaa0c41cb784f7ca17aca9&w=996">
-          <div class="absolute-bottom text-subtitle1 text-center">
+      <div   class="col-3">
+        <q-img :ratio="4/3"  src="https://img.freepik.com/photos-gratuite/arc-triomphe-nuit-paris-france_268835-878.jpg?t=st=1652106209~exp=1652106809~hmac=5fd9451fec25847685b0224102d50c548c7676c35eeaa0c41cb784f7ca17aca9&w=996">
+          <div  to = "/inscription"
+              clickable
+              v-ripple class="absolute-bottom text-subtitle1 text-center">
             Paris
+
           </div>
         </q-img>
+
       </div>
 
       <div class="col-3">

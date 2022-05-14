@@ -1,107 +1,60 @@
 <template>
-  <q-page>
+  <q-page class ="flex q-pa-md">
 
-    <h3 class="row justify-evenly">Mes messages</h3>
+     <q-list class="full-width"
+     separator
+     >
+      <q-item v-for="user in users" :key="user.id" to="/chat" class="q-my-sm" clickable v-ripple>
+        <q-item-section avatar>
+          <q-avatar color="primary" text-color="white">
+            {{ user.name.charAt(0) }}
+          </q-avatar>
+        </q-item-section>
 
-    <div class="q-pa-md" style="max-width: 350px">
-    <q-list>
-      <q-item
-      clickable
-      @click="openMessage">
         <q-item-section>
-          <q-item-label>Harry Covert</q-item-label>
-          <q-item-label caption lines="2">You : Thank you very much for the information !</q-item-label>
+          <q-item-label>{{ user.name }}</q-item-label>
+          <q-item-label caption lines="1">{{ user.email }}</q-item-label>
         </q-item-section>
+           <q-badge :color="user.online ? 'primary' : 'secondary'">
+              {{user.online ? 'En ligne' : 'Hors ligne'}}
+           </q-badge>
+        <q-item-section side>
 
-        <q-item-section side top>
-          <q-item-label caption>5 min ago</q-item-label>
-          <q-icon name="" color="yellow" />
-        </q-item-section>
-      </q-item>
 
-      <q-separator spaced inset />
 
-      <q-item clickable v-ripple>
-        <q-item-section>
-          <q-item-label>Annie Versaire</q-item-label>
-          <q-item-label caption lines="2">Annie : Yes there is wifi in the house.</q-item-label>
-        </q-item-section>
-
-        <q-item-section side top>
-          <q-item-label caption>1 hour ago</q-item-label>
-          <q-icon name="" color="yellow" />
-        </q-item-section>
-      </q-item>
-
-      <q-separator spaced inset />
-
-      <q-item clickable v-ripple>
-        <q-item-section>
-          <q-item-label>Sarah Croche</q-item-label>
-          <q-item-label caption lines="2">You : Hope you will enjoy the trip !</q-item-label>
-        </q-item-section>
-
-        <q-item-section side top>
-          <q-item-label caption>4 days ago</q-item-label>
-          <q-icon name="" color="yellow" />
-        </q-item-section>
-      </q-item>
-
-      <q-separator spaced inset />
-
-      <q-item clickable v-ripple>
-        <q-item-section>
-          <q-item-label>Paul Ochon</q-item-label>
-          <q-item-label caption lines="2">You : I'm glad you enjoyed the trip !</q-item-label>
-        </q-item-section>
-
-        <q-item-section side top>
-          <q-item-label caption>03/04/2022</q-item-label>
-          <q-icon name="" color="yellow" />
-        </q-item-section>
-      </q-item>
-
-      <q-separator spaced inset />
-
-      <q-item clickable v-ripple>
-        <q-item-section>
-          <q-item-label>Anne Onyme</q-item-label>
-          <q-item-label caption lines="2">Anne : Hope to see you again !</q-item-label>
-        </q-item-section>
-
-        <q-item-section side top>
-          <q-item-label caption>25/03/2022</q-item-label>
-          <q-icon name="" color="yellow" />
         </q-item-section>
       </q-item>
     </q-list>
-  </div>
-
-  <div class="q-ma-md absolute-right">
-    <q-btn color="primary" icon="message" label="Nouveau message" />
-  </div>
-
   </q-page>
-
-
 </template>
 
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
 
-export default defineComponent({
-  name: 'Messagerie',
-
+export default {
   setup () {
-    const openMessage = ref(false)
-
     return {
-      openMessage,
-      toggle () {
-        openMessage.value = !openMessage.value
-      }
+      users : [ {
+  id: 1,
+  name: 'Ruddy Jedrzej',
+  online : true
+}, {
+  id: 2,
+  name: 'Mallorie Alessandrini',
+  online : true
+}, {
+  id: 3,
+  name: 'Elisabetta Wicklen',
+  online : false
+}, {
+  id: 4,
+  name: 'Seka Fawdrey',
+  online : true
+}, ]
     }
   }
-});
+}
+
+
+
 </script>
