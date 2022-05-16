@@ -18,6 +18,7 @@
           dense
           round
           icon="home"
+          @click="getHome"
         />
 
         <q-toolbar-title>
@@ -63,13 +64,12 @@
                     <div class="q-pa-md" style="max-width: 400px">
 
                       <q-form
-                        @submit="loginOnSubmit"
                         @reset="onReset"
                         class="justify-center"
                       >
                         <q-input
                           filled
-                          v-model="username"
+                          v-model="email"
                           label="Adresse e-mail"
                           lazy-rules
                           :rules="[ val => val && val.length > 0 || 'Please type something']"
@@ -92,7 +92,7 @@
                         </q-input>
 
                         <div>
-                          <q-btn label="Submit" type="submit" color="primary"/>
+                          <q-btn label="Submit" type="submit" color="primary" @click="loginOnSubmit"/>
                           <q-btn label="Reset" type="reset" color="primary" flat class="q-ml-sm" />
                         </div>
                       </q-form>
@@ -219,13 +219,14 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
+import { login, getHomePage } from "/Users/laurene.db/Documents/GitHub/kahut/front/src/services/login";
 
 export default defineComponent({
   name: 'MainLayout',
 
   setup () {
     const leftDrawerOpen = ref(false)
-    const username = ref(null)
+    const email = ref(null)
     const password = ref(null)
 
     return {
@@ -235,18 +236,22 @@ export default defineComponent({
       },
 
       isPwd: ref(true),
-      username,
+      email,
       password,
 
       loginLayout: ref(false),
       confirm: ref(false),
 
       loginOnSubmit () {
-        
+        login(email, password);
       },
 
+      getHome() {
+        getHomePage();
+      },
+      
       onReset () {
-        username.value = null
+        email.value = null
         password.value = null
       }
     }

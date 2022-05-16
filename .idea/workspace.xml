@@ -5,32 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="db06daff-3e71-48d8-af16-fe3961731e4c" name="Changes" comment="rearrange files">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_stephenc_jcip_jcip_annotations_1_0_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_nimbusds_content_type_2_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_nimbusds_lang_tag_1_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_nimbusds_nimbus_jose_jwt_9_22.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_nimbusds_oauth2_oidc_sdk_9_19.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_javax_servlet_api_4_0_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_oauth2_resource_server_2_6_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_oauth2_client_5_6_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_oauth2_core_5_6_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_oauth2_jose_5_6_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_oauth2_resource_server_6_0_0_M3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back/src/main/resources/app.key" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back/src/main/resources/app.pub" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/back/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/KahutApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/KahutApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/controller/data/AppUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/controller/data/AppUserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/controller/page/PageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/controller/page/PageController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/controller/security/registration/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/controller/security/registration/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/controller/security/registration/RegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/controller/security/registration/RegistrationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/model/database/ConfirmationToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/model/database/ConfirmationToken.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/security/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/security/config/SecurityConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/service/data/AppUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/service/data/AppUserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/service/security/registration/RegistrationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/service/security/registration/RegistrationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/resources/META-INF/additional-spring-configuration-metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/resources/META-INF/additional-spring-configuration-metadata.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/layouts/MainLayout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/layouts/MainLayout.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/pages/Annonces.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/pages/Annonces.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,23 +53,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
-    "spring.configuration.checksum": "d4a39e3d1948685bb6df468564ee1324"
-  }
-}]]></component>
+  <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+  </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="fr.isep.arlara.kahut.security.config" />
@@ -99,13 +68,13 @@
   <component name="RunManager">
     <configuration name="KahutApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="kahut" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="fr.isep.arlara.kahut.KahutApplication" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="fr.isep.arlara.kahut.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="fr.isep.arlara.kahut.KahutApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -129,6 +98,7 @@
       <workItem from="1652617541440" duration="3191000" />
       <workItem from="1652621052649" duration="12404000" />
       <workItem from="1652683761444" duration="4609000" />
+      <workItem from="1652706056224" duration="2502000" />
     </task>
     <task id="LOCAL-00001" summary="rearrange files">
       <created>1652088463008</created>

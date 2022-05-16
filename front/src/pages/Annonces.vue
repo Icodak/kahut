@@ -184,16 +184,21 @@
                   />
                 </div>
 
-                <q-btn flat color="bg-secondary" icon="event" label="Choisissez les disponibilités" @click="displayDates = true" />
-                <q-dialog v-model="displayDates">
-                  <q-date v-model="days" range multiple />
-                </q-dialog>
+                <div>
+                  <q-btn flat color="bg-secondary" icon="event" label="Choisissez les disponibilités" @click="displayDates = true" />
+                  <q-dialog v-model="displayDates">
+                    <q-date v-model="days" range multiple />
+                  </q-dialog>
+                  <div class="q-pb-sm">
+                    Model: {{ days }}
+                  </div>
+                </div>
 
                 <q-file 
                   color="teal" 
                   filled 
                   multiple
-                  v-model="model" 
+                  v-model="photos" 
                   label="Photos">
                   <template v-slot:prepend>
                     <q-icon name="cloud_upload" />
@@ -248,12 +253,13 @@ export default {
     const numberOfDoubleBeds = ref(null)
     const numberOfBathrooms = ref(null)
     const price = ref(null)
+    const days = ref(null)
+    const photos = ref(null)
     const accept = ref(false)
 
     return {
       annoncesLayout: ref(false),
       displayDates: ref(false),
-      model: ref(null),
       title,
       place, 
       description,
@@ -263,6 +269,8 @@ export default {
       numberOfDoubleBeds,
       numberOfBathrooms,
       price,
+      days,
+      photos,
       accept,
 
       groupType: ref('op1'),
@@ -356,6 +364,8 @@ export default {
         numberOfDoubleBeds.value = null
         numberOfBathrooms.value = null
         price.value = null
+        days.value = null
+        photos.value = null
         accept.value = false
       }
      }
