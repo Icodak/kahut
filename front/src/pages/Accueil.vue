@@ -45,7 +45,7 @@ border-color :#FDB807 ;
         </div>
 
         <div class="col-2">
-             <q-input v-model="date" filled type="date" hint="Départ" >
+             <q-input v-model="date_aller" filled type="date" hint="Départ" >
         <template v-slot:prepend>
           <q-icon name="event" />
         </template>
@@ -54,7 +54,7 @@ border-color :#FDB807 ;
 
 
         <div class="col-2">
-             <q-input v-model="date" filled type="date" hint="Retour" >
+             <q-input v-model="date_retour" filled type="date" hint="Retour" >
         <template v-slot:prepend>
           <q-icon name="event" />
         </template>
@@ -144,7 +144,10 @@ export default {
     return {
       model: ref(null),
       options: [
-        1, 2,3,4,5,6,7,8,9,10,11      ]
+        1, 2,3,4,5,6,7,8,9,10,11 ],
+      date_aller: ref(''),
+      date_retour: ref(''),
+      text: ref('')
     }
   }
 }
