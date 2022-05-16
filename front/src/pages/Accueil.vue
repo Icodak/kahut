@@ -2,7 +2,7 @@
 
 .barre_de_recherche{
     position :  relative ;
-    padding : 100px 400px;
+    padding : 100px 200px;
     align-items: center;
     height: 250px;
 }
@@ -23,20 +23,22 @@ border-color :#FDB807 ;
 <template>
   <q-page>
 
+
  <div class="barre_de_recherche">
 
-
+   <div class="absolute-center">
       <div class="row">
-        <div class="col-2">
+        <div class="col-3">
 
-            <q-input  v-model="text" label="Où aller ?">
+            <q-input  v-model="text" label="Où aller ?"
+            >
         <template v-slot:prepend>
           <q-icon name="place" />
         </template>
             </q-input>
         </div>
 
-        <div class="col-2">
+        <div class="col-3">
              <q-input v-model="date" filled type="date" hint="Départ" >
         <template v-slot:prepend>
           <q-icon name="event" />
@@ -45,7 +47,7 @@ border-color :#FDB807 ;
         </div>
 
 
-        <div class="col-2">
+        <div class="col-3">
              <q-input v-model="date" filled type="date" hint="Retour" >
         <template v-slot:prepend>
           <q-icon name="event" />
@@ -54,10 +56,10 @@ border-color :#FDB807 ;
         </div>
 
 
-        <div class="col-2">
+        <div class="col-1">
              <q-select
              :options ="[1,2,3,4,5,6,7,8,9,10,11]"
-             v-model="text"
+
              />
         </div>
 
@@ -71,6 +73,8 @@ border-color :#FDB807 ;
         </div>
 
         </div>
+    </div>
+
     </div>
 
       <h4 class="Aventures-h4">
