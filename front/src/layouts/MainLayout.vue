@@ -37,9 +37,9 @@
           <q-list padding>
 
             <q-item 
-              to = "/connexion"
               clickable 
-              v-ripple>
+              v-ripple
+              @click="loginLayout = true">
               <q-item-section avatar>
                 <q-icon name="login" />
               </q-item-section>
@@ -48,6 +48,60 @@
                 Se connecter
               </q-item-section>
             </q-item>
+
+            <q-dialog v-model="loginLayout">
+              <q-layout view="Lhh lpR fff" container class="bg-white">
+                <q-header class="bg-primary glossy">
+                  <q-toolbar>
+                    <q-toolbar-title>Connexion</q-toolbar-title>
+                    <q-btn flat v-close-popup round dense icon="close" />
+                  </q-toolbar>
+                </q-header>
+
+                <q-page-container>
+                  <q-page padding>
+                    <div class="q-pa-md" style="max-width: 400px">
+
+                      <q-form
+                        @submit="loginOnSubmit"
+                        @reset="onReset"
+                        class="justify-center"
+                      >
+                        <q-input
+                          filled
+                          v-model="username"
+                          label="Adresse e-mail"
+                          lazy-rules
+                          :rules="[ val => val && val.length > 0 || 'Please type something']"
+                        />
+
+                        <q-input 
+                          v-model="password" 
+                          filled :type="isPwd ? 'password' : 'text'" 
+                          label="Password *"
+                          lazy-rules
+                          :rules="[val => val && val.length > 0 || 'Please type something']"
+                        >
+                          <template v-slot:append>
+                            <q-icon
+                              :name="isPwd ? 'visibility_off' : 'visibility'"
+                              class="cursor-pointer"
+                              @click="isPwd = !isPwd"
+                            />
+                          </template>
+                        </q-input>
+
+                        <div>
+                          <q-btn label="Submit" type="submit" color="primary"/>
+                          <q-btn label="Reset" type="reset" color="primary" flat class="q-ml-sm" />
+                        </div>
+                      </q-form>
+
+                    </div>
+                  </q-page>
+                </q-page-container>
+              </q-layout>
+            </q-dialog>
 
             <q-item 
               to = "/inscription"
@@ -67,7 +121,7 @@
               clickable 
               v-ripple>
               <q-item-section avatar>
-                <q-icon name="star" />
+                <q-icon name="account_circle" />
               </q-item-section>
 
               <q-item-section>
@@ -80,7 +134,7 @@
               clickable 
               v-ripple>
               <q-item-section avatar>
-                <q-icon name="inbox" />
+                <q-icon name="forum" />
               </q-item-section>
 
               <q-item-section>
@@ -116,8 +170,8 @@
             </q-item>
 
             <q-item 
-              to = "/deconnexion"
               clickable 
+              @click="confirm = true"
               v-ripple>
               <q-item-section avatar>
                 <q-icon name="logout" />
@@ -127,6 +181,22 @@
                 Déconnexion
               </q-item-section>
             </q-item>
+
+            <q-dialog v-model="confirm" persistent>
+              <q-card>
+                <q-card-section class="row items-center">
+                  <q-avatar icon="logout" color="primary" text-color="white" />
+                  <span class="q-ml-sm">Are you sure you want to logout ?</span>
+                </q-card-section>
+
+                <q-card-actions align="right">
+                  <q-btn flat label="Cancel" color="primary" v-close-popup />
+                  <q-btn flat label="Logout" color="primary" v-close-popup />
+                </q-card-actions>
+              </q-card>
+            </q-dialog>
+
+
           </q-list>
         </q-scroll-area>
 
@@ -155,13 +225,31 @@ export default defineComponent({
 
   setup () {
     const leftDrawerOpen = ref(false)
+    const username = ref(null)
+    const password = ref(null)
 
     return {
       leftDrawerOpen,
       toggleLeftDrawer () {
         leftDrawerOpen.value = !leftDrawerOpen.value
+      },
+
+      isPwd: ref(true),
+      username,
+      password,
+
+      loginLayout: ref(false),
+      confirm: ref(false),
+
+      loginOnSubmit () {
+        
+      },
+
+      onReset () {
+        username.value = null
+        password.value = null
       }
     }
-  }
-});
+    }
+  });
 </script>

@@ -45,13 +45,82 @@
   </div>
 
   <div class="q-ma-md absolute-right">
-      <q-btn color="primary" icon="edit" label="Modifier" />
-  </div>
+      <q-btn color="primary" icon="edit" label="Modifier" @click="editLayout = true" />
 
-  <div class="q-ma-lg absolute-bottom-right">
-      <q-btn color="primary" icon="send" label="Publier une annonce" />
-  </div>
+    <q-dialog v-model="editLayout">
+        <q-layout view="Lhh lpR fff" container class="bg-white">
+          <q-header class="bg-primary glossy">
+            <q-toolbar>
+              <q-toolbar-title>Modifier les informations personnelles</q-toolbar-title>
+              <q-btn flat v-close-popup round dense icon="close" />
+            </q-toolbar>
+          </q-header>
 
+          <q-page-container>
+            <q-page padding>
+              <q-form
+                @submit="editOnSubmit"
+                @reset="onReset"
+                class="q-gutter-md">
+
+                <q-input
+                  filled
+                  v-model="téléphone"
+                  label="Numéro de téléphone"
+                >
+                <template v-slot:prepend>
+                    <q-icon name="phone" />
+                  </template>
+                </q-input>
+
+                <q-input
+                  filled
+                  v-model="mail"
+                  label="Adresse mail"
+                >
+                <template v-slot:prepend>
+                    <q-icon name="mail" />
+                  </template>
+                </q-input>
+
+                <q-input
+                  filled
+                  type="password"
+                  v-model="password"
+                  label="Password"
+                  lazy-rules
+                  :rules="[ 
+                      val => val.length > 7 && val.length < 30 || 'Your password is not secure enough']"
+                >
+                <template v-slot:prepend>
+                    <q-icon name="key" />
+                  </template>
+                </q-input>
+
+                <q-input
+                  filled
+                  type="password"
+                  v-model="confirmPassword"
+                  label="Confirm Password"
+                  lazy-rules
+                  :rules="[ 
+                        val => val == password || 'Wrong password confirmation']"
+                >
+                <template v-slot:prepend>
+                    <q-icon name="key" />
+                  </template>
+                </q-input>
+
+                <div>
+                  <q-btn label="Submit" type="submit" color="primary"/>
+                  <q-btn label="Reset" type="reset" color="primary" flat class="q-ml-sm" />
+                </div>
+              </q-form>
+            </q-page>
+          </q-page-container>
+        </q-layout>
+      </q-dialog>
+  </div>
 
   </q-page>
 
@@ -59,5 +128,35 @@
 </template>
 
 <script>
+import { ref } from 'vue'
 
+export default {
+  setup () {
+
+    const telephone = ref(null)
+    const mail = ref(null)
+    const password = ref(null)
+    const confirmPassword = ref(null)
+
+    return {
+      editLayout: ref(false),
+
+      telephone,
+      mail,
+      password,
+      confirmPassword,
+
+      editOnSubmit () {
+
+      },
+
+      onReset () {
+        telephone.value = null
+        mail.value = null
+        password.value = null
+        confirmPassword.value = null
+      }
+     }
+  }
+}
 </script>
