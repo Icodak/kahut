@@ -5,6 +5,14 @@
 </div>
 
 <q-page class="flex-column">
+
+
+
+    <q-banner class="bg-grey-10 text-white text-center">
+      L'utilisateur est hors-ligne
+    </q-banner>
+
+
   <div class ="q-pa-md column col justify-end">
 
 <q-chat-message
@@ -13,6 +21,7 @@
         :name="message.from"
         :text="[message.text]"
         :sent="message.from == 'me' ? true : false"
+
       />
 
 
