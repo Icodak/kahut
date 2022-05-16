@@ -45,15 +45,15 @@
 </template>
 
 
-<script lang="ts">
+<script>
 import { useQuasar } from 'quasar'
 import { ref } from 'vue'
 
 export default {
   data(){
     return {
-      newMessage : '',
-      messages: [
+      newMessage :   '',
+      messages:  [
             {
           text:'Salut bg',
           from :'me'
@@ -75,12 +75,13 @@ export default {
   },
     methods: {
       sendMessage(){
-       this.messages.push({
+        this.messages.push({
          text: this.newMessage,
          from : 'me'
        })
      }
    }
 }
+
 
 </script>

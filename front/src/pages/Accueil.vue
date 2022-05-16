@@ -1,11 +1,5 @@
 <style>
 
-.barre_de_recherche{
-    position :  relative ;
-    padding : 100px 200px;
-    align-items: center;
-    height: 250px;
-}
 
 .Aventures-h4{
   color: #FDB807 ;
@@ -18,27 +12,39 @@ border-color :#FDB807 ;
 
 }
 
+
+.separe{
+  padding:20px 20px;
+}
+
 </style>
 
 <template>
   <q-page>
 
+    <div class = "separe">
+
+
+
+    </div>
+
+
+
 
  <div class="barre_de_recherche">
 
-   <div class="absolute-center">
       <div class="row">
         <div class="col-3">
 
-            <q-input  v-model="text" label="Où aller ?"
+            <q-input filled v-model="text" label="Où aller ?"
             >
         <template v-slot:prepend>
-          <q-icon name="place" />
+          <q-icon filled name="place" />
         </template>
             </q-input>
         </div>
 
-        <div class="col-3">
+        <div class="col-2">
              <q-input v-model="date" filled type="date" hint="Départ" >
         <template v-slot:prepend>
           <q-icon name="event" />
@@ -47,7 +53,7 @@ border-color :#FDB807 ;
         </div>
 
 
-        <div class="col-3">
+        <div class="col-2">
              <q-input v-model="date" filled type="date" hint="Retour" >
         <template v-slot:prepend>
           <q-icon name="event" />
@@ -56,14 +62,15 @@ border-color :#FDB807 ;
         </div>
 
 
-        <div class="col-1">
+        <div class="col-2">
              <q-select
-             :options ="[1,2,3,4,5,6,7,8,9,10,11]"
-
+            filled v-model="model"
+            :options="options"
+            label="Combien ?"
              />
         </div>
 
-        <div class="col-2">
+        <div class="col-1">
              <q-icon
              name="search"
              color="orange"
@@ -71,9 +78,8 @@ border-color :#FDB807 ;
              />
 
         </div>
-
         </div>
-    </div>
+
 
     </div>
 
@@ -130,5 +136,17 @@ border-color :#FDB807 ;
 </template>
 
 <script>
+
+import { ref } from 'vue'
+
+export default {
+  setup () {
+    return {
+      model: ref(null),
+      options: [
+        1, 2,3,4,5,6,7,8,9,10,11      ]
+    }
+  }
+}
 
 </script>
