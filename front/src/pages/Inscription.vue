@@ -211,7 +211,7 @@
 <script>
 import { useQuasar } from 'quasar'
 import { ref } from 'vue'
-import { register } from "../services/login";
+import { register } from '../services/registration';
 
 export default {
   setup () {

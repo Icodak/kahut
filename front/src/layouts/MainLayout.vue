@@ -219,7 +219,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import { login, getHomePage } from "../services/login";
+import { login, getHomePage } from '../services/login';
 
 export default defineComponent({
   name: 'MainLayout',

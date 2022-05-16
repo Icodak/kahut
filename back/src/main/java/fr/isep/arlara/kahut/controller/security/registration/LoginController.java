@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/api/login")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "http://localhost:9000")
+@CrossOrigin(origins = "http://localhost:9000", allowCredentials = "true")
 public class LoginController {
     private final JwtEncoder encoder;
 

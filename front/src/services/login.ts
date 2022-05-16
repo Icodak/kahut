@@ -13,14 +13,8 @@ export async function getHomePage() {
       });
 }
 
-export async function login(email : any, password: any) {``
-    await api.post('/api/login', {
-        withCredentials: true,
-        headers: {
-            "Accept": "application/json",
-            "Content-Type": "application/json"
-        }
-        }, {
+export async function login(email : any, password: any) {
+    await api.post('/api/login', {}, {
         auth: {
           username: email,
           password: password
