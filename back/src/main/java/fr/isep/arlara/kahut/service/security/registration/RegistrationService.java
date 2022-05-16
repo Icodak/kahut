@@ -2,8 +2,8 @@ package fr.isep.arlara.kahut.service.security.registration;
 
 import fr.isep.arlara.kahut.model.database.AppUser;
 import fr.isep.arlara.kahut.model.database.AppUserRole;
-import fr.isep.arlara.kahut.model.request.RegistrationRequest;
 import fr.isep.arlara.kahut.model.database.ConfirmationToken;
+import fr.isep.arlara.kahut.model.request.RegistrationRequest;
 import fr.isep.arlara.kahut.service.data.AppUserService;
 import fr.isep.arlara.kahut.service.utils.KahutUtils;
 import jakarta.mail.MessagingException;

@@ -1,8 +1,8 @@
 package fr.isep.arlara.kahut.service.data;
 
 import fr.isep.arlara.kahut.model.database.AppUser;
-import fr.isep.arlara.kahut.repository.AppUserRepository;
 import fr.isep.arlara.kahut.model.database.ConfirmationToken;
+import fr.isep.arlara.kahut.repository.AppUserRepository;
 import fr.isep.arlara.kahut.repository.ConfirmationTokenRepository;
 import fr.isep.arlara.kahut.service.security.registration.EmailService;
 import jakarta.mail.MessagingException;
@@ -59,5 +59,6 @@ public class AppUserService implements UserDetailsService {
     public int enableAppUser(String email) {
         return appUserRepository.enableAppUser(email);
     }
+
 
 }

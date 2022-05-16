@@ -1,23 +1,43 @@
 package fr.isep.arlara.kahut.controller.security.registration;
 
-import fr.isep.arlara.kahut.model.request.LoginRequest;
-import fr.isep.arlara.kahut.service.security.login.loginService;
-import fr.isep.arlara.kahut.service.security.registration.RegistrationService;
-import jakarta.mail.MessagingException;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.oauth2.jwt.JwtClaimsSet;
+import org.springframework.security.oauth2.jwt.JwtEncoder;
+import org.springframework.security.oauth2.jwt.JwtEncoderParameters;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.time.Instant;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/login")
 @RequiredArgsConstructor
 @CrossOrigin
 public class LoginController {
-
-    private final RegistrationService registrationService;
+    private final JwtEncoder encoder;
 
     @PostMapping
-    public String register(@RequestBody LoginRequest request) throws MessagingException {
-        return loginService.login(request);
-    }
+    public String getToken(Authentication authentication) {
+        Instant now = Instant.now();
+        long expiry = 60 * 60;
+        // @formatter:off
+        String scope = authentication.getAuthorities().stream()
+                .map(GrantedAuthority::getAuthority)
+                .collect(Collectors.joining(" "));
+        JwtClaimsSet claims = JwtClaimsSet.builder()
+                .issuer("self")
+                .issuedAt(now)
+                .expiresAt(now.plusSeconds(expiry))
+                .subject(authentication.getName())
+                .claim("scope", scope)
+                .build();
+        // @formatter:on
+        return this.encoder.encode(JwtEncoderParameters.from(claims)).getTokenValue();
 
+    }
 }

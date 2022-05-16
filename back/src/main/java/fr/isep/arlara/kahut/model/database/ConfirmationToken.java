@@ -1,6 +1,5 @@
 package fr.isep.arlara.kahut.model.database;
 
-import fr.isep.arlara.kahut.model.database.AppUser;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

@@ -4,5 +4,5 @@
       "name": "kahut.confirmationToken.expirationDelay",
       "type": "java.lang.Integer",
       "description": "Configuraiton token minutes before expiration"
-  }
+    }
 ] }
