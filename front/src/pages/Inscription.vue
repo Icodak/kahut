@@ -24,7 +24,7 @@
 
         <q-input
         filled
-        v-model="Prénom"
+        v-model="firstName"
         label="Prénom *"
         lazy-rules
         :rules="[ val => val && val.length > 0 || 'Champ obligatoire']"
@@ -32,7 +32,7 @@
 
       <q-input
         filled
-        v-model="Nom"
+        v-model="lastName"
         label="Nom *"
         lazy-rules
         :rules="[ val => val && val.length > 0 || 'Champ obligatoire']"
@@ -211,13 +211,14 @@
 <script>
 import { useQuasar } from 'quasar'
 import { ref } from 'vue'
+import { register } from "../services/login";
 
 export default {
   setup () {
     const $q = useQuasar()
 
-    const Prénom = ref(null)
-    const Nom = ref(null)
+    const firstName = ref(null)
+    const lastName = ref(null)
     const naissance = ref(null)
     const téléphone = ref(null)
     const mail = ref(null)
@@ -230,8 +231,8 @@ export default {
       isConfirmPwd: ref(true),
       step: ref(1),
 
-      Prénom,
-      Nom,
+      firstName,
+      lastName,
       naissance,
       téléphone,
       mail,
@@ -242,27 +243,12 @@ export default {
       accept,
 
       subscribeOnSubmit () {
-        if (accept.value !== true) {
-          $q.notify({
-            color: 'red-5',
-            textColor: 'white',
-            icon: 'warning',
-            message: 'Vous devez acceptez les conditions d\'utilisations'
-          })
-        }
-        else {
-          $q.notify({
-            color: 'green-4',
-            textColor: 'white',
-            icon: 'cloud_done',
-            message: 'Submitted'
-          })
-        }
+        register(firstName, lastName, mail, password);
       },
 
       onReset () {
-        Prénom.value = null
-        Nom.value = null
+        firstName.value = null
+        lastName.value = null
         naissance.value = null
         téléphone.value = null
         mail.value = null

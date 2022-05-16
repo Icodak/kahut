@@ -6,10 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="db06daff-3e71-48d8-af16-fe3961731e4c" name="Changes" comment="rearrange files">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/controller/page/PageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/controller/page/PageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/controller/security/registration/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/controller/security/registration/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/src/layouts/MainLayout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/layouts/MainLayout.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/pages/Annonces.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/pages/Annonces.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/pages/Inscription.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/pages/Inscription.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/services/login.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/services/login.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +97,7 @@
       <workItem from="1652617541440" duration="3191000" />
       <workItem from="1652621052649" duration="12404000" />
       <workItem from="1652683761444" duration="4609000" />
-      <workItem from="1652706056224" duration="2502000" />
+      <workItem from="1652706056224" duration="3805000" />
     </task>
     <task id="LOCAL-00001" summary="rearrange files">
       <created>1652088463008</created>
