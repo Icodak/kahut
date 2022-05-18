@@ -72,6 +72,10 @@ public class AppUser implements UserDetails {
         return Collections.singletonList(authority);
     }
 
+    public String getFullName(){
+        return firstName + " " +  lastName;
+    }
+
     //Email is used as username to ensure uniqueness
     @Override
     public String getUsername() {

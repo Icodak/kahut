@@ -25,6 +25,7 @@ public class RegistrationService {
     public String register(RegistrationRequest request) throws MessagingException {
 
         boolean isValidEmail = EmailValidator.getInstance().isValid(request.getEmail());
+        System.out.println(request);
         if (!isValidEmail) throw new IllegalStateException("Email not valid");
         return appUserService.signUpUser(
                 new AppUser(

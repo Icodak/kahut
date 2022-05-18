@@ -4,14 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db06daff-3e71-48d8-af16-fe3961731e4c" name="Changes" comment="rearrange files">
+    <list default="true" id="db06daff-3e71-48d8-af16-fe3961731e4c" name="Changes" comment="Implement JWT authorisation">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_atteo_evo_inflector_1_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_rest_core_4_0_0_M3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_rest_webmvc_3_7_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_hateoas_spring_hateoas_2_0_0_M2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_plugin_spring_plugin_core_3_0_0_M1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/controller/security/registration/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/controller/security/registration/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/back/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/controller/data/AppUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/controller/data/AppUserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/model/database/AppUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/model/database/AppUser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/security/config/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/security/config/SecurityConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/layouts/MainLayout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/layouts/MainLayout.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/pages/Inscription.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/pages/Inscription.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/services/login.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/services/login.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/services/registration.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/services/registration.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/service/security/registration/RegistrationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/service/security/registration/RegistrationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/service/utils/AppEvents.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/service/utils/AppEvents.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/pages/PageChat.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/router/routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/router/routes.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,13 +62,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RequestMappingsPanelOrder0" value="0" />
-    <property name="RequestMappingsPanelOrder1" value="1" />
-    <property name="RequestMappingsPanelWidth0" value="75" />
-    <property name="RequestMappingsPanelWidth1" value="75" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="fr.isep.arlara.kahut.security.config" />
@@ -70,13 +79,13 @@
   <component name="RunManager">
     <configuration name="KahutApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="kahut" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="fr.isep.arlara.kahut.KahutApplication" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="fr.isep.arlara.kahut.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="SPRING_BOOT_MAIN_CLASS" value="fr.isep.arlara.kahut.KahutApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
