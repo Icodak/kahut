@@ -11,9 +11,9 @@ const routes: RouteRecordRaw[] = [
       { path: '/annonces', component: () => import('pages/Annonces.vue') },
       { path: '/voyages', component: () => import('pages/Voyages.vue') },
       { path: '/messagerie', component: () => import('pages/Messagerie.vue') },
+      { path: '/chat', component: () => import('pages/PageChat.vue') },
       { path: '/connexion', component: () => import('pages/Connexion.vue') },
       { path: '/deconnexion', component: () => import('pages/Deconnexion.vue') },
-      { path: '/test', component: () => import('pages/Test.vue') },
       { path: '/inscription', component: () => import('pages/Inscription.vue') }
     ],
   },
