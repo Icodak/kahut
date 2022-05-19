@@ -92,7 +92,7 @@
                         </q-input>
 
                         <div>
-                          <q-btn label="Submit" type="submit" color="primary" @click="loginOnSubmit"/>
+                          <q-btn label="Submit" type="submit" color="primary" to="/profil" @click="loginOnSubmit(email, password)"/>
                           <q-btn label="Reset" type="reset" color="primary" flat class="q-ml-sm" />
                         </div>
                       </q-form>
@@ -116,7 +116,7 @@
               </q-item-section>
             </q-item>
 
-            <q-item 
+            <q-item
               to = "/profil"
               clickable 
               v-ripple>
@@ -129,7 +129,7 @@
               </q-item-section>
             </q-item>
 
-            <q-item 
+            <q-item
               to = "/messagerie"
               clickable 
               v-ripple>
@@ -143,7 +143,7 @@
             </q-item>
 
 
-             <q-item 
+             <q-item
               to = "/annonces"
               clickable 
               v-ripple>
@@ -156,7 +156,7 @@
               </q-item-section>
             </q-item>
 
-            <q-item 
+            <q-item
               to = "/voyages"
               clickable 
               v-ripple>
@@ -219,18 +219,23 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import { login, getHomePage } from '../services/login';
+import { login, token } from '../services/user';
+import { getHomePage } from '../services/page';
 
 export default defineComponent({
   name: 'MainLayout',
 
   setup () {
     const leftDrawerOpen = ref(false)
+    const letOpen = ref(false)
     const email = ref(null)
     const password = ref(null)
+    let tok = "";
 
     return {
       leftDrawerOpen,
+      letOpen,
+
       toggleLeftDrawer () {
         leftDrawerOpen.value = !leftDrawerOpen.value
       },
@@ -242,14 +247,14 @@ export default defineComponent({
       loginLayout: ref(false),
       confirm: ref(false),
 
-      loginOnSubmit () {
-        login(email, password);
-      },
-
       getHome() {
         getHomePage();
       },
-      
+
+      loginOnSubmit (email : string, password : string) {
+        login(email, password);
+      },
+
       onReset () {
         email.value = null
         password.value = null

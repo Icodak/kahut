@@ -126,11 +126,6 @@ border-color :#FDB807 ;
       </div>
     </div>
   </div>
-
-
-
-
-
   </q-page>
 
 </template>
@@ -138,6 +133,7 @@ border-color :#FDB807 ;
 <script>
 
 import { ref } from 'vue'
+import { getHomePage } from '../services/page';
 
 export default {
   setup () {
@@ -147,7 +143,11 @@ export default {
         1, 2,3,4,5,6,7,8,9,10,11 ],
       date_aller: ref(''),
       date_retour: ref(''),
-      text: ref('')
+      text: ref(''),
+
+      getHome() {
+        getHomePage();
+      },
     }
   }
 }
