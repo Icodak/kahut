@@ -30,13 +30,19 @@ border-color :#FDB807 ;
 
 
 
-
+<q-form
+  action="/recherche" method="post"
+   @submit="onSubmit"
+    class="q-gutter-md"
+    >
  <div class="barre_de_recherche">
 
       <div class="row">
         <div class="col-3">
 
             <q-input filled v-model="text" label="Où aller ?"
+            lazy-rules
+        :rules="[ val => val && val.length > 4 || 'Entrez une destination valide']"
             >
         <template v-slot:prepend>
           <q-icon filled name="place" />
@@ -45,7 +51,10 @@ border-color :#FDB807 ;
         </div>
 
         <div class="col-2">
-             <q-input v-model="date_aller" filled type="date" hint="Départ" >
+             <q-input v-model="date_aller" filled type="date" hint="Départ"
+             lazy-rules
+        :rules="[ date => date && date.length > 0 || 'Entrez une date de départ']"
+        >
         <template v-slot:prepend>
           <q-icon name="event" />
         </template>
@@ -54,7 +63,10 @@ border-color :#FDB807 ;
 
 
         <div class="col-2">
-             <q-input v-model="date_retour" filled type="date" hint="Retour" >
+             <q-input v-model="date_retour" filled type="date" hint="Retour"
+              lazy-rules
+        :rules="[ date => date && date.length > 0 || 'Entrez une date de retour ']"
+        >
         <template v-slot:prepend>
           <q-icon name="event" />
         </template>
@@ -64,17 +76,19 @@ border-color :#FDB807 ;
 
         <div class="col-2">
              <q-select
-            filled v-model="model"
+            filled v-model="nombre_voyageurs"
             :options="options"
             label="Combien ?"
+
              />
         </div>
 
         <div class="col-1">
-             <q-icon
-             name="search"
+             <q-btn
+             type = "submit"
+             icon="search"
              color="orange"
-             size="4rem"
+             size="xl"
              />
 
         </div>
@@ -82,6 +96,8 @@ border-color :#FDB807 ;
 
 
     </div>
+
+    </q-form>
 
       <h4 class="Aventures-h4">
         Quelques idées d'aventures !
@@ -138,8 +154,10 @@ border-color :#FDB807 ;
 <script>
 
 import { ref } from 'vue'
+import axios from 'axios'
 
 export default {
+
   setup () {
     return {
       model: ref(null),
@@ -148,8 +166,27 @@ export default {
       date_aller: ref(''),
       date_retour: ref(''),
       text: ref('')
-    }
-  }
-}
+    };
+    },
+    data(){
+      return{
+       text: '',
+       date_aller: '',
+       date_retour: '',
+       nombre_voyageurs: '',
+      };
+    },
+    methods: {
+      onSubmit(){
+          axios.post(
+            '/recherche',
+            {text: this.text, date_aller: this.date_aller},
+            ).then((response) => {
+              console.log(response);
+      });
+    },
+  },
+  };
+
 
 </script>
