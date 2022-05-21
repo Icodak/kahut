@@ -92,7 +92,7 @@
                         </q-input>
 
                         <div>
-                          <q-btn label="Submit" type="submit" color="primary" to="/profil" @click="loginOnSubmit(email, password)"/>
+                          <q-btn label="Submit" type="submit" color="primary" to="/profil/{{tok.value}}" @click="loginOnSubmit(email, password)"/>
                           <q-btn label="Reset" type="reset" color="primary" flat class="q-ml-sm" />
                         </div>
                       </q-form>
@@ -117,9 +117,10 @@
             </q-item>
 
             <q-item
-              to = "/profil"
+              to = "/profil/{{tok.value}}"
               clickable 
-              v-ripple>
+              v-ripple
+              @click="getUser()">
               <q-item-section avatar>
                 <q-icon name="account_circle" />
               </q-item-section>
@@ -218,19 +219,22 @@
 </template>
 
 <script lang="ts">
+import { useQuasar } from 'quasar'
 import { defineComponent, ref } from 'vue';
-import { login, token } from '../services/user';
+import { login, getUser } from '../services/user';
 import { getHomePage } from '../services/page';
 
 export default defineComponent({
   name: 'MainLayout',
 
   setup () {
+    const $q = useQuasar()
+
     const leftDrawerOpen = ref(false)
     const letOpen = ref(false)
     const email = ref(null)
     const password = ref(null)
-    let tok = "";
+    let tok : any
 
     return {
       leftDrawerOpen,
@@ -253,6 +257,12 @@ export default defineComponent({
 
       loginOnSubmit (email : string, password : string) {
         login(email, password);
+        tok = $q.sessionStorage.getItem("token");
+        getUser();
+      },
+
+      getUser() {
+        getUser();
       },
 
       onReset () {

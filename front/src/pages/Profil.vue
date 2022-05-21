@@ -7,7 +7,7 @@
         </q-avatar>
       </div>
       <div class="absolute-top justify-evenly text-center">
-        <h3>Stéphanie de Monaco</h3> 
+        <h3>{{name}}</h3> 
         <h5>Cahutienne depuis 2020</h5>
       </div>
     </div>
@@ -22,7 +22,7 @@
           <q-icon color="primary" name="mail" />
         </q-item-section>
 
-        <q-item-section>stephanie.demonaco@gmail.com</q-item-section>
+        <q-item-section>{{email}}</q-item-section>
       </q-item>
 
       <q-item>
@@ -129,9 +129,13 @@
 
 <script>
 import { ref } from 'vue'
+import { useQuasar } from 'quasar'
 
 export default {
   setup () {
+    const $q = useQuasar()
+    const name = $q.sessionStorage.getItem("name")
+    const email = $q.sessionStorage.getItem("email")
 
     const telephone = ref(null)
     const mail = ref(null)
@@ -141,13 +145,16 @@ export default {
     return {
       editLayout: ref(false),
 
+      name,
+      email,
+
       telephone,
       mail,
       password,
       confirmPassword,
 
       editOnSubmit () {
-
+          
       },
 
       onReset () {
@@ -155,7 +162,9 @@ export default {
         mail.value = null
         password.value = null
         confirmPassword.value = null
-      }
+      },
+
+
      }
   }
 }
