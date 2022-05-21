@@ -244,7 +244,7 @@ export default {
       accept,
 
       subscribeOnSubmit() {
-        register(firstName, lastName, mail, password);
+        register(firstName.value.toString(), lastName.value.toString(), mail.value.toString(), password.value.toString());
       },
 
       onReset () {
