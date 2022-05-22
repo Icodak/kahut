@@ -5,43 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="db06daff-3e71-48d8-af16-fe3961731e4c" name="Changes" comment="rearrange files">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_buffer_4_1_75_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_codec_4_1_75_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_codec_dns_4_1_75_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_codec_http2_4_1_75_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_codec_http_4_1_75_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_codec_socks_4_1_75_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_common_4_1_75_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_handler_4_1_75_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_handler_proxy_4_1_75_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_resolver_4_1_75_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_resolver_dns_4_1_75_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_transport_4_1_75_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_vertx_vertx_core_3_5_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/controller/data/QueryController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/model/request/QueryRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/src/boot/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/src/services/user.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_15.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_jsonwebtoken_jjwt_0_9_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_oauth_spring_security_oauth2_2_5_2_RELEASE.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/back/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/controller/data/AppUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/controller/data/AppUserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/controller/data/HousingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/controller/data/HousingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/model/database/Housing.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/model/database/Housing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/model/database/Tag.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/model/database/Tag.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/model/database/TagType.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/model/database/TagType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/repository/HousingRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/repository/HousingRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/security/config/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/security/config/SecurityConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/service/data/HousingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/service/data/HousingService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/quasar.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/quasar.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/layouts/MainLayout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/layouts/MainLayout.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/pages/Accueil.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/pages/Accueil.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/pages/Inscription.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/pages/Inscription.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/pages/PageChat.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/pages/PageChat.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/pages/Profil.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/pages/Profil.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/front/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/pages/Annonces.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/pages/Annonces.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/pages/ErrorNotFound.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/pages/ErrorNotFound.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/src/pages/Recherche.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/pages/Recherche.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/router/routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/router/routes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/services/login.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/services/page.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/services/registration.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/services/registration.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/front/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,21 +71,15 @@
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
     <property name="RequestMappingsPanelWidth1" value="75" />
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/back" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.detected.package.tslint" value="true" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="fr.isep.arlara.kahut" />
       <recent name="fr.isep.arlara.kahut.security.config" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Spring Boot.KahutApplication">
     <configuration name="KahutApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="kahut" />
       <extension name="coverage">
@@ -126,9 +93,23 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="sKahutApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="kahut" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="fr.isep.arlara.kahut.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="fr.isep.arlara.kahut.sKahutApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.KahutApplication" />
+        <item itemvalue="Spring Boot.sKahutApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -147,9 +128,9 @@
       <workItem from="1652683761444" duration="4609000" />
       <workItem from="1652706056224" duration="5780000" />
       <workItem from="1652990611887" duration="3619000" />
-      <workItem from="1653115296999" duration="4843000" />
-      <workItem from="1653142039991" duration="10000" />
-      <workItem from="1653142936693" duration="610000" />
+      <workItem from="1653115296999" duration="6505000" />
+      <workItem from="1653141876113" duration="896000" />
+      <workItem from="1653220708867" duration="1242000" />
     </task>
     <task id="LOCAL-00001" summary="rearrange files">
       <created>1652088463008</created>

@@ -32,7 +32,7 @@
       <q-separator />
 
       <q-card-actions>
-        <q-btn icon="euro" label="68€/nuit" />
+        <q-btn icon="House" label="Disponible" />
         <q-btn color="primary" icon="edit" label="Modifier" />
       </q-card-actions>
     </q-card>
@@ -67,9 +67,9 @@
                   :options="optionsType"
                 />
 
-                <q-input 
+                <q-input
                   filled
-                  v-model="title" 
+                  v-model="title"
                   label="Titre de l'annonce"
                   lazy-rules
                   :rules="[ val => val && val.length > 0 || 'Champ obligatoire']">
@@ -78,9 +78,9 @@
                   </template>
                 </q-input>
 
-                <q-input 
+                <q-input
                   filled
-                  v-model="place" 
+                  v-model="place"
                   label="Adresse"
                   lazy-rules
                   :rules="[ val => val && val.length > 0 || 'Champ obligatoire']">
@@ -93,7 +93,7 @@
                   v-model="description"
                   filled
                   type="textarea"
-                  label="Décriver votre logement">
+                  label="Décrivez votre logement">
                    <template v-slot:prepend>
                     <q-icon name="notes" />
                   </template>
@@ -184,21 +184,16 @@
                   />
                 </div>
 
-                <div>
-                  <q-btn flat color="bg-secondary" icon="event" label="Choisissez les disponibilités" @click="displayDates = true" />
-                  <q-dialog v-model="displayDates">
-                    <q-date v-model="days" range multiple />
-                  </q-dialog>
-                  <div class="q-pb-sm">
-                    Model: {{ days }}
-                  </div>
-                </div>
+                <q-btn flat color="bg-secondary" icon="event" label="Choisissez les disponibilités" @click="displayDates = true" />
+                <q-dialog v-model="displayDates">
+                  <q-date v-model="days" range multiple />
+                </q-dialog>
 
-                <q-file 
-                  color="teal" 
-                  filled 
+                <q-file
+                  color="teal"
+                  filled
                   multiple
-                  v-model="photos" 
+                  v-model="model"
                   label="Photos">
                   <template v-slot:prepend>
                     <q-icon name="cloud_upload" />
@@ -218,7 +213,7 @@
                     <q-icon name="euro" />
                   </template>
                   </q-input>
-              
+
 
                 <q-toggle v-model="accept" label="J'ai lu et j'accepte les conditions d'utilisation." />
 
@@ -234,7 +229,7 @@
     </div>
   </q-page>
 
-  
+
 </template>
 
 <script>
@@ -253,15 +248,14 @@ export default {
     const numberOfDoubleBeds = ref(null)
     const numberOfBathrooms = ref(null)
     const price = ref(null)
-    const days = ref(null)
-    const photos = ref(null)
     const accept = ref(false)
 
     return {
       annoncesLayout: ref(false),
       displayDates: ref(false),
+      model: ref(null),
       title,
-      place, 
+      place,
       description,
       numberOfPeople,
       numberOfBedrooms,
@@ -269,8 +263,6 @@ export default {
       numberOfDoubleBeds,
       numberOfBathrooms,
       price,
-      days,
-      photos,
       accept,
 
       groupType: ref('op1'),
@@ -364,8 +356,6 @@ export default {
         numberOfDoubleBeds.value = null
         numberOfBathrooms.value = null
         price.value = null
-        days.value = null
-        photos.value = null
         accept.value = false
       }
      }

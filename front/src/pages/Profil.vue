@@ -8,7 +8,6 @@
       </div>
       <div class="absolute-top justify-evenly text-center">
         <h3>{{name}}</h3> 
-        <h5>Cahutienne depuis 2020</h5>
       </div>
     </div>
 

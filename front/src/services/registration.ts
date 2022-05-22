@@ -9,9 +9,12 @@ export async function register(firstName: string, lastName: string, email: strin
     email: email,
     password: password,
   });
+  console.log(personalInfo)
 
   api
-    .post("/api/registration", personalInfo, {
+    .post("/api/registration",
+    personalInfo, 
+     {
       headers: {
         "Content-Type": "application/json",
       },
