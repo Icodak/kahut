@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db06daff-3e71-48d8-af16-fe3961731e4c" name="Changes" comment="rearrange files">
+    <list default="true" id="db06daff-3e71-48d8-af16-fe3961731e4c" name="Changes" comment="edition apparence">
       <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_15.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_jsonwebtoken_jjwt_0_9_1.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_oauth_spring_security_oauth2_2_5_2_RELEASE.xml" afterDir="false" />
@@ -14,6 +14,7 @@
       <change beforePath="$PROJECT_DIR$/front/src/pages/Annonces.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/pages/Annonces.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/src/pages/ErrorNotFound.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/pages/ErrorNotFound.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/src/pages/Recherche.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/pages/Recherche.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/router/routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/router/routes.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/front/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -79,6 +80,13 @@
       <recent name="fr.isep.arlara.kahut.security.config" />
     </key>
   </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
   <component name="RunManager" selected="Spring Boot.KahutApplication">
     <configuration name="KahutApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="kahut" />
@@ -130,7 +138,8 @@
       <workItem from="1652990611887" duration="3619000" />
       <workItem from="1653115296999" duration="6505000" />
       <workItem from="1653141876113" duration="896000" />
-      <workItem from="1653220708867" duration="1242000" />
+      <workItem from="1653220708867" duration="8125000" />
+      <workItem from="1653246990368" duration="2074000" />
     </task>
     <task id="LOCAL-00001" summary="rearrange files">
       <created>1652088463008</created>
@@ -139,7 +148,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652088463008</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="edition apparence">
+      <created>1653225200775</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1653225200775</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -158,6 +174,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="rearrange files" />
-    <option name="LAST_COMMIT_MESSAGE" value="rearrange files" />
+    <MESSAGE value="edition apparence" />
+    <option name="LAST_COMMIT_MESSAGE" value="edition apparence" />
   </component>
 </project>

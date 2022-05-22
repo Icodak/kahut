@@ -2,7 +2,7 @@
   <q-page>
     <div class="q-pa-md row items-start q-gutter-md">
       <q-card class="my-card">
-        <div class="row" style="margin:1%">
+        <div class="row" style="margin: 1%">
           <div class="col-4">
             <q-img
               style="max-width: 300px"
@@ -51,14 +51,14 @@
         </div>
         <q-separator />
         <q-card-actions>
-          <q-btn color="primary" icon="House" label="Check it out" />
+          <q-btn color="primary" icon="house" label="Check it out" />
         </q-card-actions>
       </q-card>
     </div>
 
     <div class="q-pa-md row items-start q-gutter-md">
       <q-card class="my-card">
-        <div class="row" style="margin:1%">
+        <div class="row" style="margin: 1%">
           <div class="col-4">
             <q-img
               style="max-width: 300px"
@@ -69,7 +69,8 @@
             <q-card-section>
               <div class="row no-wrap items-center col-8">
                 <div class="text-h6 ellipsis">
-Maison dans la forêt - 3 pièces                </div>
+                  Maison dans la forêt - 3 pièces
+                </div>
               </div>
 
               <q-rating size="18px" v-model="stars" :max="5" color="primary" />
@@ -105,7 +106,7 @@ Maison dans la forêt - 3 pièces                </div>
         </div>
         <q-separator />
         <q-card-actions>
-          <q-btn color="primary" icon="House" label="Check it out" />
+          <q-btn color="primary" icon="house" label="Check it out" />
         </q-card-actions>
       </q-card>
     </div>

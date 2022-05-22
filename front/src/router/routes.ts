@@ -14,7 +14,8 @@ const routes: RouteRecordRaw[] = [
       { path: '/chat', component: () => import('pages/PageChat.vue') },
       { path: '/connexion', component: () => import('pages/Connexion.vue') },
       { path: '/deconnexion', component: () => import('pages/Deconnexion.vue') },
-      { path: '/inscription', component: () => import('pages/Inscription.vue') }
+      { path: '/inscription', component: () => import('pages/Inscription.vue') },
+      { path: '/logement', component: () => import('pages/Logement.vue') }
     ],
   },
 

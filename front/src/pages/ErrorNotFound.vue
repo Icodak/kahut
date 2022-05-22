@@ -29,3 +29,7 @@ export default defineComponent({
   name: 'ErrorNotFound'
 });
 </script>
+
+<style lang="scss">
+
+</style>
