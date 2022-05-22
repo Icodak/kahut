@@ -92,7 +92,7 @@
                         </q-input>
 
                         <div>
-                          <q-btn label="Submit" type="submit" color="primary" @click="loginOnSubmit"/>
+                          <q-btn label="Submit" type="submit" color="primary" to="/profil/{{tok.value}}" @click="loginOnSubmit(email, password)"/>
                           <q-btn label="Reset" type="reset" color="primary" flat class="q-ml-sm" />
                         </div>
                       </q-form>
@@ -116,10 +116,11 @@
               </q-item-section>
             </q-item>
 
-            <q-item 
-              to = "/profil"
+            <q-item
+              to = "/profil/{{tok.value}}"
               clickable 
-              v-ripple>
+              v-ripple
+              @click="getUser()">
               <q-item-section avatar>
                 <q-icon name="account_circle" />
               </q-item-section>
@@ -129,7 +130,7 @@
               </q-item-section>
             </q-item>
 
-            <q-item 
+            <q-item
               to = "/messagerie"
               clickable 
               v-ripple>
@@ -143,7 +144,7 @@
             </q-item>
 
 
-             <q-item 
+             <q-item
               to = "/annonces"
               clickable 
               v-ripple>
@@ -156,7 +157,7 @@
               </q-item-section>
             </q-item>
 
-            <q-item 
+            <q-item
               to = "/voyages"
               clickable 
               v-ripple>
@@ -218,19 +219,27 @@
 </template>
 
 <script lang="ts">
+import { useQuasar } from 'quasar'
 import { defineComponent, ref } from 'vue';
-import { login, getHomePage } from '../services/login';
+import { login, getUser } from '../services/user';
+import { getHomePage } from '../services/page';
 
 export default defineComponent({
   name: 'MainLayout',
 
   setup () {
+    const $q = useQuasar()
+
     const leftDrawerOpen = ref(false)
+    const letOpen = ref(false)
     const email = ref(null)
     const password = ref(null)
+    let tok : any
 
     return {
       leftDrawerOpen,
+      letOpen,
+
       toggleLeftDrawer () {
         leftDrawerOpen.value = !leftDrawerOpen.value
       },
@@ -242,14 +251,20 @@ export default defineComponent({
       loginLayout: ref(false),
       confirm: ref(false),
 
-      loginOnSubmit () {
-        login(email, password);
-      },
-
       getHome() {
         getHomePage();
       },
-      
+
+      loginOnSubmit (email : string, password : string) {
+        login(email, password);
+        tok = $q.sessionStorage.getItem("token");
+        getUser();
+      },
+
+      getUser() {
+        getUser();
+      },
+
       onReset () {
         email.value = null
         password.value = null

@@ -26,6 +26,7 @@
         filled
         v-model="firstName"
         label="Prénom *"
+        type="text"
         lazy-rules
         :rules="[ val => val && val.length > 0 || 'Champ obligatoire']"
       />
@@ -34,6 +35,7 @@
         filled
         v-model="lastName"
         label="Nom *"
+        type="text"
         lazy-rules
         :rules="[ val => val && val.length > 0 || 'Champ obligatoire']"
       />
@@ -68,6 +70,7 @@
         filled
         v-model="mail"
         label="Adresse mail *"
+        type="text"
         lazy-rules
         :rules="[ val => val && val.length > 0 || 'Champ obligatoire',]"
       >
@@ -209,14 +212,12 @@
 </template>
 
 <script>
-import { useQuasar } from 'quasar'
+
 import { ref } from 'vue'
 import { register } from '../services/registration';
 
 export default {
   setup () {
-    const $q = useQuasar()
-
     const firstName = ref(null)
     const lastName = ref(null)
     const naissance = ref(null)
@@ -242,7 +243,7 @@ export default {
       fixed: ref(false),
       accept,
 
-      subscribeOnSubmit () {
+      subscribeOnSubmit() {
         register(firstName, lastName, mail, password);
       },
 

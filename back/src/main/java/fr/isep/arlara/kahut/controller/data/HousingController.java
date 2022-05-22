@@ -14,7 +14,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class HousingController {
 
-    private final HousingService housingService;
+    private HousingService housingService;
 
     @GetMapping
     public ResponseEntity<List<Housing>> getHousings() {

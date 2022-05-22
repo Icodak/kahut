@@ -57,7 +57,7 @@ public class SecurityConfiguration {
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .authorizeHttpRequests(authorize -> authorize.mvcMatchers("/api/resources/**", "/api/registration/**", "/api/page/**", "/","/api/login").permitAll()
+                .authorizeHttpRequests(authorize -> authorize.mvcMatchers("/api/resources/**","/api/query/**", "/api/registration/**", "/api/page/**", "/","/api/login").permitAll()
                         .mvcMatchers("/api/user/**").hasAuthority("SCOPE_USER")
                         .mvcMatchers("/api/admin/**").hasAuthority("SCOPE_ADMIN")
                         .anyRequest().authenticated())

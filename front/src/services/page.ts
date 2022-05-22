@@ -12,12 +12,3 @@ export async function getHomePage() {
         console.log(error);
       });
 }
-
-export async function login(email : any, password: any) {
-    await api.post('/api/login', {}, {
-        auth: {
-          username: email,
-          password: password
-        }
-      });
-}

@@ -3,6 +3,7 @@ package fr.isep.arlara.kahut.model.database;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.Date;
 import java.util.UUID;
 
 @AllArgsConstructor
@@ -21,6 +22,7 @@ public class Tag {
     private Boolean isActive;
     private Integer lowLimit;
     private Integer highLimit;
-
+    private Date startDate ;
+    private Date endDate ;
 
 }

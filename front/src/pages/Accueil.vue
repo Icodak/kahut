@@ -21,18 +21,12 @@ border-color :#FDB807 ;
 
 <template>
   <q-page>
-
     <div class = "separe">
-
-
-
     </div>
-
-
 
 <q-form
   action="/recherche" method="post"
-   @submit="onSubmit"
+   @submit="postData"
     class="q-gutter-md"
     >
  <div class="barre_de_recherche">
@@ -40,7 +34,7 @@ border-color :#FDB807 ;
       <div class="row">
         <div class="col-3">
 
-            <q-input filled v-model="text" label="Où aller ?"
+            <q-input filled v-model="posts.destination" label="Où aller ?"
             lazy-rules
         :rules="[ val => val && val.length > 4 || 'Entrez une destination valide']"
             >
@@ -51,7 +45,7 @@ border-color :#FDB807 ;
         </div>
 
         <div class="col-2">
-             <q-input v-model="date_aller" filled type="date" hint="Départ"
+             <q-input v-model="posts.dateGo" filled type="date" hint="Départ"
              lazy-rules
         :rules="[ date => date && date.length > 0 || 'Entrez une date de départ']"
         >
@@ -63,7 +57,7 @@ border-color :#FDB807 ;
 
 
         <div class="col-2">
-             <q-input v-model="date_retour" filled type="date" hint="Retour"
+             <q-input v-model="posts.dateBack" filled type="date" hint="Retour"
               lazy-rules
         :rules="[ date => date && date.length > 0 || 'Entrez une date de retour ']"
         >
@@ -76,7 +70,7 @@ border-color :#FDB807 ;
 
         <div class="col-2">
              <q-select
-            filled v-model="nombre_voyageurs"
+            filled v-model="posts.numberTravellers"
             :options="options"
             label="Combien ?"
 
@@ -85,6 +79,7 @@ border-color :#FDB807 ;
 
         <div class="col-1">
              <q-btn
+
              type = "submit"
              icon="search"
              color="orange"
@@ -142,20 +137,17 @@ border-color :#FDB807 ;
       </div>
     </div>
   </div>
-
-
-
-
-
   </q-page>
 
 </template>
 
 <script>
-
-import { ref } from 'vue'
+// import Vue from 'vue'   // in Vue 2
+import * as Vue from 'vue' // in Vue 3
 import axios from 'axios'
-
+import VueAxios from 'vue-axios'
+import { ref } from 'vue';
+Vue.useSSRContext(VueAxios, axios)
 export default {
 
   setup () {
@@ -163,30 +155,36 @@ export default {
       model: ref(null),
       options: [
         1, 2,3,4,5,6,7,8,9,10,11 ],
-      date_aller: ref(''),
-      date_retour: ref(''),
+      dateGo: ref(''),
+      dateBack: ref(''),
+
       text: ref('')
     };
     },
     data(){
       return{
-       text: '',
-       date_aller: '',
-       date_retour: '',
-       nombre_voyageurs: '',
-      };
+
+       posts : {
+         destination : null,
+         dateGo : null,
+         dateBack : null,
+         numberTravellers : null
+       }
+
+      }
+
     },
     methods: {
-      onSubmit(){
-          axios.post(
-            '/recherche',
-            {text: this.text, date_aller: this.date_aller},
-            ).then((response) => {
-              console.log(response);
-      });
-    },
+      postData(e)
+      {
+        this.axios.post("http://localhost:8080/api/query", this.posts)
+        .then((result)=> {
+            console.warn(result)
+        })
+        e.preventDefault();
+      }
+
   },
   };
-
 
 </script>

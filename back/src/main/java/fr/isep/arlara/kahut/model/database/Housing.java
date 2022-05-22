@@ -20,6 +20,7 @@ public class Housing {
     @Column(name = "id", nullable = false)
     private UUID id;
     private String title;
+    private String city;
     private String description;
     private Integer bookmarkCount;
     private Float longitude;
@@ -35,8 +36,7 @@ public class Housing {
     @OneToMany(cascade = {CascadeType.ALL})
     @ToString.Exclude
     private List<Tag> tags = new ArrayList<>();
-    @OneToMany(cascade = {CascadeType.ALL})
-    @ToString.Exclude
-    private Map<LocalTime, AppUser> calendar = new TreeMap<>();
+
+
 
 }
