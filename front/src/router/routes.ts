@@ -13,7 +13,7 @@ const routes: RouteRecordRaw[] = [
       { path: '/messagerie', component: () => import('pages/Messagerie.vue') },
       { path: '/chat', component: () => import('pages/PageChat.vue') },
       { path: '/inscription', component: () => import('pages/Inscription.vue') },
-      //{ path: '/logement', component: () => import('pages/Logement.vue') }
+      { path: '/logement', component: () => import('pages/Logement.vue') }
     ],
   },
 
