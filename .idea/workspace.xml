@@ -5,17 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="db06daff-3e71-48d8-af16-fe3961731e4c" name="Changes" comment="edition apparence">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_15.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_jsonwebtoken_jjwt_0_9_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_oauth_spring_security_oauth2_2_5_2_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/model/request/UserRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/back/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/front/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/pages/Annonces.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/pages/Annonces.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/pages/ErrorNotFound.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/pages/ErrorNotFound.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/pages/Recherche.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/pages/Recherche.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/controller/data/AppUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/controller/data/AppUserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/model/database/AppUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/model/database/AppUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/model/request/RegistrationRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/model/request/RegistrationRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/service/security/registration/RegistrationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/service/security/registration/RegistrationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/service/utils/AppEvents.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/service/utils/AppEvents.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/layouts/MainLayout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/layouts/MainLayout.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/pages/Connexion.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/pages/Deconnexion.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/pages/Inscription.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/pages/Inscription.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/pages/Profil.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/pages/Profil.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/src/router/routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/router/routes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/front/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/services/registration.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/services/registration.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/services/user.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/services/user.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +62,9 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="28gs0lGmvUG5Yn5P0o9F90DyERY" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -140,6 +147,7 @@
       <workItem from="1653141876113" duration="896000" />
       <workItem from="1653220708867" duration="8125000" />
       <workItem from="1653246990368" duration="2074000" />
+      <workItem from="1653309473210" duration="4110000" />
     </task>
     <task id="LOCAL-00001" summary="rearrange files">
       <created>1652088463008</created>

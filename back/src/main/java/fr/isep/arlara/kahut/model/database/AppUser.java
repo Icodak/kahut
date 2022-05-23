@@ -24,6 +24,7 @@ public class AppUser implements UserDetails {
     private String lastName;
     private String description;
     private String email;
+    private String phone;
     private String password;
     private Boolean enabled = false;
     private Boolean locked = false;
@@ -58,10 +59,12 @@ public class AppUser implements UserDetails {
     @ToString.Exclude
     private List<Message> messages = new ArrayList<>();
 
-    public AppUser(String firstName, String lastName, String email, String password, AppUserRole role) {
+    public AppUser(String firstName, String lastName, String description, String email, String phone, String password, AppUserRole role) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.description = description;
         this.email = email;
+        this.phone = phone;
         this.password = password;
         this.role = role;
     }

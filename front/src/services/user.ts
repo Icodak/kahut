@@ -12,19 +12,22 @@ export async function login(email : string, password: string) {
       })
       .then((response) => {
         const token = response.data;
-        SessionStorage.set("token", token);
+        LocalStorage.set("token", token);
       });
+      getUser();
 }
 
 export async function getUser() {
-    const token = SessionStorage.getItem("token")
+    const token = LocalStorage.getItem("token")
     api
         .get("/api/user",  { headers: {"Authorization" : `Bearer ${token}`} })
         .then((response) => {
           console.log(response);
-          console.log(response.data.map);
-          SessionStorage.set("name", response.data.map.name);
-          SessionStorage.set("email", response.data.map.email);
+          console.log(response.data);
+          LocalStorage.set("name", response.data.fullName);
+          LocalStorage.set("description", response.data.description);
+          LocalStorage.set("email", response.data.email);
+          LocalStorage.set("phone", response.data.phone);
         });
         
 

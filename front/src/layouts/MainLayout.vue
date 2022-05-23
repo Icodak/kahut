@@ -29,7 +29,7 @@
     </q-header>
 
     <q-drawer
-        v-model="leftDrawerOpen"
+        v-if="leftDrawerOpen"
         show-if-above
         :width="200"
         :breakpoint="400"
@@ -38,6 +38,7 @@
           <q-list padding>
 
             <q-item 
+              v-if="letOpenWhenLogout"
               clickable 
               v-ripple
               @click="loginLayout = true">
@@ -64,6 +65,7 @@
                     <div class="q-pa-md" style="max-width: 400px">
 
                       <q-form
+                        @submit="loginOnSubmit(email, password)"
                         @reset="onReset"
                         class="justify-center"
                       >
@@ -71,6 +73,7 @@
                           filled
                           v-model="email"
                           label="Adresse e-mail"
+                          required
                           lazy-rules
                           :rules="[ val => val && val.length > 0 || 'Please type something']"
                         />
@@ -79,6 +82,7 @@
                           v-model="password" 
                           filled :type="isPwd ? 'password' : 'text'" 
                           label="Password *"
+                          required
                           lazy-rules
                           :rules="[val => val && val.length > 0 || 'Please type something']"
                         >
@@ -92,7 +96,7 @@
                         </q-input>
 
                         <div>
-                          <q-btn label="Submit" type="submit" color="primary" to="/profil/{{tok.value}}" @click="loginOnSubmit(email, password)"/>
+                          <q-btn label="Submit" type="submit" color="primary" v-close-popup/>
                           <q-btn label="Reset" type="reset" color="primary" flat class="q-ml-sm" />
                         </div>
                       </q-form>
@@ -104,6 +108,7 @@
             </q-dialog>
 
             <q-item 
+              v-if="letOpenWhenLogout"
               to = "/inscription"
               clickable 
               v-ripple>
@@ -117,7 +122,8 @@
             </q-item>
 
             <q-item
-              to = "/profil/{{tok.value}}"
+              v-if="letOpenWhenLogin"
+              to = "/profil"
               clickable 
               v-ripple
               @click="getUser()">
@@ -131,6 +137,7 @@
             </q-item>
 
             <q-item
+              v-if="letOpenWhenLogin"
               to = "/messagerie"
               clickable 
               v-ripple>
@@ -144,7 +151,8 @@
             </q-item>
 
 
-             <q-item
+            <q-item
+              v-if="letOpenWhenLogin"
               to = "/annonces"
               clickable 
               v-ripple>
@@ -158,6 +166,7 @@
             </q-item>
 
             <q-item
+              v-if="letOpenWhenLogin"
               to = "/voyages"
               clickable 
               v-ripple>
@@ -171,6 +180,7 @@
             </q-item>
 
             <q-item 
+              v-if="letOpenWhenLogin"
               clickable 
               @click="confirm = true"
               v-ripple>
@@ -192,7 +202,7 @@
 
                 <q-card-actions align="right">
                   <q-btn flat label="Cancel" color="primary" v-close-popup />
-                  <q-btn flat label="Logout" color="primary" v-close-popup />
+                  <q-btn flat label="Logout" color="primary" to="/" @click="logout()" v-close-popup />
                 </q-card-actions>
               </q-card>
             </q-dialog>
@@ -204,7 +214,7 @@
         <q-img class="bg-primary absolute-top glossy" style="height: 50px ">
           <div class="absolute-center bg-transparent">
             <q-avatar size="40px">
-          <img src="https://cdn.quasar.dev/img/avatar.png">
+          <img v-if="letOpenWhenLogin" src="https://cdn.quasar.dev/img/avatar.png">
         </q-avatar>
           </div>
         </q-img>
@@ -231,14 +241,16 @@ export default defineComponent({
     const $q = useQuasar()
 
     const leftDrawerOpen = ref(false)
-    const letOpen = ref(false)
+    const letOpenWhenLogout = ref(true)
+    const letOpenWhenLogin = ref(false)
     const email = ref(null)
     const password = ref(null)
     let tok : any
 
     return {
       leftDrawerOpen,
-      letOpen,
+      letOpenWhenLogout,
+      letOpenWhenLogin,
 
       toggleLeftDrawer () {
         leftDrawerOpen.value = !leftDrawerOpen.value
@@ -257,8 +269,15 @@ export default defineComponent({
 
       loginOnSubmit (email : string, password : string) {
         login(email, password);
-        tok = $q.sessionStorage.getItem("token");
-        getUser();
+        tok = $q.localStorage.getItem("token");
+        letOpenWhenLogin.value = true;
+        letOpenWhenLogout.value = false;
+      },
+
+      logout() {
+        $q.localStorage.clear();
+        letOpenWhenLogin.value = false;
+        letOpenWhenLogout.value = true;
       },
 
       getUser() {

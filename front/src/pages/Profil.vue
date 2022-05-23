@@ -7,7 +7,8 @@
         </q-avatar>
       </div>
       <div class="absolute-top justify-evenly text-center">
-        <h3>{{name}}</h3> 
+        <h3>{{name}}</h3>
+        <h6>{{description}}</h6> 
       </div>
     </div>
 
@@ -29,15 +30,7 @@
           <q-icon color="primary" name="phone" />
         </q-item-section>
 
-        <q-item-section>0714536295</q-item-section>
-      </q-item>
-
-      <q-item>
-        <q-item-section avatar>
-          <q-icon color="primary" name="star" />
-        </q-item-section>
-
-        <q-item-section>4,8/5</q-item-section>
+        <q-item-section>{{phone}}</q-item-section>
       </q-item>
     </q-list>
 
@@ -85,8 +78,19 @@
                 <q-input
                   filled
                   type="password"
+                  v-model="oldPassword"
+                  label="Type your password"
+                >
+                <template v-slot:prepend>
+                    <q-icon name="key" />
+                  </template>
+                </q-input>
+
+                <q-input
+                  filled
+                  type="password"
                   v-model="password"
-                  label="Password"
+                  label="New password"
                   lazy-rules
                   :rules="[ 
                       val => val.length > 7 && val.length < 30 || 'Your password is not secure enough']"
@@ -100,7 +104,7 @@
                   filled
                   type="password"
                   v-model="confirmPassword"
-                  label="Confirm Password"
+                  label="Confirm new password"
                   lazy-rules
                   :rules="[ 
                         val => val == password || 'Wrong password confirmation']"
@@ -133,24 +137,32 @@ import { useQuasar } from 'quasar'
 export default {
   setup () {
     const $q = useQuasar()
-    const name = $q.sessionStorage.getItem("name")
-    const email = $q.sessionStorage.getItem("email")
+    const name = $q.localStorage.getItem("name")
+    const description = $q.localStorage.getItem("description")
+    const email = $q.localStorage.getItem("email")
+    const phone = $q.localStorage.getItem("phone")
 
     const telephone = ref(null)
     const mail = ref(null)
+    const oldPwd = ref(null)
     const password = ref(null)
     const confirmPassword = ref(null)
+    const descriptionInput = ref(null);
 
     return {
       editLayout: ref(false),
 
       name,
+      description,
       email,
+      phone,
 
       telephone,
       mail,
+      oldPwd,
       password,
       confirmPassword,
+      descriptionInput,
 
       editOnSubmit () {
           
@@ -159,8 +171,10 @@ export default {
       onReset () {
         telephone.value = null
         mail.value = null
+        oldPwd.value = null
         password.value = null
         confirmPassword.value = null
+        descriptionInput.value = null
       },
 
 

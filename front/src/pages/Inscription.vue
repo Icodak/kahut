@@ -5,6 +5,11 @@
     <div class="row justify-evenly">
 
     <div class="q-pa-md">
+      <q-form
+        @submit="subscribeOnSubmit()"
+        @reset="onReset"
+        class="justify-center"
+      >
     <q-stepper
       v-model="step"
       vertical
@@ -27,6 +32,7 @@
         v-model="firstName"
         label="Prénom *"
         type="text"
+        required
         lazy-rules
         :rules="[ val => val && val.length > 0 || 'Champ obligatoire']"
       />
@@ -36,6 +42,7 @@
         v-model="lastName"
         label="Nom *"
         type="text"
+        required
         lazy-rules
         :rules="[ val => val && val.length > 0 || 'Champ obligatoire']"
       />
@@ -46,6 +53,7 @@
         label="Date de naissance *"
         mask="##/##/####"
         fill-mask
+        required
         lazy-rules
         :rules="[ val => val && val.length > 0 || 'Champ obligatoire']"
       >
@@ -58,6 +66,7 @@
         filled
         v-model="téléphone"
         label="Numéro de téléphone *"
+        required
         lazy-rules
         :rules="[ val => val && val.length > 0 || 'Champ obligatoire']"
       >
@@ -71,8 +80,9 @@
         v-model="mail"
         label="Adresse mail *"
         type="text"
+        required
         lazy-rules
-        :rules="[ val => val && val.length > 0 || 'Champ obligatoire',]"
+        :rules="[ val => val && val.length > 0 || 'Champ obligatoire']"
       >
       <template v-slot:prepend>
           <q-icon name="mail" />
@@ -83,7 +93,8 @@
           <q-btn 
             @click="step = 2" 
             color="primary" 
-            label="Continuer"/>
+            label="Continuer"
+            />
         </q-stepper-navigation>
       </q-step>
 
@@ -141,6 +152,33 @@
 
       <q-step
         :name="3"
+        title="Decription"
+        icon="notes"
+        :done="step > 3"
+      >
+        <p>Veuillez choisir une description pour votre profil. <br/>
+          Votre description apparaitra sur votre profil et sera visible par tous <br/>
+          les utilisateurs qui regarderont votre profil.</p>
+
+        <q-input
+          v-model="description"
+          filled
+          type="textarea"
+          label="Décrivez votre logement"
+        >
+          <template v-slot:prepend>
+            <q-icon name="notes" />
+          </template>
+        </q-input>
+
+        <q-stepper-navigation>
+          <q-btn @click="step = 4" color="primary" label="Continuer" />
+          <q-btn flat @click="step = 2" color="primary" label="Back" class="q-ml-sm" />
+        </q-stepper-navigation>
+      </q-step>
+
+      <q-step
+        :name="4"
         title="Photo de profil"
         icon="photo"
       >
@@ -159,13 +197,13 @@
       </q-file>
 
         <q-stepper-navigation>
-          <q-btn @click="step= 4" color="primary" label="Continuer" />
-          <q-btn flat @click="step = 2" color="primary" label="Back" class="q-ml-sm" />
+          <q-btn @click="step= 5" color="primary" label="Continuer" />
+          <q-btn flat @click="step = 3" color="primary" label="Back" class="q-ml-sm" />
         </q-stepper-navigation>
       </q-step>
 
       <q-step
-        :name="4"
+        :name="5"
         title="Conditions générales d'utilisation"
         icon="description"
       >
@@ -198,11 +236,12 @@
         
 
         <q-stepper-navigation>
-          <q-btn @click="subscribeOnSubmit" color="primary" label="Envoyer" />
-          <q-btn flat @click="step = 3" color="primary" label="Back" class="q-ml-sm" />
+          <q-btn type="submit" to="/" color="primary" label="Envoyer" />
+          <q-btn flat @click="step = 4" color="primary" label="Back" class="q-ml-sm" />
         </q-stepper-navigation>
       </q-step>
     </q-stepper>
+    </q-form>
   </div>
 
   </div>
@@ -225,6 +264,7 @@ export default {
     const mail = ref(null)
     const password = ref(null)
     const confirmPassword = ref(null)
+    const description = ref(null)
     const accept = ref(false)
 
     return {
@@ -239,12 +279,13 @@ export default {
       mail,
       password,
       confirmPassword,
+      description,
       file: ref(null),
       fixed: ref(false),
       accept,
 
       subscribeOnSubmit() {
-        register(firstName.value.toString(), lastName.value.toString(), mail.value.toString(), password.value.toString());
+        register(firstName.value.toString(), lastName.value.toString(), description.value.toString(), mail.value.toString(), password.value.toString());
       },
 
       onReset () {
@@ -255,6 +296,7 @@ export default {
         mail.value = null
         password.value = null
         confirmPassword.value = null
+        description.value = null
         accept.value = false
       }
     }
