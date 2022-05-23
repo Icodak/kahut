@@ -2,7 +2,7 @@ package fr.isep.arlara.kahut.controller.data;
 
 import fr.isep.arlara.kahut.model.database.Housing;
 import fr.isep.arlara.kahut.service.data.HousingService;
-import lombok.RequiredArgsConstructor;
+import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,7 +11,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/housing")
 @CrossOrigin
-@RequiredArgsConstructor
+@AllArgsConstructor
 public class HousingController {
 
     private HousingService housingService;
