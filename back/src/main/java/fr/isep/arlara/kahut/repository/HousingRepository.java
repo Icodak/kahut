@@ -24,5 +24,10 @@ public interface HousingRepository extends JpaRepository<Housing, UUID> {
             // Integer numberTravellers
     );
 
+    @Query( value = "SELECT first_name, last_name, bookmart_count, city, description, latitude, longitude, title FROM AppUser u INNER JOIN Housing h ON u.id = h.app_user_id WHERE email = :email", nativeQuery = true)
+    Optional<List<Housing>> findHousingByUserId(
+            @Param("email")
+            String email
+    );
 
 }

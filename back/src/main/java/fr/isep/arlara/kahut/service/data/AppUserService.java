@@ -2,11 +2,15 @@ package fr.isep.arlara.kahut.service.data;
 
 import fr.isep.arlara.kahut.model.database.AppUser;
 import fr.isep.arlara.kahut.model.database.ConfirmationToken;
+import fr.isep.arlara.kahut.model.database.Housing;
+import fr.isep.arlara.kahut.model.request.UserRequest;
 import fr.isep.arlara.kahut.repository.AppUserRepository;
 import fr.isep.arlara.kahut.repository.ConfirmationTokenRepository;
+import fr.isep.arlara.kahut.repository.HousingRepository;
 import fr.isep.arlara.kahut.service.security.registration.EmailService;
 import jakarta.mail.MessagingException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -14,13 +18,15 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
 public class AppUserService implements UserDetailsService {
 
-
+    private final HousingRepository housingRepository;
 
     private final static String USER_NOT_FOUND = "User with email %s not found";
 
@@ -58,6 +64,13 @@ public class AppUserService implements UserDetailsService {
 
     public int enableAppUser(String email) {
         return appUserRepository.enableAppUser(email);
+    }
+
+    public ResponseEntity<List<Housing>> findUserHousing(UserRequest request) {
+        Optional<List<Housing>> housingList = housingRepository.findHousingByUserId(
+                request.getEmail()
+        );
+        return ResponseEntity.of(housingList);
     }
 
 

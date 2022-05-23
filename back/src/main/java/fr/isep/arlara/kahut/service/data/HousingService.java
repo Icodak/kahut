@@ -40,7 +40,7 @@ public class HousingService{
         return ResponseEntity.created(uri).body(repository.save(housing));
     }
 
-    public   ResponseEntity <List<Housing>> findAllByRequest(QueryRequest queryrequest) {
+    public ResponseEntity <List<Housing>> findAllByRequest(QueryRequest queryrequest) {
         Optional <List<Housing>> housingList = repository.findAllByRequest(
                 queryrequest.getDestination()
                 //queryrequest.getDateBack(),
