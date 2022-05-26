@@ -47,6 +47,6 @@ public class HousingService{
                 //queryrequest.getDateGo(),
                 //queryrequest.getNumberTravellers()
         );
-        return ResponseEntity.of(housingList);
+        return ResponseEntity.ok(housingList.orElse(new ArrayList<>()));
     }
 }

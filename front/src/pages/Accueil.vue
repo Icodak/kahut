@@ -145,7 +145,9 @@ border-color :#FDB807 ;
 // import Vue from 'vue'   // in Vue 2
 import * as Vue from 'vue' // in Vue 3
 import axios from 'axios'
+import VueAxios from 'vue-axios'
 import { ref } from 'vue';
+Vue.useSSRContext(VueAxios, axios)
 export default {
 
   setup () {

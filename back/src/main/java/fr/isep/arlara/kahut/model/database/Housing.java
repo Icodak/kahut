@@ -26,6 +26,13 @@ public class Housing {
     private Float longitude;
     private Float latitude;
 
+    public Housing(String title, String city, String description, Float longitude, Float latitude) {
+        this.title = title;
+        this.city = city;
+        this.description = description;
+        this.longitude = longitude;
+        this.latitude = latitude;
+    }
 
     @OneToMany(cascade = {CascadeType.ALL})
     @ToString.Exclude

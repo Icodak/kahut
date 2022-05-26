@@ -1,14 +1,27 @@
 <template>
   <q-page>
+    <div class="q-pa-md">
+      <div class ="column" style ="height: 100px;">
+
+      <searchBarComponent> </searchBarComponent>
+    </div>
+    </div>
+
     <div class="q-pa-md row items-start q-gutter-md">
+
       <q-card class="my-card">
-        <div class="row" style="margin: 1%">
+        <div class="row" style="margin:1%">
           <div class="col-4">
             <q-img
               style="max-width: 300px"
               :ratio="4 / 3"
               src="https://img.freepik.com/photos-gratuite/conception-appartement-studio-moderne-chambre-espace-vie_1262-12375.jpg?t=st=1652184716~exp=1652185316~hmac=925ec8f9ac803a9cd96d7b11b87e144b6b9b7c94ae363829992ab11b2fd88b5f&w=1800"
             />
+
+
+            <q-btn label = "Afficher les infos"
+            @submit="printData"></q-btn>
+
 
             <q-card-section>
               <div class="row no-wrap items-center col-8">
@@ -31,34 +44,20 @@
             </q-card-section>
           </div>
           <div class="col-8" style="margin-top:10%; margin left:5%">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non
-              risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing
-              nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas
-              ligula massa, varius a, semper congue, euismod non, mi. Proin
-              porttitor, orci nec nonummy molestie, enim est eleifend mi, non
-              fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa,
-              scelerisque vitae, consequat in, pretium a, enim. Pellentesque
-              congue. Ut in risus volutpat libero pharetra tempor. Cras
-              vestibulum bibendum augue. Praesent egestas leo in pede. Praesent
-              blandit odio eu enim. Pellentesque sed dui ut augue blandit
-              sodales. Vestibulum ante ipsum primis in faucibus orci luctus et
-              ultrices posuere cubilia Curae; Aliquam nibh. Mauris ac mauris sed
-              pede pellentesque fermentum. Maecenas adipiscing ante non diam
-              sodales hendrerit.
-            </p>
+
           </div>
         </div>
         <q-separator />
         <q-card-actions>
-          <q-btn color="primary" icon="house" label="Check it out" />
+          <q-btn color="primary" icon="House" label="Test"
+          @click="printData" />
         </q-card-actions>
       </q-card>
     </div>
 
     <div class="q-pa-md row items-start q-gutter-md">
       <q-card class="my-card">
-        <div class="row" style="margin: 1%">
+        <div class="row" style="margin:1%">
           <div class="col-4">
             <q-img
               style="max-width: 300px"
@@ -69,13 +68,13 @@
             <q-card-section>
               <div class="row no-wrap items-center col-8">
                 <div class="text-h6 ellipsis">
-                  Maison dans la forêt - 3 pièces
-                </div>
+Maison dans la forêt - 3 pièces                </div>
               </div>
 
               <q-rating size="18px" v-model="stars" :max="5" color="primary" />
               <span class="text-caption text-grey q-ml-sm">4.5 (57)</span>
             </q-card-section>
+
 
             <q-card-section class="q-pt-none">
               <div class="text-subtitle1">3 voyageurs</div>
@@ -87,26 +86,14 @@
           </div>
           <div class="col-8" style="margin-top:10%; margin left:5%">
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non
-              risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing
-              nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas
-              ligula massa, varius a, semper congue, euismod non, mi. Proin
-              porttitor, orci nec nonummy molestie, enim est eleifend mi, non
-              fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa,
-              scelerisque vitae, consequat in, pretium a, enim. Pellentesque
-              congue. Ut in risus volutpat libero pharetra tempor. Cras
-              vestibulum bibendum augue. Praesent egestas leo in pede. Praesent
-              blandit odio eu enim. Pellentesque sed dui ut augue blandit
-              sodales. Vestibulum ante ipsum primis in faucibus orci luctus et
-              ultrices posuere cubilia Curae; Aliquam nibh. Mauris ac mauris sed
-              pede pellentesque fermentum. Maecenas adipiscing ante non diam
-              sodales hendrerit.
+              Les infos sont : {{destination}}
+              mmmmmmmm
             </p>
           </div>
         </div>
         <q-separator />
         <q-card-actions>
-          <q-btn color="primary" icon="house" label="Check it out" />
+          <q-btn color="primary" icon="House" label="Check it out" />
         </q-card-actions>
       </q-card>
     </div>
@@ -114,4 +101,31 @@
 </template>
 
 <script>
-</script>
+
+import * as Vue from 'vue' // in Vue 3
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+import { ref } from 'vue';
+
+import searchBarComponent from 'src/components/searchBar.vue';
+
+export default {
+  name: 'searBarComponent',
+    data() {
+        return {
+
+            printData() {
+                axios
+                    .post("http://localhost:8080/api/query",
+{
+                             destination: "Paris"
+ }                   ).then((response) => {
+                    let logementData = response.data;
+                    console.log(logementData);
+                });
+            }
+        };
+    },
+    components: { searchBarComponent }
+}
+  </script>

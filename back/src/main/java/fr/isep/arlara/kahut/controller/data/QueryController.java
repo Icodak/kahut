@@ -24,7 +24,7 @@ public class QueryController {
 
     private HousingService housingservice ;
 
-    @GetMapping
+    @PostMapping
     public ResponseEntity<List<Housing>> search (@RequestBody QueryRequest queryrequest) {
         return housingservice.findAllByRequest(queryrequest);
 
