@@ -6,7 +6,7 @@
 
     <div class="q-pa-md">
       <q-form
-        @submit="subscribeOnSubmit()"
+        @submit="subscribeOnSubmit"
         @reset="onReset"
         class="justify-center"
       >
@@ -24,7 +24,7 @@
         :done="step > 1"
       >
 
-      <p>Veuillez saisir vos informations personnelles nécessaires à l'inscription <br/> sur la plateforme. 
+      <p>Veuillez saisir vos informations personnelles nécessaires à l'inscription <br/> sur la plateforme.
         <br/>Tous les champs sont obligatoires.</p>
 
         <q-input
@@ -64,7 +64,7 @@
 
       <q-input
         filled
-        v-model="téléphone"
+        v-model="phone"
         label="Numéro de téléphone *"
         required
         lazy-rules
@@ -90,9 +90,9 @@
       </q-input>
 
         <q-stepper-navigation>
-          <q-btn 
-            @click="step = 2" 
-            color="primary" 
+          <q-btn
+            @click="step = 2"
+            color="primary"
             label="Continuer"
             />
         </q-stepper-navigation>
@@ -108,12 +108,12 @@
         Votre mot de passe doit contenir minimum 8 caractères et doit contenir <br/>
           au moins une majuscule, une minuscule et un caractère spécial.</p>
 
-        <q-input 
-        v-model="password" 
-        filled :type="isPwd ? 'password' : 'text'" 
+        <q-input
+        v-model="password"
+        filled :type="isPwd ? 'password' : 'text'"
         label="Mot de passe *"
         lazy-rules
-        :rules="[ 
+        :rules="[
             val => val && val.length > 0 || 'Champ obligatoire',
             val => val.length > 7 && val.length < 30 || 'Mot de passe non sécurisé']"
       >
@@ -126,12 +126,12 @@
         </template>
       </q-input>
 
-      <q-input 
-        v-model="confirmPassword" 
-        filled :type="isConfirmPwd ? 'password' : 'text'" 
+      <q-input
+        v-model="confirmPassword"
+        filled :type="isConfirmPwd ? 'password' : 'text'"
         label="Confirmation mot de passe *"
         lazy-rules
-        :rules="[ 
+        :rules="[
               val => val && val.length > 0 || 'Champ obligatoire',
               val => val == password || 'Confirmation de mot de passe incorrecte']"
       >
@@ -233,10 +233,10 @@
       </q-dialog>
       <br/>
        <q-toggle v-model="accept" disable label="J'ai lu et j'accepte les conditions d'utilisation." />
-        
+
 
         <q-stepper-navigation>
-          <q-btn type="submit" to="/" color="primary" label="Envoyer" />
+          <q-btn type="submit" color="primary" label="Envoyer" />
           <q-btn flat @click="step = 4" color="primary" label="Back" class="q-ml-sm" />
         </q-stepper-navigation>
       </q-step>
@@ -247,7 +247,7 @@
   </div>
   </q-page>
 
-  
+
 </template>
 
 <script>
@@ -260,7 +260,7 @@ export default {
     const firstName = ref(null)
     const lastName = ref(null)
     const naissance = ref(null)
-    const téléphone = ref(null)
+    const phone = ref(null)
     const mail = ref(null)
     const password = ref(null)
     const confirmPassword = ref(null)
@@ -275,7 +275,7 @@ export default {
       firstName,
       lastName,
       naissance,
-      téléphone,
+      phone,
       mail,
       password,
       confirmPassword,
@@ -285,14 +285,14 @@ export default {
       accept,
 
       subscribeOnSubmit() {
-        register(firstName.value.toString(), lastName.value.toString(), description.value.toString(), mail.value.toString(), password.value.toString());
+        register(firstName.value.toString(), lastName.value.toString(), description.value.toString(), mail.value.toString(), phone.value.toString(), password.value.toString());
       },
 
       onReset () {
         firstName.value = null
         lastName.value = null
         naissance.value = null
-        téléphone.value = null
+        phone.value = null
         mail.value = null
         password.value = null
         confirmPassword.value = null
