@@ -19,6 +19,8 @@ public class Image {
     @Column(name = "id", nullable = false)
     private UUID id;
     private URL url;
+    @Lob
+    private byte[] data;
     private String legend;
 
 
