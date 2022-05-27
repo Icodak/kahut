@@ -1,6 +1,7 @@
 package fr.isep.arlara.kahut.service.data;
 
 import fr.isep.arlara.kahut.model.database.Housing;
+import fr.isep.arlara.kahut.model.request.LogementRequest;
 import fr.isep.arlara.kahut.model.request.QueryRequest;
 import fr.isep.arlara.kahut.repository.HousingRepository;
 import fr.isep.arlara.kahut.service.utils.KahutUtils;
@@ -22,10 +23,23 @@ public class HousingService{
 
     private final HousingRepository repository;
 
-    public ResponseEntity<Housing> getHousing(String id) {
+    public ResponseEntity<LogementRequest> getHousing(String id) {
         if (KahutUtils.isValidUUID(id)) {
-            Optional<Housing> housing = repository.findById(UUID.fromString(id));
-            return ResponseEntity.of(housing);
+            Optional<Housing> optHousing = repository.findById(UUID.fromString(id));
+            if (optHousing.isPresent()) {
+                Housing housing = optHousing.get();
+                LogementRequest logementRequest = new LogementRequest(
+                        housing.getTitle(),
+                        housing.getDescription(),
+                        housing.getImages(),
+                        housing.getAuthor().toUserRequest(),
+                        housing.getTags(),
+                        housing.getStars(),
+                        housing.getLocation(),
+                        housing.getRatings()
+                );
+                return ResponseEntity.ok().body(logementRequest);
+            }
         }
         return ResponseEntity.badRequest().body(null);
     }

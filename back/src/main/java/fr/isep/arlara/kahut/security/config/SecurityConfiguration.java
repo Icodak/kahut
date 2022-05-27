@@ -57,11 +57,11 @@ public class SecurityConfiguration {
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .authorizeHttpRequests(authorize -> authorize.mvcMatchers("/api/resources/**","/api/query/**", "/api/registration/**", "/api/page/**", "/","/api/login").permitAll()
+                .authorizeHttpRequests(authorize -> authorize.mvcMatchers("/api/resources/**","/api/query/**", "/api/housing/**", "/api/registration/**", "/api/page/**", "/","/api/login").permitAll()
                         .mvcMatchers("/api/user/**").hasAuthority("SCOPE_USER")
                         .mvcMatchers("/api/admin/**").hasAuthority("SCOPE_ADMIN")
                         .anyRequest().authenticated())
-                .csrf((csrf) -> csrf.ignoringAntMatchers("/api/login","/api/registration","/api/query/**"))
+                .csrf((csrf) -> csrf.ignoringAntMatchers("/api/login","/api/registration","/api/query/**","/api/housing/**"))
                 .cors().and()
                 .httpBasic(Customizer.withDefaults())
                 .oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt)

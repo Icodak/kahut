@@ -23,14 +23,15 @@ public class AppEvents {
         AppUser userAppUser = new AppUser("User", "USER", "Hey, I'm a kahut user !", "user@kahut.com", "0649205739", bCryptPasswordEncoder.encode("password"), AppUserRole.USER);
         appUserRepository.save(adminAppUser);
         appUserRepository.save(userAppUser);
+        AppUser createdUser = appUserRepository.findByEmail("user@kahut.com").get();
         appUserRepository.enableAppUser("admin@kahut.com");
         appUserRepository.enableAppUser("user@kahut.com");
 
-        Housing housingParis = new Housing("Génial logement", "Paris", "genial", 125.22f, 122.1212f);
-        Housing housingLyon = new Housing("Génial logement", "Lyon", "genial", 125.22f, 122.1212f);
-        Housing housingTokyo = new Housing("Génial logement", "Tokyo", "genial", 125.22f, 122.1212f);
-        Housing housingAlbi = new Housing("Génial logement", "Albi", "genial", 125.22f, 122.1212f);
-        Housing housingBordeaux = new Housing("Génial logement", "Bordeaux", "genial", 125.22f, 122.1212f);
+        Housing housingParis = new Housing("Génial logement", "Paris", "genial", 125.22f, 122.1212f,createdUser);
+        Housing housingLyon = new Housing("Génial logement", "Lyon", "genial", 125.22f, 122.1212f,createdUser);
+        Housing housingTokyo = new Housing("Génial logement", "Tokyo", "genial", 125.22f, 122.1212f,createdUser);
+        Housing housingAlbi = new Housing("Génial logement", "Albi", "genial", 125.22f, 122.1212f,createdUser);
+        Housing housingBordeaux = new Housing("Génial logement", "Bordeaux", "genial", 125.22f, 122.1212f,createdUser);
 
         housingRepository.save(housingBordeaux);
         housingRepository.save(housingParis);

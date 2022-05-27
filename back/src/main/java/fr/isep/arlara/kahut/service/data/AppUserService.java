@@ -62,8 +62,8 @@ public class AppUserService implements UserDetailsService {
         return token;
     }
 
-    public int enableAppUser(String email) {
-        return appUserRepository.enableAppUser(email);
+    public void enableAppUser(String email) {
+        appUserRepository.enableAppUser(email);
     }
 
     public ResponseEntity<List<Housing>> findUserHousing(UserRequest request) {
