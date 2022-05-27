@@ -21,17 +21,16 @@ public class AppEvents {
     public void doSomethingAfterStartup() {
         AppUser adminAppUser = new AppUser("Admin", "ADMIN", null, "admin@kahut.com", "0174926592", bCryptPasswordEncoder.encode("password"), AppUserRole.ADMIN);
         AppUser userAppUser = new AppUser("User", "USER", "Hey, I'm a kahut user !", "user@kahut.com", "0649205739", bCryptPasswordEncoder.encode("password"), AppUserRole.USER);
-        appUserRepository.save(adminAppUser);
-        appUserRepository.save(userAppUser);
-        AppUser createdUser = appUserRepository.findByEmail("user@kahut.com").get();
+        AppUser createdAdmin = appUserRepository.save(adminAppUser);
+        AppUser createdUser = appUserRepository.save(userAppUser);
         appUserRepository.enableAppUser("admin@kahut.com");
         appUserRepository.enableAppUser("user@kahut.com");
 
         Housing housingParis = new Housing("Génial logement", "Paris", "genial", 125.22f, 122.1212f,createdUser);
         Housing housingLyon = new Housing("Génial logement", "Lyon", "genial", 125.22f, 122.1212f,createdUser);
-        Housing housingTokyo = new Housing("Génial logement", "Tokyo", "genial", 125.22f, 122.1212f,createdUser);
-        Housing housingAlbi = new Housing("Génial logement", "Albi", "genial", 125.22f, 122.1212f,createdUser);
-        Housing housingBordeaux = new Housing("Génial logement", "Bordeaux", "genial", 125.22f, 122.1212f,createdUser);
+        Housing housingTokyo = new Housing("Génial logement", "Tokyo", "genial", 125.22f, 122.1212f,createdAdmin);
+        Housing housingAlbi = new Housing("Génial logement", "Albi", "genial", 125.22f, 122.1212f,createdAdmin);
+        Housing housingBordeaux = new Housing("Génial logement", "Bordeaux", "genial", 125.22f, 122.1212f,createdAdmin);
 
         housingRepository.save(housingBordeaux);
         housingRepository.save(housingParis);
