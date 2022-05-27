@@ -56,7 +56,7 @@ public class AppUser implements UserDetails {
     @ToString.Exclude
     private List<Conversation> conversations = new ArrayList<>();
 
-    @OneToMany
+    @OneToMany(mappedBy = "author")
     @ToString.Exclude
     private List<Message> messages = new ArrayList<>();
 
