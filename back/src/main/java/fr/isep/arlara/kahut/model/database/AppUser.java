@@ -36,17 +36,14 @@ public class AppUser implements UserDetails {
     @ToString.Exclude
     private List<Housing> housingsToBook = new ArrayList<>();
 
-    @OneToMany
+    @ManyToMany
+    @JoinColumn(name = "housing_id", table = "housing_appuser")
     @ToString.Exclude
     private List<Housing> bookedHousings = new ArrayList<>();
 
     @OneToMany
     @ToString.Exclude
     private List<Housing> pendingBook = new ArrayList<>();
-
-    @OneToMany
-    @ToString.Exclude
-    private List<Housing> bookmark = new ArrayList<>();
 
     @OneToMany
     @ToString.Exclude

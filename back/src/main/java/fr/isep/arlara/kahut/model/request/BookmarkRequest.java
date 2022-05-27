@@ -9,19 +9,13 @@ import lombok.Getter;
 import lombok.ToString;
 
 import java.util.List;
+import java.util.UUID;
 
 @Getter
 @AllArgsConstructor
 @EqualsAndHashCode
 @ToString
-public class LogementRequest {
-    String title;
-    String description;
-    List<Image> images;
-    UserRequest author;
-    List<Tag> tags;
-    Double stars;
-    String location;
-    List<Rating> lastRatings;
-    Boolean isReserved;
+public class BookmarkRequest {
+    String housingId;
+    String requester;
 }

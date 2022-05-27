@@ -25,8 +25,6 @@ public class MessageService {
 
 
     public ResponseEntity<ConversationReturn> sendMessage(MessageRequest messageRequest) {
-
-
         Optional<AppUser> author = appUserRepository.findByEmail(messageRequest.getAuthor());
         Optional<AppUser> recipient = appUserRepository.findByEmail(messageRequest.getRecipient());
         if (author.isPresent() && recipient.isPresent()) {
@@ -37,9 +35,16 @@ public class MessageService {
             Conversation updatedConversation = conversationRepository.save(conversation);
 
             return ResponseEntity.ok().body(updatedConversation.toConversationRequest());
-
         }
         return ResponseEntity.badRequest().body(null);
+    }
+
+    public void sendMessage(AppUser author, AppUser recipient, String msg) {
+            Conversation conversation = conversationRepository.getByEmail(author,recipient)
+                    .orElse(createConversation(author,recipient));
+            Message message = messageRepository.save(new Message(author, LocalTime.now(), msg));
+            conversation.getMessages().add(message);
+            Conversation updatedConversation = conversationRepository.save(conversation);
     }
 
     private Conversation createConversation(AppUser author, AppUser recipient){

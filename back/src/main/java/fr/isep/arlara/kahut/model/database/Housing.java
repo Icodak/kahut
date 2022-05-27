@@ -1,5 +1,6 @@
 package fr.isep.arlara.kahut.model.database;
 
+import fr.isep.arlara.kahut.model.request.LogementRequest;
 import fr.isep.arlara.kahut.model.request.UserRequest;
 import jakarta.persistence.*;
 import lombok.*;
@@ -23,7 +24,12 @@ public class Housing {
     private String title;
     private String city;
     private String description;
-    private Integer bookmarkCount;
+    private Boolean isReserved = false;
+
+    @ManyToMany
+    @JoinColumn(name = "bookmarks_id", table = "housing_appuser")
+    @ToString.Exclude
+    private List<AppUser> bookmarks;
     private Float longitude;
     private Float latitude;
 
@@ -32,7 +38,7 @@ public class Housing {
     private AppUser author;
 
 
-    public Housing(String title, String city, String description, Float longitude, Float latitude,AppUser author) {
+    public Housing(String title, String city, String description, Float longitude, Float latitude, AppUser author) {
         this.title = title;
         this.city = city;
         this.description = description;
@@ -59,5 +65,9 @@ public class Housing {
         return city + " : " + longitude + "; " + latitude;
     }
 
+
+    public LogementRequest toLogementRequest() {
+        return new LogementRequest(title, description, images, author.toUserRequest(), tags, getStars(), getLocation(), ratings,isReserved);
+    }
 
 }
