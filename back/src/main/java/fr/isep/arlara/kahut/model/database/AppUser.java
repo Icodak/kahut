@@ -1,5 +1,6 @@
 package fr.isep.arlara.kahut.model.database;
 
+import fr.isep.arlara.kahut.model.request.UserRequest;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
@@ -31,11 +32,12 @@ public class AppUser implements UserDetails {
     @Enumerated(EnumType.STRING)
     private AppUserRole role;
 
-    @OneToMany
+    @OneToMany(mappedBy = "author")
     @ToString.Exclude
     private List<Housing> housingsToBook = new ArrayList<>();
 
-    @OneToMany
+    @ManyToMany
+    @JoinColumn(name = "housing_id", table = "housing_appuser")
     @ToString.Exclude
     private List<Housing> bookedHousings = new ArrayList<>();
 
@@ -45,17 +47,13 @@ public class AppUser implements UserDetails {
 
     @OneToMany
     @ToString.Exclude
-    private List<Housing> bookmark = new ArrayList<>();
-
-    @OneToMany
-    @ToString.Exclude
     private List<Rating> ratings = new ArrayList<>();
 
     @OneToMany
     @ToString.Exclude
     private List<Conversation> conversations = new ArrayList<>();
 
-    @OneToMany
+    @OneToMany(mappedBy = "author")
     @ToString.Exclude
     private List<Message> messages = new ArrayList<>();
 
@@ -101,5 +99,9 @@ public class AppUser implements UserDetails {
     @Override
     public boolean isEnabled() {
         return enabled;
+    }
+
+    public UserRequest toUserRequest() {
+        return new UserRequest(getFullName(),description,email,phone);
     }
 }

@@ -1,10 +1,12 @@
 package fr.isep.arlara.kahut.model.database;
 
+import fr.isep.arlara.kahut.model.request.LogementRequest;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.time.LocalTime;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 
 @AllArgsConstructor
 @Getter
@@ -22,16 +24,27 @@ public class Housing {
     private String title;
     private String city;
     private String description;
-    private Integer bookmarkCount;
+    private Boolean isReserved = false;
+
+    @ManyToMany
+    @JoinColumn(name = "bookmarks_id", table = "housing_appuser")
+    @ToString.Exclude
+    private List<AppUser> bookmarks;
     private Float longitude;
     private Float latitude;
 
-    public Housing(String title, String city, String description, Float longitude, Float latitude) {
+    @ManyToOne
+    @JoinColumn(name = "author_id")
+    private AppUser author;
+
+
+    public Housing(String title, String city, String description, Float longitude, Float latitude, AppUser author) {
         this.title = title;
         this.city = city;
         this.description = description;
         this.longitude = longitude;
         this.latitude = latitude;
+        this.author = author;
     }
 
     @OneToMany(cascade = {CascadeType.ALL})
@@ -44,6 +57,17 @@ public class Housing {
     @ToString.Exclude
     private List<Tag> tags = new ArrayList<>();
 
+    public Double getStars() {
+        return ratings.stream().filter(rating -> rating.getStars() != null).mapToDouble(Rating::getStars).sum();
+    }
 
+    public String getLocation() {
+        return city + " : " + longitude + "; " + latitude;
+    }
+
+
+    public LogementRequest toLogementRequest() {
+        return new LogementRequest(title, description, images, author.toUserRequest(), tags, getStars(), getLocation(), ratings,isReserved);
+    }
 
 }

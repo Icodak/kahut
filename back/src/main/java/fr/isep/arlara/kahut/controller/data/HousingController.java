@@ -1,6 +1,8 @@
 package fr.isep.arlara.kahut.controller.data;
 
 import fr.isep.arlara.kahut.model.database.Housing;
+import fr.isep.arlara.kahut.model.request.BookmarkRequest;
+import fr.isep.arlara.kahut.model.request.LogementRequest;
 import fr.isep.arlara.kahut.service.data.HousingService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -22,14 +24,20 @@ public class HousingController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Housing> getHousing(@PathVariable String id) {
-        return housingService.getHousing(id);
+    public ResponseEntity<LogementRequest> getLogement(@PathVariable String id) {
+        return housingService.getLogement(id);
+    }
+
+    @PostMapping("/bookmark")
+    public void bookmarkHousing(@RequestBody BookmarkRequest bookmarkRequest) {
+        housingService.bookmark(bookmarkRequest);
     }
 
     @PostMapping
     public ResponseEntity<Housing> postHousing(@RequestBody Housing housing) {
         return housingService.postHousing(housing);
     }
+
 
 
 }
