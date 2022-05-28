@@ -1,6 +1,5 @@
 package fr.isep.arlara.kahut.model.database;
 
-import fr.isep.arlara.kahut.model.request.MessageRequest;
 import fr.isep.arlara.kahut.model.request.MessageReturn;
 import jakarta.persistence.*;
 import lombok.*;

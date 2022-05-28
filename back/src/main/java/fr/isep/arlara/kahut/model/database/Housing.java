@@ -1,12 +1,12 @@
 package fr.isep.arlara.kahut.model.database;
 
 import fr.isep.arlara.kahut.model.request.LogementRequest;
-import fr.isep.arlara.kahut.model.request.UserRequest;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.time.LocalTime;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 
 @AllArgsConstructor
 @Getter

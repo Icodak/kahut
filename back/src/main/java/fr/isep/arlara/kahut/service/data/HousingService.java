@@ -4,7 +4,6 @@ import fr.isep.arlara.kahut.model.database.AppUser;
 import fr.isep.arlara.kahut.model.database.Housing;
 import fr.isep.arlara.kahut.model.request.BookmarkRequest;
 import fr.isep.arlara.kahut.model.request.LogementRequest;
-import fr.isep.arlara.kahut.model.request.MessageRequest;
 import fr.isep.arlara.kahut.model.request.QueryRequest;
 import fr.isep.arlara.kahut.repository.AppUserRepository;
 import fr.isep.arlara.kahut.repository.HousingRepository;
@@ -12,7 +11,6 @@ import fr.isep.arlara.kahut.service.utils.KahutUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.context.ThemeSource;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -36,7 +34,7 @@ public class HousingService {
         if (housing != null) {
             return ResponseEntity.ok().body(housing.toLogementRequest());
         }
-        return ResponseEntity.badRequest().body(null);
+        return ResponseEntity.notFound().build();
     }
 
     public Housing getHousing(String id) {
