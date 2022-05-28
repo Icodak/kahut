@@ -1,3 +1,11 @@
+<style lang="sass" scoped>
+.my-card
+  width: 100%
+  max-width: 350px
+</style>
+
+
+
 <template>
   <q-page>
     <div class="q-pa-md">
@@ -7,7 +15,32 @@
     </div>
     </div>
 
+
+
     <div class="q-pa-md row items-start q-gutter-md">
+
+ <q-card class="my-card" flat bordered>
+      <q-card-section horizontal>
+        <q-card-section class="q-pt-xs" >
+          <div class="text-overline"  >
+MMMM
+          </div>
+          <div class="text-h5 q-mt-sm q-mb-xs" v-for="(data, index) in dataHousing" :key="index" >
+{{data.id}}
+          </div>
+          <div class="text-caption text-grey">
+
+          </div>
+        </q-card-section>
+  <q-card-section class="col-5 flex flex-center">
+          <q-img
+            class="rounded-borders"
+            src="https://cdn.quasar.dev/img/parallax2.jpg"
+          />
+        </q-card-section>
+      </q-card-section>
+
+</q-card>
 
       <q-card class="my-card">
         <div class="row" style="margin:1%">
@@ -86,8 +119,8 @@ Maison dans la forêt - 3 pièces                </div>
           </div>
           <div class="col-8" style="margin-top:10%; margin left:5%">
             <p>
-              Les infos sont : {{destination}}
-              mmmmmmmm
+              Les infos sont :
+
             </p>
           </div>
         </div>
@@ -100,7 +133,9 @@ Maison dans la forêt - 3 pièces                </div>
   </q-page>
 </template>
 
-<script>
+<script lang="ts">
+
+
 
 import * as Vue from 'vue' // in Vue 3
 import axios from 'axios'
@@ -111,21 +146,27 @@ import searchBarComponent from 'src/components/searchBar.vue';
 
 export default {
   name: 'searBarComponent',
+components: { searchBarComponent },
     data() {
+       let dataHousing: []
         return {
 
             printData() {
+
                 axios
                     .post("http://localhost:8080/api/query",
 {
-                             destination: "Paris"
- }                   ).then((response) => {
-                    let logementData = response.data;
-                    console.log(logementData);
-                });
+destination : "Paris"
+ }                   ).then(response => {
+                    console.log(response.data);
+                    dataHousing = response.data;
+                    console.log(JSON.stringify(dataHousing));
+
+
+            });
             }
-        };
-    },
-    components: { searchBarComponent }
+          }
 }
+}
+
   </script>
