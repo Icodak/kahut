@@ -1,6 +1,8 @@
 package fr.isep.arlara.kahut.controller.security.registration;
 
+import fr.isep.arlara.kahut.service.security.login.LoginService;
 import lombok.RequiredArgsConstructor;
+import lombok.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.oauth2.jwt.JwtClaimsSet;
@@ -17,27 +19,14 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/api/login")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "http://localhost:9000", allowCredentials = "true")
+@CrossOrigin
 public class LoginController {
-    private final JwtEncoder encoder;
+
+    private final LoginService loginService;
 
     @PostMapping
     public String getToken(Authentication authentication) {
-        Instant now = Instant.now();
-        long expiry = 60 * 60;
-        // @formatter:off
-        String scope = authentication.getAuthorities().stream()
-                .map(GrantedAuthority::getAuthority)
-                .collect(Collectors.joining(" "));
-        JwtClaimsSet claims = JwtClaimsSet.builder()
-                .issuer("self")
-                .issuedAt(now)
-                .expiresAt(now.plusSeconds(expiry))
-                .subject(authentication.getName())
-                .claim("scope", scope)
-                .build();
-        // @formatter:on
-        return this.encoder.encode(JwtEncoderParameters.from(claims)).getTokenValue();
+        return loginService.getToken(authentication);
 
     }
 }
