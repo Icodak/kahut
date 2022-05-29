@@ -2,10 +2,7 @@ package fr.isep.arlara.kahut.service.data;
 
 import fr.isep.arlara.kahut.model.database.AppUser;
 import fr.isep.arlara.kahut.model.database.Housing;
-import fr.isep.arlara.kahut.model.request.BookmarkRequest;
-import fr.isep.arlara.kahut.model.request.LogementRequest;
-import fr.isep.arlara.kahut.model.request.QueryRequest;
-import fr.isep.arlara.kahut.model.request.QueryResponse;
+import fr.isep.arlara.kahut.model.request.*;
 import fr.isep.arlara.kahut.repository.AppUserRepository;
 import fr.isep.arlara.kahut.repository.HousingRepository;
 import fr.isep.arlara.kahut.service.utils.KahutUtils;
@@ -59,22 +56,18 @@ public class HousingService {
     public ResponseEntity<List<QueryResponse>> findAllByRequest(QueryRequest queryrequest) {
         List<Housing> housingList = housingRepository.findAllByRequest(
                 queryrequest.getDestination());
-        if (housingList.size() > 0) return ResponseEntity.ok().body(housingList.stream().map(Housing::toQueryResponse).collect(Collectors.toList()));
+        if (housingList.size() > 0)
+            return ResponseEntity.ok().body(housingList.stream().map(Housing::toQueryResponse).collect(Collectors.toList()));
         return ResponseEntity.notFound().build();
 
     }
 
-    public void bookmark(BookmarkRequest bookmarkRequest) {
-        Housing recipientHousing = getHousing(bookmarkRequest.getHousingId());
-        String requesterEmail = bookmarkRequest.getRequester();
+    public ResponseEntity<String> bookmark(String id, AppUser requester) {
+        System.out.println(id);
+        Housing recipientHousing = getHousing(id);
         if (recipientHousing != null) {
-
-            Optional<AppUser> optRequester = appUserRepository.findByEmail(requesterEmail);
-            if (optRequester.isEmpty()) return;
-            AppUser requester = optRequester.get();
-
             //On ne s'auto bookmark pas
-            if (requester == recipientHousing.getAuthor()) return;
+            if (requester == recipientHousing.getAuthor()) return ResponseEntity.badRequest().build();
 
             recipientHousing.getBookmarks().add(requester);
 
@@ -86,14 +79,13 @@ public class HousingService {
                 requesterHousing.setIsReserved(true);
                 housingRepository.save(recipientHousing);
                 housingRepository.save(requesterHousing);
-                messageService.sendMessage(requester, recipientHousing.getAuthor(), "Proposition acceptée");
-            } else {
-                messageService.sendMessage(
-                        requester,
-                        recipientHousing.getAuthor(),
-                        "Votre logement " + recipientHousing.getTitle() + " m'intéresse, que diriez vous d'un échange?");
-            }
+                messageService.sendMessage(new MessageRequest(recipientHousing.getAuthor().getEmail(), "Proposition acceptée"), requester);
 
+            } else {
+                messageService.sendMessage(new MessageRequest(recipientHousing.getAuthor().getEmail(), "Votre logement " + recipientHousing.getTitle() + " m'intéresse, que diriez vous d'un échange?"), requester);
+            }
+            return ResponseEntity.ok().body("Bookmarked");
         }
+        return ResponseEntity.badRequest().build();
     }
 }
