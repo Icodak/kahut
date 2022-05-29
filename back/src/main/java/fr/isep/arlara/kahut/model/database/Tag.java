@@ -18,11 +18,7 @@ public class Tag {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     private UUID id;
-    private TagType tagType;
-    private Boolean isActive;
-    private Integer lowLimit;
-    private Integer highLimit;
-    private Date startDate ;
-    private Date endDate ;
-
+    private String tagName;
+    private Integer intValue;
+    private Boolean boolValue;
 }

@@ -62,7 +62,7 @@
                 class="q-gutter-md"
               >
                 <q-btn-toggle
-                  v-model="groupType"
+                  v-model="housingType"
                   spread
                   no-caps
                   toggle-color="primary"
@@ -198,7 +198,7 @@
                 <div class="bg-grey-2 q-pa-sm rounded-borders">
                   <p class="text-weight-medium">Equipements présents :</p>
                   <q-option-group
-                    v-model="group"
+                    v-model="tagsOptions"
                     :options="options"
                     color="green"
                     type="checkbox"
@@ -258,11 +258,10 @@
 
 <script>
 import { ref } from "vue";
-import { useQuasar } from "quasar";
+import { createHousing } from '../services/housing';
 
 export default {
   setup() {
-    const $q = useQuasar();
     const title = ref(null);
     const place = ref(null);
     const description = ref(null);
@@ -271,6 +270,8 @@ export default {
     const numberOfBeds = ref(null);
     const numberOfDoubleBeds = ref(null);
     const numberOfBathrooms = ref(null);
+    const housingType = ref(null);
+    const tagsOptions = ref([]);
     const accept = ref(false);
 
     return {
@@ -287,7 +288,7 @@ export default {
       numberOfBathrooms,
       accept,
 
-      groupType: ref("op1"),
+      housingType: ref("op1"),
 
       optionsType: [
         {
@@ -304,67 +305,82 @@ export default {
         },
       ],
 
-      group: ref([]),
+      tagsOptions,
 
       options: [
         {
           label: "Jardin",
-          value: "op1",
+          value: "jardin",
         },
         {
           label: "Piscine",
-          value: "op2",
+          value: "piscine",
         },
         {
           label: "Parking",
-          value: "op3",
+          value: "parking",
         },
         {
           label: "Cuisine équipée",
-          value: "op4",
+          value: "cuisine",
         },
         {
           label: "Wifi",
-          value: "op5",
+          value: "wifi",
         },
         {
           label: "Canapé convertible",
-          value: "op6",
+          value: "canapeConvertible",
         },
         {
           label: "Machine à laver",
-          value: "op7",
+          value: "machine",
         },
         {
           label: "Lave-vaisselle",
-          value: "op8",
+          value: "laveVaisselle",
         },
         {
           label: "Sèche cheveux",
-          value: "op9",
+          value: "secheCheveux",
         },
         {
           label: "Détecteur de fumée",
-          value: "op10",
+          value: "detecteurFumee",
         },
       ],
 
       addOnSubmit() {
-        if (accept.value !== true) {
-          $q.notify({
-            color: "red-5",
-            textColor: "white",
-            icon: "warning",
-            message: "You need to accept the license and terms first",
-          });
-        } else {
-          $q.notify({
-            color: "green-4",
-            textColor: "white",
-            icon: "cloud_done",
-            message: "Submitted",
-          });
+        const tags = [];
+        tags[0] = {
+          tagName : "numberOfPeople",
+          intValue : numberOfPeople.value
+        };
+        tags[1] = {
+          tagName : "numberOfBedrooms",
+          intValue : numberOfBedrooms.value
+        };
+        tags[2] = {
+          tagName : "numberOfBeds",
+          intValue : numberOfBeds.value
+        };
+        tags[3] = {
+          tagName : "numberOfDoubleBeds",
+          intValue : numberOfDoubleBeds.value
+        };
+        tags[4] = {
+          tagName : "numberOfBathrooms",
+          intValue : numberOfBathrooms.value
+        };
+        console.log(tagsOptions.value);
+        for (let op in tagsOptions.value) {
+          tags.push({
+            tagsName : op,
+            boolValue : true
+          })
         }
+        //createHousing(title, description, tags, place)
+        console.log(tags);
       },
 
       onReset() {
@@ -376,6 +392,7 @@ export default {
         numberOfBeds.value = null;
         numberOfDoubleBeds.value = null;
         numberOfBathrooms.value = null;
+        tagsOptions.value = [];
         accept.value = false;
       },
     };
