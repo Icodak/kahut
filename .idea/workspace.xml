@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db06daff-3e71-48d8-af16-fe3961731e4c" name="Changes" comment="edition apparence">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/controller/data/AppUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/controller/data/AppUserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/repository/HousingRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/repository/HousingRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/service/data/AppUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/service/data/AppUserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/service/data/HousingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/service/data/HousingService.java" afterDir="false" />
-    </list>
+    <list default="true" id="db06daff-3e71-48d8-af16-fe3961731e4c" name="Changes" comment="edition apparence" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -142,7 +135,7 @@
       <workItem from="1653141876113" duration="896000" />
       <workItem from="1653220708867" duration="8125000" />
       <workItem from="1653246990368" duration="2074000" />
-      <workItem from="1653309473210" duration="8000000" />
+      <workItem from="1653309473210" duration="8325000" />
     </task>
     <task id="LOCAL-00001" summary="rearrange files">
       <created>1652088463008</created>

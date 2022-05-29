@@ -228,22 +228,6 @@
                   </template>
                 </q-file>
 
-                <q-input
-                  filled
-                  type="price"
-                  v-model="price"
-                  label="Prix par nuit"
-                  lazy-rules
-                  :rules="[
-                    (val) =>
-                      (val !== null && val !== '') || 'Champ obligatoire',
-                  ]"
-                >
-                  <template v-slot:prepend>
-                    <q-icon name="euro" />
-                  </template>
-                </q-input>
-
                 <q-toggle
                   v-model="accept"
                   label="J'ai lu et j'accepte les conditions d'utilisation."
@@ -287,7 +271,6 @@ export default {
     const numberOfBeds = ref(null);
     const numberOfDoubleBeds = ref(null);
     const numberOfBathrooms = ref(null);
-    const price = ref(null);
     const accept = ref(false);
 
     return {
@@ -302,7 +285,6 @@ export default {
       numberOfBeds,
       numberOfDoubleBeds,
       numberOfBathrooms,
-      price,
       accept,
 
       groupType: ref("op1"),
@@ -394,7 +376,6 @@ export default {
         numberOfBeds.value = null;
         numberOfDoubleBeds.value = null;
         numberOfBathrooms.value = null;
-        price.value = null;
         accept.value = false;
       },
     };
