@@ -63,7 +63,7 @@ public class Housing {
     }
 
     public String getLocation() {
-        return city + " : " + longitude + "; " + latitude;
+        return city;
     }
 
 
@@ -72,6 +72,6 @@ public class Housing {
     }
 
     public QueryResponse toQueryResponse() {
-        return new QueryResponse(title,description,images,author.toUserRequest(),getStars());
+        return new QueryResponse(title,description,images,author.toUserRequest(),getStars(),getLocation());
     }
 }

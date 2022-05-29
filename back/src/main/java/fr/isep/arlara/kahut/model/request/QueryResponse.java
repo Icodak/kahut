@@ -22,4 +22,5 @@ public class QueryResponse {
     List<Image> images;
     UserRequest author;
     Double stars;
+    String location;
 }

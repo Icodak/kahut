@@ -26,7 +26,7 @@ public class AppEvents {
         appUserRepository.enableAppUser("admin@kahut.com");
         appUserRepository.enableAppUser("user@kahut.com");
 
-        Housing housingParis = new Housing("Génial logement", "Paris", "genial", 125.22f, 122.1212f,createdUser);
+        Housing housingParis = new Housing("3 Chambres, ", "Paris", "genial", 125.22f, 122.1212f,createdUser);
         Housing housingLyon = new Housing("Génial logement", "Lyon", "genial", 125.22f, 122.1212f,createdUser);
         Housing housingTokyo = new Housing("Génial logement", "Tokyo", "genial", 125.22f, 122.1212f,createdAdmin);
         Housing housingAlbi = new Housing("Génial logement", "Albi", "genial", 125.22f, 122.1212f,createdAdmin);

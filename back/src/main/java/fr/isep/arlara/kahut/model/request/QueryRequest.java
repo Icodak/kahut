@@ -17,6 +17,4 @@ public class QueryRequest {
     private Date dateGo ;
     private Date dateBack ;
     private Integer numberTravellers;
-
-
 }

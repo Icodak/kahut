@@ -28,7 +28,7 @@
               lazy-rules
               :rules="[
                 (val) =>
-                  (val && val.length > 4) || 'Entrez une destination valide',
+                  (val && val.length > 3) || 'Entrez une destination valide',
               ]"
             >
               <template v-slot:prepend>
@@ -93,8 +93,7 @@ import { ref } from "vue";
 export default {
   name: 'searchBarComponent',
 
-
-  setup() {
+  data() {
       const optionsDevoirs = ["S'occuper des animaux","S'occuper des plantes","Nettoyer la Maison","Entretenir le jardin"]
       const optionsLimitations = ["Interdiction de fumer","Interdit d'avoir des animaux","Les enfants de moins de 3 ans sont interdit","Pas de bruit après 20h"]
       const optionsTravellers = [1,2,,3,4,5,6,7,8,9,10]
@@ -104,14 +103,10 @@ export default {
       const destination = ref(null)
 
 
-
-
-
-
   return {
 
        multipleDevoirs : ref(null),
-multipleLimitations : ref(null),
+       multipleLimitations : ref(null),
         dateGo,
         dateBack,
         numberTravellers,
@@ -130,13 +125,16 @@ multipleLimitations : ref(null),
         )
         .then((response) => {
           console.log(response.data);
-          this.dataHousing = response.data ;
+
           // stocker le reponse data et le fournir à la page de recherche
         });
     }
-}
   }
 
 }
+  }
+
+
+
 
 </script>
