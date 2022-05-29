@@ -3,6 +3,7 @@ package fr.isep.arlara.kahut.model.database;
 import fr.isep.arlara.kahut.model.request.MessageReturn;
 import jakarta.persistence.*;
 import lombok.*;
+import lombok.extern.jackson.Jacksonized;
 
 import java.time.LocalTime;
 import java.util.UUID;
@@ -10,7 +11,6 @@ import java.util.UUID;
 @AllArgsConstructor
 @Getter
 @Setter
-@ToString
 @RequiredArgsConstructor
 @Entity
 @Table(name = "message")
