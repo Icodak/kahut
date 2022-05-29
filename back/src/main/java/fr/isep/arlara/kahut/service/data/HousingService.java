@@ -5,6 +5,7 @@ import fr.isep.arlara.kahut.model.database.Housing;
 import fr.isep.arlara.kahut.model.request.BookmarkRequest;
 import fr.isep.arlara.kahut.model.request.LogementRequest;
 import fr.isep.arlara.kahut.model.request.QueryRequest;
+import fr.isep.arlara.kahut.model.request.QueryResponse;
 import fr.isep.arlara.kahut.repository.AppUserRepository;
 import fr.isep.arlara.kahut.repository.HousingRepository;
 import fr.isep.arlara.kahut.service.utils.KahutUtils;
@@ -15,10 +16,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -55,14 +56,12 @@ public class HousingService {
         return ResponseEntity.created(uri).body(housingRepository.save(housing));
     }
 
-    public ResponseEntity<List<Housing>> findAllByRequest(QueryRequest queryrequest) {
-        Optional<List<Housing>> housingList = housingRepository.findAllByRequest(
-                queryrequest.getDestination()
-                //queryrequest.getDateBack(),
-                //queryrequest.getDateGo(),
-                //queryrequest.getNumberTravellers()
-        );
-        return ResponseEntity.ok(housingList.orElse(new ArrayList<>()));
+    public ResponseEntity<List<QueryResponse>> findAllByRequest(QueryRequest queryrequest) {
+        List<Housing> housingList = housingRepository.findAllByRequest(
+                queryrequest.getDestination());
+        if (housingList.size() > 0) return ResponseEntity.ok().body(housingList.stream().map(Housing::toQueryResponse).collect(Collectors.toList()));
+        return ResponseEntity.notFound().build();
+
     }
 
     public void bookmark(BookmarkRequest bookmarkRequest) {

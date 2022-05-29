@@ -14,7 +14,7 @@ import java.util.UUID;
 @Repository
 public interface HousingRepository extends JpaRepository<Housing, UUID> {
     @Query( value = "SELECT * FROM Housing h WHERE h.city = :city", nativeQuery = true)
-    Optional<List<Housing>> findAllByRequest(
+    List<Housing> findAllByRequest(
             @Param("city")
             String city
             //Date dateBack,

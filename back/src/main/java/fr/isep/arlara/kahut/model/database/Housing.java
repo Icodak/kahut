@@ -1,6 +1,7 @@
 package fr.isep.arlara.kahut.model.database;
 
 import fr.isep.arlara.kahut.model.request.LogementRequest;
+import fr.isep.arlara.kahut.model.request.QueryResponse;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -70,4 +71,7 @@ public class Housing {
         return new LogementRequest(title, description, images, author.toUserRequest(), tags, getStars(), getLocation(), ratings,isReserved);
     }
 
+    public QueryResponse toQueryResponse() {
+        return new QueryResponse(title,description,images,author.toUserRequest(),getStars());
+    }
 }

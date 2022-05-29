@@ -1,7 +1,7 @@
 package fr.isep.arlara.kahut.controller.data;
 
-import fr.isep.arlara.kahut.model.database.Housing;
 import fr.isep.arlara.kahut.model.request.QueryRequest;
+import fr.isep.arlara.kahut.model.request.QueryResponse;
 import fr.isep.arlara.kahut.service.data.HousingService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +21,7 @@ public class QueryController {
     private HousingService housingservice ;
 
     @PostMapping
-    public ResponseEntity<List<Housing>> search (@RequestBody QueryRequest queryrequest) {
+    public ResponseEntity<List<QueryResponse>> search (@RequestBody QueryRequest queryrequest) {
         return housingservice.findAllByRequest(queryrequest);
 
     }
