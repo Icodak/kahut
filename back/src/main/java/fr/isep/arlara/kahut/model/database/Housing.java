@@ -4,6 +4,7 @@ import fr.isep.arlara.kahut.model.request.LogementRequest;
 import fr.isep.arlara.kahut.model.request.QueryResponse;
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.data.rest.core.annotation.RestResource;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,8 +35,8 @@ public class Housing {
     private Float longitude;
     private Float latitude;
 
-    @ManyToOne
     @JoinColumn(name = "author_id")
+    @ManyToOne(cascade = {CascadeType.ALL})
     private AppUser author;
 
 
@@ -48,12 +49,17 @@ public class Housing {
         this.author = author;
     }
 
+    @RestResource(exported = false)
     @OneToMany(cascade = {CascadeType.ALL})
     @ToString.Exclude
     private List<Image> images = new ArrayList<>();
+
+    @RestResource(exported = false)
     @OneToMany(cascade = {CascadeType.ALL})
     @ToString.Exclude
     private List<Rating> ratings = new ArrayList<>();
+
+    @RestResource(exported = false)
     @OneToMany(cascade = {CascadeType.ALL})
     @ToString.Exclude
     private List<Tag> tags = new ArrayList<>();

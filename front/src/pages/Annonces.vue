@@ -373,13 +373,11 @@ export default {
           intValue : numberOfBathrooms.value
         };
         console.log(tagsOptions.value);
-        for (let op in tagsOptions.value) {
-          tags.push({
-            tagsName : op,
+        tagsOptions.value.forEach(element => tags.push({
+            tagName : element,
             boolValue : true
-          })
-        }
-        createHousing(title, description, tags, place)
+          }))
+        createHousing(title.value, description.value, tags, place.value)
         console.log(tags);
       },
 
