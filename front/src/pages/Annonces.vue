@@ -379,7 +379,7 @@ export default {
             boolValue : true
           })
         }
-        //createHousing(title, description, tags, place)
+        createHousing(title, description, tags, place)
         console.log(tags);
       },
 
