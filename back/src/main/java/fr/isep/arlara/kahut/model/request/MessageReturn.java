@@ -15,4 +15,10 @@ public class MessageReturn {
     String author;
     LocalTime date;
     String message;
+
+
+
+    public String toJSON() {
+        return "{\"author\":\""+author+"\",\"date\": \""+date+"\", \"message\":\""+message+"\"}";
+    }
 }

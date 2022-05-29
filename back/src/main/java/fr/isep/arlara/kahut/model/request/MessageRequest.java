@@ -10,7 +10,6 @@ import lombok.ToString;
 @EqualsAndHashCode
 @ToString
 public class MessageRequest {
-    String author;
     String recipient;
     String message;
 }
