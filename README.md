@@ -8,3 +8,13 @@ C'est un projet intellij et je vous invite a le télécharger depuis le site de 
 # Le front
 Installez node v16+ yarn et quasar (vVite) et verifiez que toutes le dépendances sont bien a jour
 Pour le front je vais partir sur vscode, mais vous pouvez aussi prendre webstorm, de toute façon c'est plus léger
+
+Pour run le projet il faut un java 17+
+une base de données postgres
+maildev
+
+Front
+node
+yarn
+quasar
+pusher
