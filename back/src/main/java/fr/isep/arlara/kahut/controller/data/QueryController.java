@@ -20,6 +20,13 @@ public class QueryController {
 
     private HousingService housingservice ;
 
+    @GetMapping
+    public ResponseEntity<List<QueryResponse>> getLogements () {
+        return housingservice.findAll();
+
+    }
+
+
     @PostMapping
     public ResponseEntity<List<QueryResponse>> search (@RequestBody QueryRequest queryrequest) {
         return housingservice.findAllByRequest(queryrequest);
