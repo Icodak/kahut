@@ -4,9 +4,43 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db06daff-3e71-48d8-af16-fe3961731e4c" name="Changes" comment="edition apparence">
+    <list default="true" id="db06daff-3e71-48d8-af16-fe3961731e4c" name="Changes" comment="booking">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_vertx_vertx_core_4_3_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_13_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_2_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_mock_2_0_8.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/model/request/ConversationResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back/src/main/resources/static/k1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back/src/main/resources/static/k2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back/src/main/resources/static/k3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back/src/main/resources/static/k4.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_vertx_vertx_core_3_5_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/model/database/Tag.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/model/database/Tag.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/back/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/controller/data/ConversationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/controller/data/ConversationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/controller/data/HousingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/controller/data/HousingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/controller/data/ImageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/controller/data/ImageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/controller/data/QueryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/controller/data/QueryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/model/database/Housing.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/model/database/Housing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/model/database/Image.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/model/database/Image.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/model/request/QueryResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/model/request/QueryResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/repository/ConversationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/repository/ConversationRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/service/data/ConversationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/service/data/ConversationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/service/data/HousingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/service/data/HousingService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/service/data/ImageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/service/data/ImageService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/service/data/MessageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/service/data/MessageService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/service/utils/AppEvents.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/fr/isep/arlara/kahut/service/utils/AppEvents.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/front/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/layouts/MainLayout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/layouts/MainLayout.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/pages/Accueil.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/pages/Accueil.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/pages/Logement.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/pages/Logement.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/pages/Messagerie.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/pages/Recherche.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/pages/Recherche.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/router/routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/router/routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/services/housing.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/services/housing.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/front/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,14 +57,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitSEFilterConfiguration">
-    <file-type-list>
-      <filtered-out-file-type name="LOCAL_BRANCH" />
-      <filtered-out-file-type name="REMOTE_BRANCH" />
-      <filtered-out-file-type name="TAG" />
-      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
-    </file-type-list>
-  </component>
   <component name="JpbToolWindowState">
     <option name="myId2FirstActivated">
       <map>
@@ -41,7 +67,7 @@
     </option>
     <option name="myId2Visible">
       <map>
-        <entry key="com.haulmont.jpb.jpaInspector" value="true" />
+        <entry key="com.haulmont.jpb.jpaInspector" value="false" />
         <entry key="com.haulmont.jpb.jpaPalette" value="false" />
         <entry key="com.haulmont.jpb.jpaStructure" value="false" />
       </map>
@@ -49,9 +75,6 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
-  </component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="28gs0lGmvUG5Yn5P0o9F90DyERY" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -61,54 +84,42 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="DatabaseDriversLRU" value="postgresql" />
-    <property name="RequestMappingsPanelOrder0" value="0" />
-    <property name="RequestMappingsPanelOrder1" value="1" />
-    <property name="RequestMappingsPanelWidth0" value="75" />
-    <property name="RequestMappingsPanelWidth1" value="75" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "F:/Documents/inge-2/kahut/back/src/main/resources/static",
+    "settings.editor.selected.configurable": "spring.boot",
+    "spring.configuration.checksum": "d4a39e3d1948685bb6df468564ee1324"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
-      <recent name="fr.isep.arlara.kahut" />
+      <recent name="fr.isep.arlara.kahut.model.request" />
       <recent name="fr.isep.arlara.kahut.security.config" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\Documents\inge-2\kahut\back\src\main\resources\static" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="fr.isep.arlara.kahut.model.request" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="configurationTypes">
-      <set>
-        <option value="SpringBootApplicationConfigurationType" />
-      </set>
-    </option>
-  </component>
-  <component name="RunManager" selected="Spring Boot.KahutApplication">
+  <component name="RunManager">
     <configuration name="KahutApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <option name="ACTIVE_PROFILES" />
       <module name="kahut" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="fr.isep.arlara.kahut.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <option name="SPRING_BOOT_MAIN_CLASS" value="fr.isep.arlara.kahut.KahutApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="sKahutApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="kahut" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="fr.isep.arlara.kahut.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="SPRING_BOOT_MAIN_CLASS" value="fr.isep.arlara.kahut.sKahutApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -116,7 +127,6 @@
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.KahutApplication" />
-        <item itemvalue="Spring Boot.sKahutApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -134,13 +144,21 @@
       <workItem from="1652621052649" duration="12404000" />
       <workItem from="1652683761444" duration="4609000" />
       <workItem from="1652706056224" duration="5780000" />
-      <workItem from="1652990611887" duration="3619000" />
-      <workItem from="1653115296999" duration="6505000" />
-      <workItem from="1653141876113" duration="896000" />
-      <workItem from="1653220708867" duration="8125000" />
-      <workItem from="1653246990368" duration="2074000" />
-      <workItem from="1653309473210" duration="8325000" />
-      <workItem from="1653856849075" duration="3956000" />
+      <workItem from="1653141558910" duration="3243000" />
+      <workItem from="1653503521529" duration="836000" />
+      <workItem from="1653506223383" duration="449000" />
+      <workItem from="1653573083213" duration="4735000" />
+      <workItem from="1653641939683" duration="18163000" />
+      <workItem from="1653686499291" duration="3092000" />
+      <workItem from="1653725379229" duration="2739000" />
+      <workItem from="1653728161191" duration="524000" />
+      <workItem from="1653728707577" duration="440000" />
+      <workItem from="1653754489544" duration="1329000" />
+      <workItem from="1653762564354" duration="1020000" />
+      <workItem from="1653767690711" duration="674000" />
+      <workItem from="1653833927499" duration="16630000" />
+      <workItem from="1653859166776" duration="8738000" />
+      <workItem from="1653871967938" duration="6753000" />
     </task>
     <task id="LOCAL-00001" summary="rearrange files">
       <created>1652088463008</created>
@@ -149,14 +167,91 @@
       <option name="project" value="LOCAL" />
       <updated>1652088463008</updated>
     </task>
-    <task id="LOCAL-00002" summary="edition apparence">
-      <created>1653225200775</created>
+    <task id="LOCAL-00002" summary="Valid CORS authorisation&#10;Linking the frond and backend is now possible">
+      <created>1652901251652</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1653225200775</updated>
+      <updated>1652901251653</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="finished GET housing">
+      <created>1653653543786</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1653653543786</updated>
+    </task>
+    <task id="LOCAL-00004" summary="better created user access">
+      <created>1653655279769</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1653655279769</updated>
+    </task>
+    <task id="LOCAL-00005" summary="added messaging system">
+      <created>1653658731516</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1653658731516</updated>
+    </task>
+    <task id="LOCAL-00006" summary="added reservation system">
+      <created>1653665268363</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1653665268363</updated>
+    </task>
+    <task id="LOCAL-00007" summary="added image storage">
+      <created>1653690248909</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1653690248909</updated>
+    </task>
+    <task id="LOCAL-00008" summary="cleanup imports">
+      <created>1653727175482</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1653727175482</updated>
+    </task>
+    <task id="LOCAL-00009" summary="refactor image controller &amp; service">
+      <created>1653727194848</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1653727194848</updated>
+    </task>
+    <task id="LOCAL-00010" summary="refactor login">
+      <created>1653729135776</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1653729135776</updated>
+    </task>
+    <task id="LOCAL-00011" summary="cleaner query response">
+      <created>1653838112696</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1653838112696</updated>
+    </task>
+    <task id="LOCAL-00012" summary="messaging system">
+      <created>1653856307796</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1653856307796</updated>
+    </task>
+    <task id="LOCAL-00013" summary="booking">
+      <created>1653856410792</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1653856410792</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -175,7 +270,22 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="rearrange files" />
-    <MESSAGE value="edition apparence" />
-    <option name="LAST_COMMIT_MESSAGE" value="edition apparence" />
+    <MESSAGE value="Valid CORS authorisation&#10;Linking the frond and backend is now possible" />
+    <MESSAGE value="finished GET housing" />
+    <MESSAGE value="better created user access" />
+    <MESSAGE value="added messaging system" />
+    <MESSAGE value="added reservation system" />
+    <MESSAGE value="added image storage" />
+    <MESSAGE value="cleanup imports" />
+    <MESSAGE value="refactor image controller &amp; service" />
+    <MESSAGE value="refactor login" />
+    <MESSAGE value="cleaner query response" />
+    <MESSAGE value="messaging system" />
+    <MESSAGE value="booking" />
+    <option name="LAST_COMMIT_MESSAGE" value="booking" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

@@ -10,10 +10,12 @@ const routes: RouteRecordRaw[] = [
       { path: '/profil', component: () => import('pages/Profil.vue') },
       { path: '/annonces', component: () => import('pages/Annonces.vue') },
       { path: '/voyages', component: () => import('pages/Voyages.vue') },
-      { path: '/messagerie', component: () => import('pages/Messagerie.vue') },
+      { path: '/conversation', component: () => import('src/pages/Conversation.vue') },
+      { path: '/messages', component: () => import('src/pages/Message.vue') },
       { path: '/chat', component: () => import('pages/PageChat.vue') },
       { path: '/inscription', component: () => import('pages/Inscription.vue') },
-      { path: '/logement', component: () => import('pages/Logement.vue') }
+      { path: '/logement', component: () => import('pages/Logement.vue') },
+      { path: '/test', component: () => import('src/pages/Message.vue') }
     ],
   },
 

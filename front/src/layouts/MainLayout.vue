@@ -13,7 +13,7 @@
 
         <q-btn
           to = "/"
-          clickable 
+          clickable
           flat
           dense
           round
@@ -37,9 +37,9 @@
         <q-scroll-area style="height: calc(100%); margin-top: 50px; border-right: 1px solid #ddd">
           <q-list padding>
 
-            <q-item 
+            <q-item
               v-if="letOpenWhenLogout"
-              clickable 
+              clickable
               v-ripple
               @click="loginLayout = true">
               <q-item-section avatar>
@@ -78,9 +78,9 @@
                           :rules="[ val => val && val.length > 0 || 'Please type something']"
                         />
 
-                        <q-input 
-                          v-model="password" 
-                          filled :type="isPwd ? 'password' : 'text'" 
+                        <q-input
+                          v-model="password"
+                          filled :type="isPwd ? 'password' : 'text'"
                           label="Password *"
                           required
                           lazy-rules
@@ -107,10 +107,10 @@
               </q-layout>
             </q-dialog>
 
-            <q-item 
+            <q-item
               v-if="letOpenWhenLogout"
               to = "/inscription"
-              clickable 
+              clickable
               v-ripple>
               <q-item-section avatar>
                 <q-icon name="assignment" />
@@ -124,7 +124,7 @@
             <q-item
               v-if="letOpenWhenLogin"
               to = "/profil"
-              clickable 
+              clickable
               v-ripple
               @click="getUser()">
               <q-item-section avatar>
@@ -138,8 +138,8 @@
 
             <q-item
               v-if="letOpenWhenLogin"
-              to = "/messagerie"
-              clickable 
+              to = "/conversation"
+              clickable
               v-ripple>
               <q-item-section avatar>
                 <q-icon name="forum" />
@@ -154,7 +154,7 @@
             <q-item
               v-if="letOpenWhenLogin"
               to = "/annonces"
-              clickable 
+              clickable
               v-ripple>
               <q-item-section avatar>
                 <q-icon name="send" />
@@ -165,10 +165,26 @@
               </q-item-section>
             </q-item>
 
+              <q-item
+              v-if="letOpenWhenLogin"
+              to = "/recherche"
+              clickable
+              v-ripple>
+              <q-item-section avatar>
+                <q-icon name="search" />
+              </q-item-section>
+
+              <q-item-section>
+                Rechercher
+              </q-item-section>
+            </q-item>
+
+
+
             <q-item
               v-if="letOpenWhenLogin"
               to = "/voyages"
-              clickable 
+              clickable
               v-ripple>
               <q-item-section avatar>
                 <q-icon name="today" />
@@ -179,9 +195,9 @@
               </q-item-section>
             </q-item>
 
-            <q-item 
+            <q-item
               v-if="letOpenWhenLogin"
-              clickable 
+              clickable
               @click="confirm = true"
               v-ripple>
               <q-item-section avatar>
