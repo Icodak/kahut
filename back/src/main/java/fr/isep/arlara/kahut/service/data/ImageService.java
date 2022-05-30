@@ -23,15 +23,15 @@ public class ImageService {
 
     private final ImageRepository imageRepository;
 
-    public ResponseEntity<UUID> uploadImage(MultipartFile multipartImage) throws IOException {
+    public ResponseEntity<Image> uploadImage(MultipartFile multipartImage) throws IOException {
         Image image = new Image();
         image.setLegend(multipartImage.getName());
 
         image.setData(multipartImage.getBytes());
 
-        UUID savedImageUUID = imageRepository.save(image).getId();
-        URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("/api/resource/"+savedImageUUID).toUriString());
-        return ResponseEntity.created(uri).body(savedImageUUID);
+        Image savedImage = imageRepository.save(image);
+        URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("/api/resource/"+savedImage.getId()).toUriString());
+        return ResponseEntity.created(uri).body(savedImage);
     }
 
     public Resource downloadImage(UUID imageId){

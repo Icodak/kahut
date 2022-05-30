@@ -1,5 +1,6 @@
 package fr.isep.arlara.kahut.controller.data;
 
+import fr.isep.arlara.kahut.model.database.Image;
 import fr.isep.arlara.kahut.service.data.ImageService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.io.Resource;
@@ -20,7 +21,7 @@ public class ImageController {
     private final ImageService imageService;
 
     @PostMapping("/api/image")
-    ResponseEntity<UUID> uploadImage(@RequestParam MultipartFile multipartImage) throws IOException {
+    ResponseEntity<Image> uploadImage(@RequestParam MultipartFile multipartImage) throws IOException {
         return imageService.uploadImage(multipartImage);
     }
 

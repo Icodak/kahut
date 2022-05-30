@@ -2,7 +2,6 @@ package fr.isep.arlara.kahut.controller.data;
 
 import fr.isep.arlara.kahut.model.database.AppUser;
 import fr.isep.arlara.kahut.model.database.Housing;
-import fr.isep.arlara.kahut.model.request.BookmarkRequest;
 import fr.isep.arlara.kahut.model.request.LogementRequest;
 import fr.isep.arlara.kahut.service.data.AppUserService;
 import fr.isep.arlara.kahut.service.data.HousingService;
@@ -39,8 +38,9 @@ public class HousingController {
     }
 
     @PostMapping
-    public ResponseEntity<Housing> postHousing(@RequestBody Housing housing) {
-        return housingService.postHousing(housing);
+    public ResponseEntity<LogementRequest> postHousing(Authentication authentication, @RequestBody Housing housing) {
+        AppUser author = (AppUser) userService.loadUserByUsername(authentication.getName());
+        return housingService.postHousing(housing,author);
     }
 
 

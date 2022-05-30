@@ -9,6 +9,7 @@ import org.springframework.data.rest.core.annotation.RestResource;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @AllArgsConstructor
 @Getter
@@ -36,17 +37,16 @@ public class Housing {
     private Float latitude;
 
     @JoinColumn(name = "author_id")
-    @ManyToOne(cascade = {CascadeType.ALL})
+    @ManyToOne
     private AppUser author;
 
 
-    public Housing(String title, String city, String description, Float longitude, Float latitude, AppUser author) {
+    public Housing(String title, String city, String description, AppUser author, List<Image> images) {
         this.title = title;
         this.city = city;
         this.description = description;
-        this.longitude = longitude;
-        this.latitude = latitude;
         this.author = author;
+        this.images = images;
     }
 
     @RestResource(exported = false)
@@ -68,16 +68,18 @@ public class Housing {
         return ratings.stream().filter(rating -> rating.getStars() != null).mapToDouble(Rating::getStars).sum();
     }
 
-    public String getLocation() {
-        return city;
-    }
 
 
     public LogementRequest toLogementRequest() {
-        return new LogementRequest(title, description, images, author.toUserRequest(), tags, getStars(), getLocation(), ratings,isReserved);
+        return new LogementRequest(title, description, images, author.toUserRequest(), tags, getStars(), city, ratings,isReserved);
     }
 
     public QueryResponse toQueryResponse() {
-        return new QueryResponse(title,description,images,author.toUserRequest(),getStars(),getLocation());
+        return new QueryResponse(title,description,images,author.toUserRequest(),getStars(),city,id,getImageIds());
     }
+
+    private List<String> getImageIds() {
+        return images.stream().map(img -> "http://localhost:8080/api/resources/"+img.getId().toString()).collect(Collectors.toList());
+    }
+
 }

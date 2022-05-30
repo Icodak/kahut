@@ -9,7 +9,6 @@ import fr.isep.arlara.kahut.service.utils.KahutUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
@@ -48,10 +47,20 @@ public class HousingService {
         return ResponseEntity.of(housings);
     }
 
-    public ResponseEntity<Housing> postHousing(@RequestBody Housing housing) {
+    public ResponseEntity<LogementRequest> postHousing(Housing housing, AppUser user) {
+       Housing saved =  housingRepository.save(housing);
+        System.out.println(housing);
+        saved.setAuthor(user);
+        housingRepository.save(saved);
+        System.out.println(saved);
         URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("/api/housing").toUriString());
-        return ResponseEntity.created(uri).body(housingRepository.save(housing));
+        return ResponseEntity.created(uri).body(saved.toLogementRequest());
     }
+
+    public ResponseEntity<List<QueryResponse>> findAll(){
+        return ResponseEntity.ok().body(housingRepository.findAll().stream().map(Housing::toQueryResponse).collect(Collectors.toList()));
+    }
+
 
     public ResponseEntity<List<QueryResponse>> findAllByRequest(QueryRequest queryrequest) {
         List<Housing> housingList = housingRepository.findAllByRequest(
