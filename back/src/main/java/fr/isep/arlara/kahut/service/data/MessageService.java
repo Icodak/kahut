@@ -7,7 +7,6 @@ import fr.isep.arlara.kahut.model.database.Conversation;
 import fr.isep.arlara.kahut.model.database.Message;
 import fr.isep.arlara.kahut.model.request.ConversationReturn;
 import fr.isep.arlara.kahut.model.request.MessageRequest;
-import fr.isep.arlara.kahut.model.request.MessageReturn;
 import fr.isep.arlara.kahut.repository.AppUserRepository;
 import fr.isep.arlara.kahut.repository.ConversationRepository;
 import fr.isep.arlara.kahut.repository.MessageRepository;
@@ -26,7 +25,7 @@ public class MessageService {
     private final MessageRepository messageRepository;
     private final AppUserRepository appUserRepository;
     private final ConversationRepository conversationRepository;
-    Pusher pusher = new Pusher("1415798", "0e78550231dc32a00604", "7969058ec28ebe9b88e0");
+    private  final Pusher pusher = new Pusher("1415798", "0e78550231dc32a00604", "7969058ec28ebe9b88e0");
 
     public ResponseEntity<ConversationReturn> sendMessage(MessageRequest messageRequest, AppUser author) {
         Optional<AppUser> optRecipient = appUserRepository.findByEmail(messageRequest.getRecipient());
