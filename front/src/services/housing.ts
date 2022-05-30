@@ -7,23 +7,19 @@ export async function createHousing(title : string, description : string, tags :
   const housing = JSON.stringify({
     title: title,
     description: description,
-    author: {
-      "fullName" : LocalStorage.getItem("name"),
-      "description" : LocalStorage.getItem("description"),
-      "email" : LocalStorage.getItem("email"),
-      "phone" : LocalStorage.getItem("phone")
-    },
     tags : tags,
     location : location,
   });
+  const token = LocalStorage.getItem("token")
   console.log(housing)
 
   api
     .post("/api/housing",
-    housing, 
+    housing,
      {
       headers: {
         "Content-Type": "application/json",
+        "Authorization" : `Bearer ${token}`
       },
     })
     .then((response) => console.log(response));
